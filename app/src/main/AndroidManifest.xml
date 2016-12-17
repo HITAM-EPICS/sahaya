@@ -19,8 +19,10 @@
         </activity>
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".RegistrationActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".RegistrationActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".DashboardActivity"></activity>
     </application>
 
 </manifest>

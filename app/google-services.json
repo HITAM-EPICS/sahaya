@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "965277711362",
+    "firebase_url": "https://mini-project-e5f12.firebaseio.com",
+    "project_id": "mini-project-e5f12",
+    "storage_bucket": "mini-project-e5f12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965277711362:android:d78e91b938fb4087",
+        "android_client_info": {
+          "package_name": "hitam.epics.sahaya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965277711362-u077hlg4kdjsvn0ksqqc4uqnj1p33b5v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hitam.epics.sahaya",
+            "certificate_hash": "6FE6CB9F341663F4C70720C24E470DB620F7647E"
+          }
+        },
+        {
+          "client_id": "965277711362-g6084df73i3c2m8uerfsaf1cb7nqlmu6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAynXoR15xItjP8LA6QVG0EYx44LGGPbMk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965277711362-g6084df73i3c2m8uerfsaf1cb7nqlmu6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
