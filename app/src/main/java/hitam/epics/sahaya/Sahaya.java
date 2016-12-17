@@ -2,6 +2,7 @@ package hitam.epics.sahaya;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 public class Sahaya extends AppCompatActivity {
@@ -10,7 +11,12 @@ public class Sahaya extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sahaya);
-        startActivity(new Intent(this, HomeActivity.class));
-        finish();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(Sahaya.this, HomeActivity.class));
+                Sahaya.this.finish();
+            }
+        },1500);
     }
 }

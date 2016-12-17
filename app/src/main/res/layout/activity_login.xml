@@ -22,7 +22,7 @@
         android:id="@+id/login_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="#fafafa">
+        android:textColorHint="@color/textHint">
 
         <EditText
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
         android:id="@+id/login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="#fafafa">
+        android:textColorHint="@color/textHint">
 
         <EditText
             android:layout_width="match_parent"
@@ -54,11 +54,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/round_rectangle"
+        android:onClick="login"
         android:text="@string/login" />
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="register"
         android:text="@string/do_not_have_account_register_now" />
 </LinearLayout>

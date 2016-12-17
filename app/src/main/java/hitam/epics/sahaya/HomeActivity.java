@@ -14,6 +14,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         ViewFlipper flipper = (ViewFlipper) findViewById(R.id.homeImageFlipper);
         flipper.setFlipInterval(1500);
+        flipper.setAutoStart(true);
         flipper.startFlipping();
     }
 
