@@ -24,7 +24,7 @@
         android:id="@+id/registration_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/text">
+        android:textColorHint="@color/textHint">
 
         <EditText
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
         android:id="@+id/registration_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/text">
+        android:textColorHint="@color/textHint">
 
         <EditText
             android:layout_width="match_parent"
@@ -51,7 +51,7 @@
         android:id="@+id/registration_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/text">
+        android:textColorHint="@color/textHint">
 
         <EditText
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
         android:id="@+id/registration_confirm_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/text">
+        android:textColorHint="@color/textHint">
 
         <EditText
             android:layout_width="match_parent"
@@ -77,7 +77,7 @@
         android:id="@+id/registration_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/text">
+        android:textColorHint="@color/textHint">
 
         <EditText
             android:layout_width="match_parent"
@@ -90,7 +90,7 @@
         android:id="@+id/registration_occupation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/text">
+        android:textColorHint="@color/textHint">
 
         <EditText
             android:layout_width="match_parent"
@@ -103,7 +103,7 @@
         android:id="@+id/registration_referral"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/text">
+        android:textColorHint="@color/textHint">
 
         <EditText
             android:layout_width="match_parent"
