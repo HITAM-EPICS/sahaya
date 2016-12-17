@@ -6,6 +6,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/text</item>
+        <item name="android:textColorSecondary">@color/text</item>
+        <item name="android:textColorSecondaryInverse">@color/text</item>
+        <item name="android:textColorPrimaryInverse">@color/text</item>
+        <item name="android:colorForeground">@color/text</item>
     </style>
 
 </resources>
