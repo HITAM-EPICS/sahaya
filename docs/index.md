@@ -1,6 +1,7 @@
 
 <div>
 <h3>Authentications - 18 Dec 2016</h3>
+<a href="https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2.1-alpha/sahaya-v0.2.1-alpha.apk">Download APK - v0.2.1-alpha</a><br/>
 <a href="https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2-alpha/Sahaya.v0.2.alpha.apk">Download APK - v0.2-alpha</a>
 </div>
 <hr/>
