@@ -26,25 +26,51 @@
             android:src="@drawable/img2" />
     </ViewFlipper>
 
-    <Button
-        android:id="@+id/loginButtonHome"
-        style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/round_rectangle"
-        android:onClick="login"
-        android:text="@string/login" />
+        android:src="@drawable/sahaya_logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/loginButtonHome"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_rectangle"
+            android:onClick="login"
+            android:text="@string/login" />
+
+        <Button
+            android:id="@+id/registerButtonHome"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_rectangle"
+            android:gravity="center"
+            android:onClick="register"
+            android:text="@string/register" />
+    </LinearLayout>
 
     <Button
-        android:id="@+id/registerButtonHome"
         style="@style/Base.Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/round_rectangle"
-        android:gravity="center"
-        android:onClick="register"
-        android:text="@string/register" />
+        android:onClick="donate"
+        android:text="Donate" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:onClick="openAbout"
+        android:text="Who we are?" />
 
 </LinearLayout>

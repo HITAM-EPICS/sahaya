@@ -22,7 +22,9 @@
         <activity
             android:name=".RegistrationActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".DonateActivity"></activity>
     </application>
 
 </manifest>
