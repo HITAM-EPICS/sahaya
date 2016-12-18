@@ -1,3 +1,4 @@
+<title>Sahaya</title>
 <div>
 <h2>About The Community Partner - Sahaya</h2>
 <p>Sahaya provides an opportunity to individuals who want to make a positive impact in the society by empowering, enriching and encouraging under-priviliged school going children</p>
