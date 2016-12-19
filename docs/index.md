@@ -4,6 +4,15 @@
 </div>
 <hr/>
 <div>
+<h2>Team Members</h2>
+<ul>
+<li>Sanjit Singh Chouhan</li>
+<li>Pattan Asif Khan</li>
+<li>T Sri Yeswanth Sharma</li>
+</ul>
+</div>
+<hr/>
+<div>
 <h2>Project Tasks</h2>
 <ol>
   <li>
