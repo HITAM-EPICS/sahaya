@@ -3,6 +3,12 @@
 <p>Sahaya provides an opportunity to individuals who want to make a positive impact in the society by empowering, enriching and encouraging under-priviliged school going children</p>
 </div>
 <hr/>
+<div>
+<h2>Project Tasks</h2>
+<h3>Recognition of community partner</h3>
+<frame src=/sahaya/EPICS-Sanjit-Asif-Yeswanth.txt />
+</div>
+<hr/>
 <h2>Updates(Recent On Top)</h2>
 <div>
 <h3>(APP) 17 Dec 2016</h3>
