@@ -6,8 +6,8 @@
 <div>
 <h2>Project Tasks</h2>
 <h3>Recognition of community partner</h3>
- <frameset cols="25%,50%,25%">
-  <frame src="/sahaya/EPICS-Sanjit-Asif-Yeswanth.txt">
+<frameset cols="25%,50%,25%">
+  <frame src="/sahaya/EPICS-Sanjit-Asif-Yeswanth.txt" />
 </frameset> 
 </div>
 <hr/>
