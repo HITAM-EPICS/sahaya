@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_registration"
     android:layout_width="match_parent"
@@ -30,8 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="Please Wait"
-            android:textAlignment="center"
-            android:textColor="@color/text" />
+            android:textAlignment="center" />
     </LinearLayout>
 
     <ScrollView
@@ -53,102 +53,84 @@
                 android:layout_height="wrap_content"
                 android:text="SAHAYA"
                 android:textAlignment="center"
-                android:textColor="@color/text"
                 android:textSize="40sp" />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/registration_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/textHint">
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/name"
-                    android:inputType="textPersonName|textCapWords"
-                    android:textColor="@color/text" />
+                    android:inputType="textPersonName|textCapWords" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/registration_email"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/textHint">
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/email"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/text" />
+                    android:inputType="textEmailAddress" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/registration_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/textHint">
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
-                    android:inputType="textPassword"
-                    android:textColor="@color/text" />
+                    android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/registration_confirm_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text"
-                android:textColorHint="@color/textHint">
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/confirm_password"
-                    android:inputType="textPassword"
-                    android:textColor="@color/text" />
+                    android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/registration_phone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text"
-                android:textColorHint="@color/textHint">
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/phone"
-                    android:inputType="phone"
-                    android:textColor="@color/text" />
+                    android:inputType="phone" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/registration_occupation"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text"
-                android:textColorHint="@color/textHint">
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/occupation"
-                    android:inputType="textCapWords"
-                    android:textColor="@color/text" />
+                    android:inputType="textCapWords" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/registration_referral"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text"
-                android:textColorHint="@color/textHint">
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="match_parent"

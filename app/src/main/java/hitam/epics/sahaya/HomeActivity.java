@@ -15,6 +15,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private ViewFlipper flipper;
+
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -22,10 +24,12 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        ViewFlipper flipper = (ViewFlipper) findViewById(R.id.homeImageFlipper);
-        flipper.setFlipInterval(1500);
+
+        flipper = (ViewFlipper) findViewById(R.id.homeImageFlipper);
+        flipper.setFlipInterval(4000);
         flipper.setAutoStart(true);
-        flipper.startFlipping();
+        flipper.setInAnimation(HomeActivity.this, R.anim.in_from_right);
+        flipper.setOutAnimation(HomeActivity.this, R.anim.out_from_left);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -58,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+        flipper.startFlipping();
         mAuth.addAuthStateListener(mAuthListener);
     }
 

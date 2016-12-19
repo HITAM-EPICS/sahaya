@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,6 +26,8 @@ public class RegistrationActivity extends AppCompatActivity {
     private LinearLayout loadingLinearLayout;
     private TextInputLayout name;
     private TextInputLayout email;
+    private TextInputLayout phone;
+    private TextInputLayout occupation;
     private TextInputLayout password;
     private TextInputLayout confirmPassword;
 
@@ -40,6 +43,8 @@ public class RegistrationActivity extends AppCompatActivity {
         email = (TextInputLayout) findViewById(R.id.registration_email);
         password = (TextInputLayout) findViewById(R.id.registration_password);
         confirmPassword = (TextInputLayout) findViewById(R.id.registration_confirm_password);
+        phone = (TextInputLayout) findViewById(R.id.registration_phone);
+        occupation = (TextInputLayout) findViewById(R.id.registration_occupation);
 
         mAuth = FirebaseAuth.getInstance();
         mAuth.signOut();
@@ -82,6 +87,13 @@ public class RegistrationActivity extends AppCompatActivity {
                                         });
                                     }
                                 });
+                                FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(RegistrationActivity.this);
+//                                String phoneNumber = phone.getEditText().getText().toString().trim();
+//                                if (phoneNumber.length() > 0)
+//                                    mFirebaseAnalytics.setUserProperty("phone", phoneNumber);
+                                String occupationOfUser = occupation.getEditText().getText().toString().trim();
+                                if (occupationOfUser.length() > 0)
+                                    mFirebaseAnalytics.setUserProperty("occupation", occupationOfUser);
                             }
                         }
                     });
