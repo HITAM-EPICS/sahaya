@@ -20,18 +20,15 @@
 <h3>(APP) 17 Dec 2016</h3>
 <a href="https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2.2-alpha/Sahaya-0.2.2-alpha.apk">Download APK - v0.2.2-alpha</a>
 </div>
-<hr/>
 <div>
 <h3>(APP)Authentications - 18 Dec 2016</h3>
 <a href="https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2.1-alpha/sahaya-v0.2.1-alpha.apk">Download APK - v0.2.1-alpha</a><br/>
 <a href="https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2-alpha/Sahaya.v0.2.alpha.apk">Download APK - v0.2-alpha</a>
 </div>
-<hr/>
 <div>
 <h3>(APP)Initial Commit - 17 Dec 2016</h3>
 <a href="https://github.com/HITAM-EPICS/Sahaya/releases/download/v0.1-alpha/sahaya.apk">Download APK - v0.1-alpha</a>
 </div>
-<hr/>
 <h3>Meeting With Sahaya - 17 Dec 2016</h3>
 <p>Our team had a meeting with sahaya team</p>
 <hr/>
