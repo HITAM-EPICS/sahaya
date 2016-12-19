@@ -1,0 +1,21 @@
+TEAM MEMBERS:
+    1. Sanjit Singh Chouhan     - 14E51A0582
+    2. Pattan Asif Khan         - 14E51A0567
+    3. T. Sri Yeswanth Sharma   - 14E51A0585
+
+
+COMMUNITY PARTNERS:
+    1. Sahaya
+        Sahaya provides an opportunity to individuals who want to make a positive impact in the society by empowering, enriching and encouraging under-priviliged school going children
+    
+    2. Blue Cross Hyderabad
+        The Blue Cross of Hyderabad is a non-profit Animal Welfare Organization that works for the welfare of animals and preservation of animal rights in the Twin Cities of Hyderabad & Secunderabad, India.
+    
+    
+SELECTED COMMUNITY PARTNER:
+    Our Team has decided that "SAHAYA" will be best community partner and we have selected it as our community partner
+
+
+PROGRESS Update:
+    All the progress update of our project will be updated time to time on our project repository on GITHUB on following link,
+       https://hitam-epics.github.io/sahaya
