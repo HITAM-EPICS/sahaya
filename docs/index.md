@@ -9,6 +9,9 @@
   <li>
     <a target="_new" href="https://hitam-epics.github.io/sahaya/EPICS-Sanjit-Asif-Yeswanth.txt">Recognition of community partner</a>
   </li>
+  <li>
+    <a target="_new" href="https://hitam-epics.github.io/sahaya/EPICS-Sanjit-Asif-Yeswanth 2.txt">Team Roles and Schedules</a>
+  </li>
 </ol>
 </div>
 <hr/>
