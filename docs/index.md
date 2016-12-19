@@ -7,7 +7,7 @@
 <h2>Project Tasks</h2>
 <ol>
   <li>
-    <a target=_new href="/sahaya/EPICS-Sanjit-Asif-Yeswanth.txt" >Recognition of community partner</a>
+    <a target="_new" href="https://hitam-epics.github.io/sahaya/EPICS-Sanjit-Asif-Yeswanth.txt">Recognition of community partner</a>
   </li>
 </ol>
 </div>
