@@ -1,49 +1,32 @@
-<div>
-<h2>About The Community Partner - Sahaya</h2>
-<p>Sahaya provides an opportunity to individuals who want to make a positive impact in the society by empowering, enriching and encouraging under-priviliged school going children</p>
-</div>
+## About The Community Partner - Sahaya
+
+Sahaya provides an opportunity to individuals who want to make a positive impact in the society by empowering, enriching and encouraging under-priviliged school going children</p>
+
 <hr/>
-<div>
-<h2>Team Members</h2>
-<ul>
-<li>Sanjit Singh Chouhan</li>
-<li>Pattan Asif Khan</li>
-<li>T Sri Yeswanth Sharma</li>
-</ul>
-</div>
+
+## Team Members
+
+* Sanjit Singh Chouhan
+* Pattan Asif Khan
+* T Sri Yeswanth Sharma
+
 <hr/>
-<div>
-<h2>Project Tasks</h2>
-<ol>
-  <li>
-    <a target="_new" href="https://hitam-epics.github.io/sahaya/EPICS-Sanjit-Asif-Yeswanth.txt">Recognition of community partner</a>
-  </li>
-  <li>
-    <a target="_new" href="https://hitam-epics.github.io/sahaya/EPICS-Sanjit-Asif-Yeswanth 2.txt">Team Roles and Schedules</a>
-  </li>
-  <li>
-    <a target="_new" href="https://hitam-epics.github.io/sahaya/Product Survey.txt">Product Survey</a>
-  </li>
-</ol>
-</div>
+
+## Project Tasks
+
+1. [Recognition of community partner](https://hitam-epics.github.io/sahaya/EPICS-Sanjit-Asif-Yeswanth.txt)
+2. [Team Roles and Schedules](https://hitam-epics.github.io/sahaya/EPICS-Sanjit-Asif-Yeswanth 2.txt)
+3. [Product Survey](https://hitam-epics.github.io/sahaya/Product Survey.txt)
+
 <hr/>
-<h2>Updates(Recent On Top)</h2>
-<div>
-<h3>(APP) 17 Dec 2016</h3>
-<a href="https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2.2-alpha/Sahaya-0.2.2-alpha.apk">Download APK - v0.2.2-alpha</a>
-</div>
-<hr/>
-<div>
-<h3>(APP)Authentications - 18 Dec 2016</h3>
-<a href="https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2.1-alpha/sahaya-v0.2.1-alpha.apk">Download APK - v0.2.1-alpha</a><br/>
-<a href="https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2-alpha/Sahaya.v0.2.alpha.apk">Download APK - v0.2-alpha</a>
-</div>
-<hr/>
-<div>
-<h3>(APP)Initial Commit - 17 Dec 2016</h3>
-<a href="https://github.com/HITAM-EPICS/Sahaya/releases/download/v0.1-alpha/sahaya.apk">Download APK - v0.1-alpha</a>
-</div>
-<hr/>
-<h3>Meeting With Sahaya - 17 Dec 2016</h3>
-<p>Our team had a meeting with sahaya team</p>
-<hr/>
+
+## Updates(Recent On Top)
+
+#### [(APP) 17 Dec 2016](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2.2-alpha/Sahaya-0.2.2-alpha.apk)
+
+#### [(APP)Authentications - 18 Dec 2016](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2.1-alpha/sahaya-v0.2.1-alpha.apk)
+
+#### [(APP)Initial Commit - 17 Dec 2016](https://github.com/HITAM-EPICS/Sahaya/releases/download/v0.1-alpha/sahaya.apk)
+
+#### Meeting With Sahaya - 17 Dec 2016
+Our team had a meeting with sahaya team
