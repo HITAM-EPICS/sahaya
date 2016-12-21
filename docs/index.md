@@ -16,9 +16,9 @@ Sahaya provides an opportunity to individuals who want to make a positive impact
 
 ## Project Tasks
 
-1. [x] [Recognition of community partner](https://hitam-epics.github.io/sahaya/EPICS-Sanjit-Asif-Yeswanth.txt)
-2. [x] [Team Roles and Schedules](https://hitam-epics.github.io/sahaya/EPICS-Sanjit-Asif-Yeswanth 2.txt)
-3. [ ] [Product Survey](https://hitam-epics.github.io/sahaya/Product Survey.txt)
+1. [Recognition of community partner](https://hitam-epics.github.io/sahaya/EPICS-Sanjit-Asif-Yeswanth.txt)
+2. [Team Roles and Schedules](https://hitam-epics.github.io/sahaya/EPICS-Sanjit-Asif-Yeswanth 2.txt)
+3. [Product Survey](https://hitam-epics.github.io/sahaya/Product Survey.txt)
 
 <hr/>
 
