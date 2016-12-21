@@ -1,0 +1,37 @@
+----﻿PRODUCT SURVEY----
+----------------------
+
+ALIVE – Volunteer Engagement
+    Member Registration
+    Event Calender
+    Helpful Resource Link
+    Board Of Directors
+    Link to website
+    Feedback
+    Contacts
+
+Volunteer App
+    Static
+    Everything should be entered by user
+    -organisation
+    -events
+    -goals
+    -achievement
+    -camps
+    -links
+    -courses and qualifications
+   Overall Statistics of all entered data
+
+Volunteer Connect - American Red Cross
+    Member registration
+    Feeds of recent activities
+    Regions
+    Member Directory Search
+    Schedule
+    User Profile
+
+Human Rights NGO
+    Info about NGO
+    Photo Gallery
+    Events
+    Reviews

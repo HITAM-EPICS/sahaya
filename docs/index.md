@@ -12,6 +12,9 @@
   <li>
     <a target="_new" href="https://hitam-epics.github.io/sahaya/EPICS-Sanjit-Asif-Yeswanth 2.txt">Team Roles and Schedules</a>
   </li>
+  <li>
+    <a target="_new" href="https://hitam-epics.github.io/sahaya/Product Survey.txt">Product Survey</a>
+  </li>
 </ol>
 </div>
 <hr/>
