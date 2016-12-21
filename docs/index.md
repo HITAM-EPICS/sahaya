@@ -22,11 +22,11 @@ Sahaya provides an opportunity to individuals who want to make a positive impact
 
 ## Updates(Recent On Top)
 
-#### [(APP) 17 Dec 2016](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2.2-alpha/Sahaya-0.2.2-alpha.apk)
+#### (APP) 17 Dec 2016 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2.2-alpha/Sahaya-0.2.2-alpha.apk)
 
-#### [(APP)Authentications - 18 Dec 2016](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2.1-alpha/sahaya-v0.2.1-alpha.apk)
+#### (APP)Authentications - 18 Dec 2016 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2.1-alpha/sahaya-v0.2.1-alpha.apk)
 
-#### [(APP)Initial Commit - 17 Dec 2016](https://github.com/HITAM-EPICS/Sahaya/releases/download/v0.1-alpha/sahaya.apk)
+#### (APP)Initial Commit - 17 Dec 2016 - [Download](https://github.com/HITAM-EPICS/Sahaya/releases/download/v0.1-alpha/sahaya.apk)
 
 #### Meeting With Sahaya - 17 Dec 2016
 Our team had a meeting with sahaya team
