@@ -16,6 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:transitionName="logo"
         android:src="@drawable/sahaya_logo" />
 
     <TextView

@@ -1,5 +1,6 @@
 package hitam.epics.sahaya;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,7 +9,7 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends Activity {
     private TextView nameTextView;
     private TextView emailTextView;
     private TextView photoUrlTextView;

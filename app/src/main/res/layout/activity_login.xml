@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:src="@drawable/sahaya_logo" />
+        android:src="@drawable/sahaya_logo"
+        android:transitionName="logo" />
 
     <LinearLayout
         android:id="@+id/login_loading"
@@ -47,37 +48,39 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <android.support.design.widget.TextInputLayout
+        <!--<android.support.design.widget.TextInputLayout-->
+
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColorHint="@color/textHint">-->
+
+        <EditText
             android:id="@+id/login_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/textHint">
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/text"
+            android:textColorHighlight="@color/text"
+            android:textColorHint="@color/text" />
+        <!--</android.support.design.widget.TextInputLayout>-->
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/text"
-                android:textColorHighlight="@color/text"
-                android:textColorHint="@color/text" />
-        </android.support.design.widget.TextInputLayout>
+        <!--<android.support.design.widget.TextInputLayout-->
 
-        <android.support.design.widget.TextInputLayout
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColorHint="@color/textHint">-->
+
+        <EditText
             android:id="@+id/login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/textHint">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:textColor="@color/text"
-                android:textColorHighlight="@color/text"
-                android:textColorHint="@color/text" />
-        </android.support.design.widget.TextInputLayout>
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColor="@color/text"
+            android:textColorHighlight="@color/text"
+            android:textColorHint="@color/text" />
+        <!--</android.support.design.widget.TextInputLayout>-->
 
         <Button
             android:layout_width="match_parent"

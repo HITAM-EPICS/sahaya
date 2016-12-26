@@ -24,12 +24,10 @@
         </activity>
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity" />
-        <activity
-            android:name=".RegistrationActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".RegistrationActivity" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".AboutActivity" />
-        <activity android:name=".DonateActivity"></activity>
+        <activity android:name=".DonateActivity" />
     </application>
 
 </manifest>

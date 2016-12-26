@@ -1,15 +1,17 @@
 package hitam.epics.sahaya;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -19,7 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends Activity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -58,23 +60,32 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            finishAfterTransition();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
     public void register(View view) {
         startActivity(new Intent(this, RegistrationActivity.class));
         finish();
     }
 
     public void login(View view) {
-        TextInputLayout email = (TextInputLayout) findViewById(R.id.login_email);
-        TextInputLayout password = (TextInputLayout) findViewById(R.id.login_password);
+        EditText email = (EditText) findViewById(R.id.login_email);
+        EditText password = (EditText) findViewById(R.id.login_password);
 
         boolean valid = true;
-        email.setErrorEnabled(false);
-        if (email.getEditText().getText().toString().length() == 0) {
+        email.setError("");
+        if (email.getText().toString().length() == 0) {
             email.setError("Email Required");
             valid = false;
         }
-        password.setErrorEnabled(false);
-        if (password.getEditText().getText().toString().length() == 0) {
+        password.setError("");
+        if (password.getText().toString().length() == 0) {
             password.setError("Password Required");
             valid = false;
         }
@@ -82,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
         if (valid) {
             loginFormLinearLayout.setVisibility(View.INVISIBLE);
             loadingLinearLayout.setVisibility(View.VISIBLE);
-            mAuth.signInWithEmailAndPassword(email.getEditText().getText().toString().trim(), password.getEditText().getText().toString())
+            mAuth.signInWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {

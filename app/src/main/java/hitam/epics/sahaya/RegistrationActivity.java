@@ -1,9 +1,9 @@
 package hitam.epics.sahaya;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -20,7 +20,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.Objects;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class RegistrationActivity extends Activity {
     private FirebaseAuth mAuth;
     private ScrollView registrationFormLinearLayout;
     private LinearLayout loadingLinearLayout;
