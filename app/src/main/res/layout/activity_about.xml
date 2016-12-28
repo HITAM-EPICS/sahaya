@@ -4,7 +4,6 @@
     android:id="@+id/activity_about"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
     android:gravity="center"
     tools:context="hitam.epics.sahaya.AboutActivity">
 
@@ -36,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/sahaya_society"
-                android:textColor="@color/text"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -46,8 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/about_1"
-                android:textAlignment="center"
-                android:textColor="@color/text" />
+                android:textAlignment="center" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -55,8 +52,7 @@
                 android:layout_marginTop="20dp"
                 android:autoLink="web"
                 android:text="@string/for_more_info_visit_http_sahayasociety_org"
-                android:textAlignment="center"
-                android:textColor="@color/text" />
+                android:textAlignment="center" />
 
         </LinearLayout>
 
@@ -77,7 +73,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="Who We Are?"
-                android:textColor="@color/text"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -87,8 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="We are proud to say that the Sahaya family has now adopted over eight schools and is teaching to over 2500 kids across three districts in Andhra Pradesh. As Sahaya began to gain popularity, we began receiving help from the student and working community in Hyderabad."
-                android:textAlignment="center"
-                android:textColor="@color/text" />
+                android:textAlignment="center" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -96,8 +90,7 @@
                 android:layout_marginTop="20dp"
                 android:autoLink="web"
                 android:text="@string/for_more_info_visit_http_sahayasociety_org"
-                android:textAlignment="center"
-                android:textColor="@color/text" />
+                android:textAlignment="center" />
 
         </LinearLayout>
 
