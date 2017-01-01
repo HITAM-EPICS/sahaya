@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
@@ -24,12 +25,12 @@ public class RegistrationActivity extends Activity {
     private FirebaseAuth mAuth;
     private ScrollView registrationFormLinearLayout;
     private LinearLayout loadingLinearLayout;
-    private TextInputLayout name;
-    private TextInputLayout email;
-    private TextInputLayout phone;
-    private TextInputLayout occupation;
-    private TextInputLayout password;
-    private TextInputLayout confirmPassword;
+    private EditText name;
+    private EditText email;
+    private EditText phone;
+    private EditText occupation;
+    private EditText password;
+    private EditText confirmPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +40,12 @@ public class RegistrationActivity extends Activity {
         registrationFormLinearLayout = (ScrollView) findViewById(R.id.registration_form);
         loadingLinearLayout = (LinearLayout) findViewById(R.id.registration_loading);
 
-        name = (TextInputLayout) findViewById(R.id.registration_name);
-        email = (TextInputLayout) findViewById(R.id.registration_email);
-        password = (TextInputLayout) findViewById(R.id.registration_password);
-        confirmPassword = (TextInputLayout) findViewById(R.id.registration_confirm_password);
-        phone = (TextInputLayout) findViewById(R.id.registration_phone);
-        occupation = (TextInputLayout) findViewById(R.id.registration_occupation);
+        name = (EditText) findViewById(R.id.registration_name);
+        email = (EditText) findViewById(R.id.registration_email);
+        password = (EditText) findViewById(R.id.registration_password);
+        confirmPassword = (EditText) findViewById(R.id.registration_confirm_password);
+        phone = (EditText) findViewById(R.id.registration_phone);
+        occupation = (EditText) findViewById(R.id.registration_occupation);
 
         mAuth = FirebaseAuth.getInstance();
         mAuth.signOut();
@@ -56,7 +57,7 @@ public class RegistrationActivity extends Activity {
             registrationFormLinearLayout.setVisibility(View.GONE);
             loadingLinearLayout.setVisibility(View.VISIBLE);
 
-            mAuth.createUserWithEmailAndPassword(email.getEditText().getText().toString(), password.getEditText().getText().toString())
+            mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -73,7 +74,7 @@ public class RegistrationActivity extends Activity {
                             }
                             final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                             UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
-                                    .setDisplayName(name.getEditText().getText().toString())
+                                    .setDisplayName(name.getText().toString())
                                     .build();
                             if (user != null) {
                                 user.updateProfile(profileChangeRequest).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -91,7 +92,7 @@ public class RegistrationActivity extends Activity {
 //                                String phoneNumber = phone.getEditText().getText().toString().trim();
 //                                if (phoneNumber.length() > 0)
 //                                    mFirebaseAnalytics.setUserProperty("phone", phoneNumber);
-                                String occupationOfUser = occupation.getEditText().getText().toString().trim();
+                                String occupationOfUser = occupation.getText().toString().trim();
                                 if (occupationOfUser.length() > 0)
                                     mFirebaseAnalytics.setUserProperty("occupation", occupationOfUser);
                             }
@@ -102,22 +103,22 @@ public class RegistrationActivity extends Activity {
 
     private boolean valid() {
         boolean result = true;
-        name.setErrorEnabled(false);
-        email.setErrorEnabled(false);
-        password.setErrorEnabled(false);
-        confirmPassword.setErrorEnabled(false);
-        if (Objects.equals(name.getEditText().getText().toString(), "")) {
+        name.setError("");
+        email.setError("");
+        password.setError("");
+        confirmPassword.setError("");
+        if (Objects.equals(name.getText().toString(), "")) {
             name.setError("Required");
             result = false;
         }
-        if (Objects.equals(email.getEditText().getText().toString(), "")) {
+        if (Objects.equals(email.getText().toString(), "")) {
             email.setError("Required");
             result = false;
         }
-        if (password.getEditText().getText().toString().length() < 6) {
+        if (password.getText().toString().length() < 6) {
             password.setError("Required: Minimum 6 Characters");
             result = false;
-        } else if (!Objects.equals(confirmPassword.getEditText().getText().toString(), password.getEditText().getText().toString())) {
+        } else if (!Objects.equals(confirmPassword.getText().toString(), password.getText().toString())) {
             confirmPassword.setError("Passwords do not match");
             result = false;
         }

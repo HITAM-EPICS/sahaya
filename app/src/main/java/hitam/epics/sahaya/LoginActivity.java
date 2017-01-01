@@ -123,20 +123,20 @@ public class LoginActivity extends Activity {
     public void resetPassword(View view) {
         LayoutInflater inflater = getLayoutInflater();
         final View content = inflater.inflate(R.layout.reset_password, null);
-        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this, R.style.AppThemeAlert);
         builder.setTitle("Reset Password")
                 .setView(content)
                 .setPositiveButton("Reset", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        TextInputLayout email = (TextInputLayout) content.findViewById(R.id.reset_password_email);
-                        if (email.getEditText().getText().length() == 0) {
+                        EditText email = (EditText) content.findViewById(R.id.email);
+                        if (email.getText().length() == 0) {
                             AlertDialog.Builder builder1 = new AlertDialog.Builder(LoginActivity.this);
                             builder1.setMessage("Invalid Email")
                                     .setPositiveButton("OK", null)
                                     .create().show();
                         } else {
-                            mAuth.sendPasswordResetEmail(email.getEditText().getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            mAuth.sendPasswordResetEmail(email.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     AlertDialog.Builder builder1 = new AlertDialog.Builder(LoginActivity.this);
