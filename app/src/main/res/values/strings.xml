@@ -1,18 +1,20 @@
 <resources>
     <string name="app_name">Sahaya</string>
-    <string name="login">Login</string>
+    <string name="login">Sign In</string>
     <string name="register">Register</string>
-    <string name="email">Email</string>
+    <string name="email">Email Address</string>
     <string name="password">Password</string>
     <string name="name">Name</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="phone">Phone</string>
     <string name="occupation">Occupation</string>
     <string name="referral_code">Referral Code(Optional)</string>
-    <string name="do_not_have_account_register_now">Do not have account? Register Now</string>
+    <string name="new_here">New here? Sign Up</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="sahaya_society">Sahaya Society</string>
     <string name="about_1">Sahaya provides an opportunity to individuals who want to make a positive impact in the society by empowering, enriching and encouraging under-priviliged school going children.</string>
     <string name="for_more_info_visit_http_sahayasociety_org">For more info visit http://sahayasociety.org/</string>
-    <string name="the_founders_of_sahaya_noticed_that_there_were_thousands_of_kids_around_them_who_were_very_enthusiastic_to_learn_but_lacked_the_necessary_guidance_and_finances_the_proposed_solution_was_to_adopt_a_school_and_teach_the_children_and_encourage_them_in_their_scientific_and_artistic_endeavors">The founders of Sahaya noticed that there were thousands of kids around them who were very enthusiastic to learn, but lacked the necessary guidance and finances. The proposed solution was to \'adopt\' a school and teach the children and encourage them in their scientific and artistic endeavors.</string>
+    <string name="sign_in_with_twitter">Sign in with Twitter</string>
+    <string name="sign_in_with_facebook">Sign in with Facebook</string>
+    <string name="organisation">Sahaya Society, Hyderabad</string>
 </resources>
