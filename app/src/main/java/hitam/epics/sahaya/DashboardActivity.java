@@ -1,11 +1,11 @@
 package hitam.epics.sahaya;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,14 +36,26 @@ public class DashboardActivity extends Activity {
         menuAdapter = new DashboardMenuAdapter(this, menuItems);
         dashboardMenu.setAdapter(menuAdapter);
 
-        menuItems.add(new DashboardItem(R.drawable.sahaya_logo, "Timetable"));
-        menuItems.add(new DashboardItem(R.drawable.sahaya_logo, "Materials"));
-        menuItems.add(new DashboardItem(R.drawable.sahaya_logo, "Profile"));
-        menuItems.add(new DashboardItem(R.drawable.sahaya_logo, "Discussion"));
-        menuItems.add(new DashboardItem(R.drawable.sahaya_logo, "About Us"));
-        menuItems.add(new DashboardItem(R.drawable.sahaya_logo, "Contact Us"));
+        menuItems.add(new DashboardItem(R.drawable.timetable, "Timetable"));
+        menuItems.add(new DashboardItem(R.drawable.study_material, "Materials"));
+        menuItems.add(new DashboardItem(R.drawable.profile, "Profile"));
+        menuItems.add(new DashboardItem(R.drawable.discussion, "Discussion"));
+        menuItems.add(new DashboardItem(R.drawable.about_us, "About Us"));
+        menuItems.add(new DashboardItem(R.drawable.contact_us, "Contact Us"));
 
         menuAdapter.notifyDataSetChanged();
+
+        dashboardMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        startActivity(new Intent(DashboardActivity.this, TimetableActivity.class));
+                        break;
+
+                }
+            }
+        });
 
     }
 

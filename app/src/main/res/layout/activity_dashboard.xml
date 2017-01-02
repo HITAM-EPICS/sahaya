@@ -3,22 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     android:orientation="vertical"
-    android:background="@drawable/background_image"
     tools:context="hitam.epics.sahaya.DashboardActivity">
-
 
     <GridView
         android:id="@+id/dashboard_menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:horizontalSpacing="1dp"
+        android:horizontalSpacing="5dp"
         android:numColumns="auto_fit"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:verticalSpacing="1dp"
+        android:verticalSpacing="5dp"
         tools:listitem="@layout/classification_item">
 
     </GridView>

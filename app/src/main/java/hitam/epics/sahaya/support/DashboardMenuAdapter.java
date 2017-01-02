@@ -45,3 +45,4 @@ public class DashboardMenuAdapter extends ArrayAdapter<DashboardItem> {
         return newView;
     }
 }
+

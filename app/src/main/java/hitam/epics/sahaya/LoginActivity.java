@@ -106,7 +106,7 @@ public class LoginActivity extends Activity {
                                 Log.w("FIREBASE", "signInWithEmail", task.getException());
                                 Toast.makeText(LoginActivity.this, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();
-                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this)
+                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this,R.style.AppThemeAlert)
                                         .setTitle("Login Failed")
                                         .setMessage("Invalid Username or Password")
                                         .setPositiveButton("Try Again", null);
