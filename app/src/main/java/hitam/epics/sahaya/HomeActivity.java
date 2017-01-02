@@ -49,7 +49,7 @@ public class HomeActivity extends Activity {
                         HomeActivity.this.finish();
                     } else {
                         Toast.makeText(HomeActivity.this, "Verify Your Email to login", Toast.LENGTH_LONG).show();
-                        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this, R.style.AppThemeAlert);
                         builder.setMessage("Please verify your email and then login. If you cant see the confirmation mail, check spam or click resend.")
                                 .setPositiveButton("OK", null)
                                 .setNeutralButton("Resend Mail", new DialogInterface.OnClickListener() {
