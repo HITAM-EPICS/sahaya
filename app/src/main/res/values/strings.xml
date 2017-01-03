@@ -17,4 +17,6 @@
     <string name="sign_in_with_twitter">Sign in with Twitter</string>
     <string name="sign_in_with_facebook">Sign in with Facebook</string>
     <string name="organisation">Sahaya Society, Hyderabad</string>
+    <string name="logo">logo</string>
+    <string name="please_wait">Please Wait</string>
 </resources>

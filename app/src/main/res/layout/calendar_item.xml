@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/event_name"
+        style="@style/Base.TextAppearance.AppCompat.Medium.Inverse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        tools:text="Title of event" />
+
+    <TextView
+        android:id="@+id/event_time"
+        style="@style/Base.TextAppearance.AppCompat.Small.Inverse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="00:00 AM - 23:59 PM" />
+
+</LinearLayout>

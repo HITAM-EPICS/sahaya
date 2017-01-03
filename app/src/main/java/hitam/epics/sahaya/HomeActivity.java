@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -24,6 +25,7 @@ public class HomeActivity extends Activity {
     private ViewFlipper flipper;
 
     private FirebaseAuth mAuth;
+    @Nullable
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
