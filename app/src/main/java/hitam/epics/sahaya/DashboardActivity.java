@@ -52,6 +52,9 @@ public class DashboardActivity extends Activity {
                     case 0:
                         startActivity(new Intent(DashboardActivity.this, TimetableActivity.class));
                         break;
+                    case 4:
+                        startActivity(new Intent(DashboardActivity.this, AboutActivity.class));
+                        break;
 
                 }
             }

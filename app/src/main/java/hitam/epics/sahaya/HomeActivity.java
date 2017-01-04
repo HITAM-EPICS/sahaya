@@ -97,9 +97,6 @@ public class HomeActivity extends Activity {
         startActivity(new Intent(this, RegistrationActivity.class));
     }
 
-    public void openAbout(View view) {
-        startActivity(new Intent(this, AboutActivity.class));
-    }
 
     public void donate(View view) {
         startActivity(new Intent(this, DonateActivity.class));

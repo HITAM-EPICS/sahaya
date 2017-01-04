@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEA044"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="hitam.epics.sahaya.AboutActivity$PlaceholderFragment">
+
+    <TextView
+        style="@style/Base.TextAppearance.AppCompat.Display1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Who we are"
+        android:textAllCaps="true"
+        android:textColor="#fff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="We are proud to say that the Sahaya family has now adopted over eight schools and is teaching to over 2500 kids across three districts in Andhra Pradesh. As Sahaya began to gain popularity, we began receiving help from the student and working community in Hyderabad.
+
+Project Library, a prestigious project where we managed to collect over 4000 books wouldn’t have been possible without the help of them."
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+</LinearLayout>
