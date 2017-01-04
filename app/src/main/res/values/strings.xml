@@ -24,4 +24,8 @@
     <string name="about_us">About us</string>
     <string name="about_2">Sahaya is a network of enthusiastic young volunteers, with an average age of 22. In a span of five years, what initially began as a simple idea by a group of 6 engineering students soon turned into a well-organized network of over 150 volunteers with a single minded goal to help the less privileged kids improve their life skills and other necessary skills such as English, Computer Skills and Communication skills.</string>
     <string name="visit_our_website_nsahayasociety_org">Visit our website:\nsahayasociety.org/</string>
+    <string name="class_text">Class:</string>
+    <string name="subject">Subject:</string>
+    <string name="enter_your_message_here">Enter Your Message Here</string>
+    <string name="no_messages">No Messages</string>
 </resources>

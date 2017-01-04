@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import hitam.epics.sahaya.R;
@@ -17,10 +19,10 @@ import hitam.epics.sahaya.R;
  * Created by sanjit on 2/1/17.
  */
 
-public class DashboardMenuAdapter extends ArrayAdapter<DashboardItem> {
+public class DiscussionAdapter extends ArrayAdapter<DiscussionMessage> {
     private Context context;
 
-    public DashboardMenuAdapter(@NonNull Context context, @NonNull List<DashboardItem> objects) {
+    public DiscussionAdapter(@NonNull Context context, @NonNull List<DiscussionMessage> objects) {
         super(context, 0, objects);
         this.context = context;
     }
@@ -31,16 +33,20 @@ public class DashboardMenuAdapter extends ArrayAdapter<DashboardItem> {
         View newView = convertView;
         if (newView == null) {
             LayoutInflater inflater = LayoutInflater.from(context);
-            newView = inflater.inflate(R.layout.classification_item, parent,false);
+            newView = inflater.inflate(R.layout.discussion_message, parent, false);
         }
 
-        DashboardItem currentItem = getItem(position);
+        DiscussionMessage currentItem = getItem(position);
 
-        ImageView ItemImageView = (ImageView) newView.findViewById(R.id.item_image);
-        TextView ItemNameView = (TextView) newView.findViewById(R.id.item_name);
+        TextView username = (TextView) newView.findViewById(R.id.message_username);
+        TextView time = (TextView) newView.findViewById(R.id.message_time);
+        TextView message = (TextView) newView.findViewById(R.id.message_text);
 
-        ItemImageView.setImageResource(currentItem.getImageResource());
-        ItemNameView.setText(currentItem.getName());
+        if (currentItem != null) {
+            username.setText(currentItem.getName());
+            time.setText(currentItem.getTime());
+            message.setText(currentItem.getMessage());
+        }
 
         return newView;
     }
