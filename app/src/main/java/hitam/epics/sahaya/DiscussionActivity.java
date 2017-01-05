@@ -98,6 +98,6 @@ public class DiscussionActivity extends Activity {
             discussionMessages.remove(0);
         }
         discussionAdapter.notifyDataSetChanged();
-        discussionMessagesListView.smoothScrollToPosition(discussionMessages.size() - 1);
+        discussionMessagesListView.setSelection(discussionMessages.size() - 1);
     }
 }

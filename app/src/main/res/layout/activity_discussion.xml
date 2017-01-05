@@ -35,10 +35,12 @@
 
     <ListView
         android:id="@+id/discussion_message_list"
+        android:transcriptMode="alwaysScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/message_layout"
         android:dividerHeight="10dp"
+        android:padding="10dp"
         tools:listitem="@layout/discussion_message" />
 
     <TextView
