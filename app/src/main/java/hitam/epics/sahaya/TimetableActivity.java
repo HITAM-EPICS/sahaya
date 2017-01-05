@@ -1,11 +1,15 @@
 package hitam.epics.sahaya;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
@@ -39,21 +43,20 @@ public class TimetableActivity extends Activity {
         eventDateList = new ArrayList<>();
 
         eventList = new ArrayList<>();
-        eventList.add(new CalendarItem("ZPHS", "04-01-2017", "01:00 PM", "04:00 PM", "Kukatpally"));
-        eventList.add(new CalendarItem("ZPHS", "07-01-2017", "01:00 PM", "04:00 PM", "Bachupally"));
-        eventList.add(new CalendarItem("ZPHS", "14-01-2017", "01:00 PM", "04:00 PM", "Miyapur"));
+        eventList.add(new CalendarItem("ZPHS", "04-01-2017", "01:00 PM", "04:00 PM", "Kukatpally", 17.484342, 78.413453));
+        eventList.add(new CalendarItem("ZPHS", "07-01-2017", "01:00 PM", "04:00 PM", "Sivarampalli", 17.327232, 78.433822));
+        eventList.add(new CalendarItem("ZPHS", "14-01-2017", "01:00 PM", "04:00 PM", "Habsiguda", 17.418028, 78.541110));
 
         for (CalendarItem item : eventList) {
             eventDateList.add(item.getDate());
         }
 
         currentDateEventList = new ArrayList<>();
-        currentDateEventList.add(new CalendarItem("Select a date from calender to View schedule", ""));
 
         menuAdapter = new CalendarItemMenuAdapter(this, currentDateEventList);
-
         EventListGridView = (GridView) findViewById(R.id.event_list);
         EventListGridView.setAdapter(menuAdapter);
+        EventListGridView.setEmptyView(findViewById(R.id.empty_view));
 
         calendarView = (MaterialCalendarView) findViewById(R.id.calendar);
         calendarView.setCurrentDate(new Date());
@@ -88,10 +91,19 @@ public class TimetableActivity extends Activity {
                         currentDateEventList.add(item);
                     }
                 }
-                if (currentDateEventList.size() == 0) {
-                    currentDateEventList.add(new CalendarItem("No Event Found", ""));
-                }
                 menuAdapter.notifyDataSetChanged();
+            }
+        });
+
+        EventListGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                double latitude = currentDateEventList.get(position).getLat();
+                double longitude = currentDateEventList.get(position).getLon();
+                Uri gmmIntentUri = Uri.parse("google.navigation:q=" + latitude + "," + longitude);
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
             }
         });
     }
