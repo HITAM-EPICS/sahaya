@@ -34,17 +34,15 @@ public class DiscussionAdapter extends ArrayAdapter<DiscussionMessage> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View newView = convertView;
+        View newView = null;
         DiscussionMessage currentItem = getItem(position);
 
         if (currentItem != null) {
-            if (newView == null) {
-                LayoutInflater inflater = LayoutInflater.from(context);
-                if (Objects.equals(currentItem.getName(), FirebaseAuth.getInstance().getCurrentUser().getDisplayName())) {
-                    newView = inflater.inflate(R.layout.discussion_message_self, parent, false);
-                } else {
-                    newView = inflater.inflate(R.layout.discussion_message, parent, false);
-                }
+            LayoutInflater inflater = LayoutInflater.from(context);
+            if (Objects.equals(currentItem.getName(), FirebaseAuth.getInstance().getCurrentUser().getDisplayName())) {
+                newView = inflater.inflate(R.layout.discussion_message_self, parent, false);
+            } else {
+                newView = inflater.inflate(R.layout.discussion_message, parent, false);
             }
 
             TextView username = (TextView) newView.findViewById(R.id.message_username);
