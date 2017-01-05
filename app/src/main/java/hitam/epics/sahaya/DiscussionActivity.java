@@ -88,8 +88,8 @@ public class DiscussionActivity extends Activity {
     public void SendMessage(View view) {
         String message = messageInput.getText().toString().trim();
         DiscussionMessage newMessage = new DiscussionMessage(userName, message);
-        discussionRef.child(newMessage.getTimeNumber() + "").setValue(newMessage);
-        addMessage(newMessage);
+        discussionRef.child(newMessage.getTime() + "").setValue(newMessage);
+        messageInput.setText("");
     }
 
     private void addMessage(DiscussionMessage message) {
@@ -98,5 +98,6 @@ public class DiscussionActivity extends Activity {
             discussionMessages.remove(0);
         }
         discussionAdapter.notifyDataSetChanged();
+        discussionMessagesListView.smoothScrollToPosition(discussionMessages.size() - 1);
     }
 }

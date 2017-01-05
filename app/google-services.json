@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "965277711362-g85evk54kvqp86ap566jqjmi9j3mbpj3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hitam.epics.sahaya",
+            "certificate_hash": "833CA786F9B2DE5E7E606F937CD0F38428214559"
+          }
+        },
+        {
           "client_id": "965277711362-u077hlg4kdjsvn0ksqqc4uqnj1p33b5v.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

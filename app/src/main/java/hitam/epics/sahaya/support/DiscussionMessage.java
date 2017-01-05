@@ -20,6 +20,15 @@ public class DiscussionMessage {
         time = System.currentTimeMillis();
     }
 
+    public DiscussionMessage(String name, String message, long time) {
+        this.name = name;
+        this.message = message;
+        this.time = time;
+    }
+
+    public DiscussionMessage() {
+    }
+
     public String getName() {
         return name;
     }
@@ -28,15 +37,8 @@ public class DiscussionMessage {
         return message;
     }
 
-    public String getTime() {
-        return DateUtils.getRelativeTimeSpanString(
-                time,
-                System.currentTimeMillis(),
-                DateUtils.SECOND_IN_MILLIS
-        ).toString();
-    }
-
-    public long getTimeNumber() {
+    public long getTime() {
         return time;
     }
+
 }

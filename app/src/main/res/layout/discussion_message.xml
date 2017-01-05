@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_gravity="start"
+    android:layout_margin="10dp"
+    android:background="#fff"
     android:orientation="vertical"
     android:padding="10dp">
 
@@ -13,19 +16,21 @@
 
         <TextView
             android:id="@+id/message_username"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:ellipsize="end"
             android:textColor="#000"
             android:textStyle="bold"
             tools:text="User:" />
 
         <TextView
             android:id="@+id/message_time"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
+            style="@style/Base.TextAppearance.AppCompat.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             tools:text="Date" />
     </LinearLayout>
 
