@@ -1,6 +1,8 @@
 package hitam.epics.sahaya;
 
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.app.Service;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -30,6 +32,7 @@ public class DiscussionActivity extends Activity {
     private DiscussionAdapter discussionAdapter;
     private ArrayList<DiscussionMessage> discussionMessages;
     private EditText messageInput;
+    NotificationManager notificationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,8 @@ public class DiscussionActivity extends Activity {
 
         discussionMessagesListView = (ListView) findViewById(R.id.discussion_message_list);
         messageInput = (EditText) findViewById(R.id.message_input);
+
+        notificationManager = (NotificationManager) getSystemService(Service.NOTIFICATION_SERVICE);
 
         auth = FirebaseAuth.getInstance();
 
@@ -61,6 +66,7 @@ public class DiscussionActivity extends Activity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 DiscussionMessage message = dataSnapshot.getValue(DiscussionMessage.class);
                 addMessage(message);
+                notificationManager.cancel(0);
             }
 
             @Override

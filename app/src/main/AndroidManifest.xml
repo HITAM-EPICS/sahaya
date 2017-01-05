@@ -39,7 +39,16 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MaterialActivity" />
         <activity android:name=".ContactUsActivity" />
-        <activity android:name=".DiscussionActivity"></activity>
+        <activity android:name=".DiscussionActivity" />
+
+        <service
+            android:name=".services.DiscussionForumService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
