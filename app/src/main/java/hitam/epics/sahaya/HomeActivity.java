@@ -46,8 +46,6 @@ public class HomeActivity extends Activity {
                 if (user != null) {
                     if (user.isEmailVerified()) {
                         startActivity(new Intent(HomeActivity.this, DashboardActivity.class));
-                        if (FirebaseAuth.getInstance().getCurrentUser() != null)
-                            HomeActivity.this.finish();
                     } else {
                         Toast.makeText(HomeActivity.this, "Verify Your Email to login", Toast.LENGTH_LONG).show();
                         AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this, R.style.AppThemeAlert);
