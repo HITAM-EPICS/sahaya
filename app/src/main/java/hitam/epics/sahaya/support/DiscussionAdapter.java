@@ -7,12 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 import java.util.Objects;
@@ -34,12 +31,12 @@ public class DiscussionAdapter extends ArrayAdapter<DiscussionMessage> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View newView = null;
+        View newView = convertView;
         DiscussionMessage currentItem = getItem(position);
 
         if (currentItem != null) {
             LayoutInflater inflater = LayoutInflater.from(context);
-            if (Objects.equals(currentItem.getName(), FirebaseAuth.getInstance().getCurrentUser().getDisplayName())) {
+            if (Objects.equals(currentItem.getUID(), FirebaseAuth.getInstance().getCurrentUser().getUid())) {
                 newView = inflater.inflate(R.layout.discussion_message_self, parent, false);
             } else {
                 newView = inflater.inflate(R.layout.discussion_message, parent, false);
@@ -59,7 +56,6 @@ public class DiscussionAdapter extends ArrayAdapter<DiscussionMessage> {
             );
             message.setText(currentItem.getMessage());
         }
-
 
         return newView;
     }

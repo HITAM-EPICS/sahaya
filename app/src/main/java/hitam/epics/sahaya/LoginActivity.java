@@ -7,14 +7,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -99,16 +96,12 @@ public class LoginActivity extends Activity {
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            Log.d("FIREBASE", "signInWithEmail:onComplete:" + task.isSuccessful());
 
                             // If sign in fails, display a message to the user. If sign in succeeds
                             // the auth state listener will be notified and logic to handle the
                             // signed in user can be handled in the listener.
                             if (!task.isSuccessful()) {
-                                Log.w("FIREBASE", "signInWithEmail", task.getException());
-                                Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
-                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this,R.style.AppThemeAlert)
+                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this, R.style.AppThemeAlert)
                                         .setTitle("Login Failed")
                                         .setMessage("Invalid Username or Password")
                                         .setPositiveButton("Try Again", null);
@@ -138,15 +131,17 @@ public class LoginActivity extends Activity {
                                     .setPositiveButton("OK", null)
                                     .create().show();
                         } else {
-                            mAuth.sendPasswordResetEmail(email.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    AlertDialog.Builder builder1 = new AlertDialog.Builder(LoginActivity.this);
-                                    builder1.setMessage("Password reset email is sent to your mail.")
-                                            .setPositiveButton("OK", null)
-                                            .create().show();
-                                }
-                            });
+                            if (!email.getText().toString().trim().equals("")) {
+                                mAuth.sendPasswordResetEmail(email.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        AlertDialog.Builder builder1 = new AlertDialog.Builder(LoginActivity.this, R.style.AppThemeAlert);
+                                        builder1.setMessage("Password reset email is sent to your mail.")
+                                                .setPositiveButton("OK", null)
+                                                .create().show();
+                                    }
+                                });
+                            }
                         }
                     }
                 })

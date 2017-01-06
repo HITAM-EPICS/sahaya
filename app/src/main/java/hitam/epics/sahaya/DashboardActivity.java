@@ -3,6 +3,7 @@ package hitam.epics.sahaya;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -27,9 +28,16 @@ public class DashboardActivity extends Activity {
         setContentView(R.layout.activity_dashboard);
         auth = FirebaseAuth.getInstance();
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-        }
+        auth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user == null) {
+                    finish();
+                }
+            }
+        });
 
         dashboardMenu = (GridView) findViewById(R.id.dashboard_menu);
         menuItems = new ArrayList<>();
@@ -54,6 +62,9 @@ public class DashboardActivity extends Activity {
                         break;
                     case 1:
                         startActivity(new Intent(DashboardActivity.this, MaterialActivity.class));
+                        break;
+                    case 2:
+                        startActivity(new Intent(DashboardActivity.this, ProfileActivity.class));
                         break;
                     case 3:
                         startActivity(new Intent(DashboardActivity.this, DiscussionActivity.class));

@@ -3,13 +3,11 @@ package hitam.epics.sahaya;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputLayout;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -67,8 +65,6 @@ public class RegistrationActivity extends Activity {
                             // the auth state listener will be notified and logic to handle the
                             // signed in user can be handled in the listener.
                             if (!task.isSuccessful()) {
-                                Toast.makeText(RegistrationActivity.this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
                                 registrationFormLinearLayout.setVisibility(View.VISIBLE);
                                 loadingLinearLayout.setVisibility(View.GONE);
                             }
@@ -89,12 +85,13 @@ public class RegistrationActivity extends Activity {
                                     }
                                 });
                                 FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(RegistrationActivity.this);
-//                                String phoneNumber = phone.getEditText().getText().toString().trim();
-//                                if (phoneNumber.length() > 0)
-//                                    mFirebaseAnalytics.setUserProperty("phone", phoneNumber);
+                                String phoneNumber = phone.getText().toString().trim();
+                                /*todo: store phone numbers*/
                                 String occupationOfUser = occupation.getText().toString().trim();
+                                /*todo: store occupation*/
                                 if (occupationOfUser.length() > 0)
                                     mFirebaseAnalytics.setUserProperty("occupation", occupationOfUser);
+                                /*todo: handle referals*/
                             }
                         }
                     });

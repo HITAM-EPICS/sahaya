@@ -47,7 +47,7 @@ public class DiscussionActivity extends Activity {
         auth = FirebaseAuth.getInstance();
 
         database = FirebaseDatabase.getInstance();
-        discussionRef = database.getReference("discussion");
+        discussionRef = database.getReference("discussion_forum");
 
         FirebaseUser user = auth.getCurrentUser();
         if (user != null) {
@@ -93,8 +93,10 @@ public class DiscussionActivity extends Activity {
 
     public void SendMessage(View view) {
         String message = messageInput.getText().toString().trim();
-        DiscussionMessage newMessage = new DiscussionMessage(userName, message);
-        discussionRef.child(newMessage.getTime() + "").setValue(newMessage);
+        if (message.length() > 0) {
+            DiscussionMessage newMessage = new DiscussionMessage(userName, message);
+            discussionRef.child(newMessage.getTime() + "").setValue(newMessage);
+        }
         messageInput.setText("");
     }
 
