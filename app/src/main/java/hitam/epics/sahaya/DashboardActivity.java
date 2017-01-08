@@ -40,6 +40,7 @@ public class DashboardActivity extends Activity {
             }
         });
 
+
         dashboardMenu = (GridView) findViewById(R.id.dashboard_menu);
         menuItems = new ArrayList<>();
         menuAdapter = new DashboardMenuAdapter(this, menuItems);
