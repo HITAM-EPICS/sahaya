@@ -65,10 +65,7 @@ public class TimetableActivity extends Activity {
             public boolean shouldDecorate(CalendarDay day) {
                 Date date = day.getDate();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-                if (eventDateList.contains(simpleDateFormat.format(date)))
-                    return true;
-                else
-                    return false;
+                return eventDateList.contains(simpleDateFormat.format(date));
             }
 
             @Override
