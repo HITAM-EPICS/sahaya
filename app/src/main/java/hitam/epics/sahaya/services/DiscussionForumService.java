@@ -50,7 +50,7 @@ public class DiscussionForumService extends Service {
         database = FirebaseDatabase.getInstance();
 
         /*Get discussion database reference*/
-        discussionRef = database.getReference("discussion");
+        discussionRef = database.getReference("discussion_forum");
 
         /*Get Default Shared Preferences associated with app*/
         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
