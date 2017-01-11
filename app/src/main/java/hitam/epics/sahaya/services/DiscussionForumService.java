@@ -70,8 +70,8 @@ public class DiscussionForumService extends Service {
                     /*builder for push notification*/
                     Notification.Builder builder = new Notification.Builder(DiscussionForumService.this)
                             .setSmallIcon(R.mipmap.ic_launcher)
-                            .setContentTitle(message.getName())
-                            .setContentText(message.getMessage());
+                            .setContentTitle("Sahaya Discussion Forum")
+                            .setContentText("Your have new discussion messages");
 
                     /*intent for push notification*/
                     Intent resultIntent = new Intent(DiscussionForumService.this, DiscussionActivity.class);

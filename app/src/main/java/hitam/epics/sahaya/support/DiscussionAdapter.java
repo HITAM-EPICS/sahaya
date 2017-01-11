@@ -3,6 +3,7 @@ package hitam.epics.sahaya.support;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
-import java.util.Objects;
 
 import hitam.epics.sahaya.R;
 
@@ -22,10 +23,12 @@ import hitam.epics.sahaya.R;
 
 public class DiscussionAdapter extends ArrayAdapter<DiscussionMessage> {
     private Context context;
+    private FirebaseUser user;
 
     public DiscussionAdapter(@NonNull Context context, @NonNull List<DiscussionMessage> objects) {
         super(context, 0, objects);
         this.context = context;
+        user = FirebaseAuth.getInstance().getCurrentUser();
     }
 
     @NonNull
@@ -36,7 +39,7 @@ public class DiscussionAdapter extends ArrayAdapter<DiscussionMessage> {
 
         if (currentItem != null) {
             LayoutInflater inflater = LayoutInflater.from(context);
-            if (Objects.equals(currentItem.getUID(), FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+            if (currentItem.getUid().equals(user.getUid())) {
                 newView = inflater.inflate(R.layout.discussion_message_self, parent, false);
             } else {
                 newView = inflater.inflate(R.layout.discussion_message, parent, false);

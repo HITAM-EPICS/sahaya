@@ -23,16 +23,18 @@ import hitam.epics.sahaya.support.DiscussionAdapter;
 import hitam.epics.sahaya.support.DiscussionMessage;
 
 public class DiscussionActivity extends Activity {
-    private FirebaseAuth auth;
     FirebaseDatabase database;
     DatabaseReference discussionRef;
 
+
+    ChildEventListener childEventListener;
+    NotificationManager notificationManager;
+    private FirebaseAuth auth;
     private String userName;
     private ListView discussionMessagesListView;
     private DiscussionAdapter discussionAdapter;
     private ArrayList<DiscussionMessage> discussionMessages;
     private EditText messageInput;
-    NotificationManager notificationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +63,7 @@ public class DiscussionActivity extends Activity {
         TextView emptyView = (TextView) findViewById(R.id.empty_view);
         discussionMessagesListView.setEmptyView(emptyView);
 
-        discussionRef.addChildEventListener(new ChildEventListener() {
+        childEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 DiscussionMessage message = dataSnapshot.getValue(DiscussionMessage.class);
@@ -88,7 +90,7 @@ public class DiscussionActivity extends Activity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
+        };
     }
 
     public void SendMessage(View view) {
@@ -107,5 +109,23 @@ public class DiscussionActivity extends Activity {
         }
         discussionAdapter.notifyDataSetChanged();
         discussionMessagesListView.setSelection(discussionMessages.size() - 1);
+    }
+
+    @Override
+    protected void onStop() {
+        discussionRef.removeEventListener(childEventListener);
+        super.onStop();
+    }
+
+    @Override
+    protected void onResume() {
+        discussionRef.addChildEventListener(childEventListener);
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        discussionRef.removeEventListener(childEventListener);
+        super.onPause();
     }
 }

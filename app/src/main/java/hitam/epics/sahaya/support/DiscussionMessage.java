@@ -10,42 +10,31 @@ import com.google.firebase.auth.FirebaseUser;
 public class DiscussionMessage {
     private String name;
     private String message;
-    private String UID;
+    private String uid;
     private long time;
 
-    public DiscussionMessage(String name, String message, String UID, long time) {
+    public DiscussionMessage(String name, String message, String uid, long time) {
         this.name = name;
         this.message = message;
-        this.UID = UID;
+        this.uid = uid;
         this.time = time;
     }
-
 
     public DiscussionMessage(String name, String message) {
         this.name = name;
         this.message = message;
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
-            this.UID = currentUser.getUid();
+            this.uid = currentUser.getUid();
         }
         time = System.currentTimeMillis();
-    }
-
-    public DiscussionMessage(String name, String message, long time) {
-        this.name = name;
-        this.message = message;
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser != null) {
-            this.UID = currentUser.getUid();
-        }
-        this.time = time;
     }
 
     public DiscussionMessage() {
     }
 
-    public String getUID() {
-        return UID;
+    public String getUid() {
+        return uid;
     }
 
     public String getName() {
