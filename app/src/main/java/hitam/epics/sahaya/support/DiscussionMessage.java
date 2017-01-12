@@ -11,12 +11,14 @@ public class DiscussionMessage {
     private String name;
     private String message;
     private String uid;
+    private String photoUrl;
     private long time;
 
-    public DiscussionMessage(String name, String message, String uid, long time) {
+    public DiscussionMessage(String name, String message, String uid, String photoUrl, long time) {
         this.name = name;
         this.message = message;
         this.uid = uid;
+        this.photoUrl = photoUrl;
         this.time = time;
     }
 
@@ -26,6 +28,7 @@ public class DiscussionMessage {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
             this.uid = currentUser.getUid();
+            this.photoUrl = String.valueOf(currentUser.getPhotoUrl());
         }
         time = System.currentTimeMillis();
     }
@@ -49,4 +52,7 @@ public class DiscussionMessage {
         return time;
     }
 
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
 }

@@ -12,11 +12,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
 
@@ -65,11 +62,9 @@ public class DiscussionAdapter extends ArrayAdapter<DiscussionMessage> {
             );
             message.setText(currentItem.getMessage());
 
-            StorageReference reference = FirebaseStorage.getInstance().getReference("users/" + currentItem.getUid() + "/pp.jpg");
-            if (reference != null) {
+            if (!currentItem.getPhotoUrl().equals("")) {
                 Glide.with(context)
-                        .using(new FirebaseImageLoader())
-                        .load(reference)
+                        .load(currentItem.getPhotoUrl())
                         .diskCacheStrategy(DiskCacheStrategy.NONE)
                         .into(picture);
             }

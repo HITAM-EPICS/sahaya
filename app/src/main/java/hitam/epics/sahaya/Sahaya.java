@@ -5,7 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.google.firebase.FirebaseApp;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 import hitam.epics.sahaya.services.DiscussionForumService;
 
@@ -15,6 +16,9 @@ public class Sahaya extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sahaya);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this,getString(R.string.facebook_app_id));
 
         Intent intent = new Intent(this, DiscussionForumService.class);
         startService(intent);

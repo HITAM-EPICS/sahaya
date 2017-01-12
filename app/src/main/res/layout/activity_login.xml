@@ -11,10 +11,10 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/logo"
         android:src="@drawable/sahaya_logo"
         android:transitionName="logo"
-        tools:targetApi="lollipop"
-        android:contentDescription="@string/logo" />
+        tools:targetApi="lollipop" />
 
     <LinearLayout
         android:id="@+id/login_loading"
@@ -55,7 +55,7 @@
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/message_24"
             android:hint="@string/email"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress" />
 
         <android.support.v4.widget.Space
             android:layout_width="match_parent"
@@ -88,16 +88,17 @@
             android:layout_margin="10dp"
             android:foreground="#555" />
 
-        <Button
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/button_facebook_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
-            android:background="#424B97"
-            android:elevation="4dp"
-            android:padding="5dp"
-            android:text="@string/sign_in_with_facebook"
-            android:textColor="#E7E9F9"
-            tools:targetApi="lollipop" />
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp" />
 
         <Button
             android:layout_width="match_parent"

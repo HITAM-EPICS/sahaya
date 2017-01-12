@@ -27,5 +27,8 @@
     <string name="no_messages">No Messages</string>
     <string name="logout">Logout</string>
 
+    <string name="facebook_app_id">1011124365698784</string>
+    <string name="fb_login_protocol_scheme">fb1011124365698784</string>
+
     <string name="textbooks_path">http://scert.telangana.gov.in/sites/default/files/publication/ebooks/</string>
 </resources>
