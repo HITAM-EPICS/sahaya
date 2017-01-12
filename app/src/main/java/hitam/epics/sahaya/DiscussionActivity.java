@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -91,9 +93,25 @@ public class DiscussionActivity extends Activity {
 
             }
         };
+
+        messageInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+
+                if (actionId == EditorInfo.IME_ACTION_SEND) {
+                    send();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     public void SendMessage(View view) {
+        send();
+    }
+
+    private void send() {
         String message = messageInput.getText().toString().trim();
         if (message.length() > 0) {
             DiscussionMessage newMessage = new DiscussionMessage(userName, message);
@@ -104,9 +122,6 @@ public class DiscussionActivity extends Activity {
 
     private void addMessage(DiscussionMessage message) {
         discussionMessages.add(message);
-        if (discussionMessages.size() > 30) {
-            discussionMessages.remove(0);
-        }
         discussionAdapter.notifyDataSetChanged();
         discussionMessagesListView.setSelection(discussionMessages.size() - 1);
     }
@@ -119,7 +134,7 @@ public class DiscussionActivity extends Activity {
 
     @Override
     protected void onResume() {
-        discussionRef.addChildEventListener(childEventListener);
+        discussionRef.limitToLast(30).addChildEventListener(childEventListener);
         super.onResume();
     }
 

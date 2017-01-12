@@ -3,15 +3,20 @@ package hitam.epics.sahaya.support;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
 
@@ -48,6 +53,7 @@ public class DiscussionAdapter extends ArrayAdapter<DiscussionMessage> {
             TextView username = (TextView) newView.findViewById(R.id.message_username);
             TextView time = (TextView) newView.findViewById(R.id.message_time);
             TextView message = (TextView) newView.findViewById(R.id.message_text);
+            ImageView picture = (ImageView) newView.findViewById(R.id.profile_pic);
 
             username.setText(currentItem.getName());
             time.setText(
@@ -58,6 +64,15 @@ public class DiscussionAdapter extends ArrayAdapter<DiscussionMessage> {
                     ).toString()
             );
             message.setText(currentItem.getMessage());
+
+            StorageReference reference = FirebaseStorage.getInstance().getReference("users/" + currentItem.getUid() + "/pp.jpg");
+            if (reference != null) {
+                Glide.with(context)
+                        .using(new FirebaseImageLoader())
+                        .load(reference)
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .into(picture);
+            }
         }
 
         return newView;

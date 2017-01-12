@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_material"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_image"
@@ -26,7 +25,6 @@
             android:text="@string/class_text" />
 
         <Spinner
-            android:id="@+id/class_selection"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2" />
@@ -45,7 +43,6 @@
             android:text="@string/subject" />
 
         <Spinner
-            android:id="@+id/subject_selection"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2" />

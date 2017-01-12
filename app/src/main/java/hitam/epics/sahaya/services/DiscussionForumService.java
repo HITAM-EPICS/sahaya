@@ -135,7 +135,7 @@ public class DiscussionForumService extends Service {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    discussionRef.addChildEventListener(childEventListener);
+                    discussionRef.limitToLast(30).addChildEventListener(childEventListener);
                 } else {
                     discussionRef.removeEventListener(childEventListener);
                 }

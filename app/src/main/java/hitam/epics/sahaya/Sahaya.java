@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.google.firebase.FirebaseApp;
+
 import hitam.epics.sahaya.services.DiscussionForumService;
 
 public class Sahaya extends Activity {
