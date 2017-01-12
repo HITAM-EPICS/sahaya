@@ -20,6 +20,8 @@ Sahaya provides an opportunity to individuals who want to make a positive impact
 2. [Team Roles and Schedules](https://hitam-epics.github.io/sahaya/EPICS-Sanjit-Asif-Yeswanth 2.txt)
 3. [Product Survey](https://hitam-epics.github.io/sahaya/Product Survey.txt)
 4. [**Review 1**](https://hitam-epics.github.io/sahaya/holy knights epics review 1.pdf)
+5. [**Review 2 - PPT**](https://hitam-epics.github.io/sahaya/Sahaya - HKH ppt2.pdf)
+6. [**Review 2 - Documentation**](https://hitam-epics.github.io/sahaya/Documentation - HKH.pdf)
 
 <hr/>
 
