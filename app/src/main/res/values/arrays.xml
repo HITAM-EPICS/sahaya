@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="classes">
+        <item>FIRST</item>
+        <item>SECOND</item>
+        <item>THIRD</item>
+        <item>FOURTH</item>
+        <item>FIFTH</item>
+        <item>SIXTH</item>
+        <item>SEVENTH</item>
+        <item>EIGHTH</item>
+    </string-array>
+
+    <string-array name="FIRST">
+        <item>Telugu</item>
+        <item>English</item>
+        <item>Maths</item>
+    </string-array>
+
+    <string-array name="SECOND">
+        <item>Telugu</item>
+        <item>English</item>
+        <item>Maths</item>
+    </string-array>
+
+    <string-array name="THIRD">
+        <item>Telugu</item>
+        <item>English</item>
+        <item>Maths</item>
+        <item>EVS</item>
+    </string-array>
+
+    <string-array name="FOURTH">
+        <item>Telugu</item>
+        <item>English</item>
+        <item>Maths</item>
+        <item>EVS</item>
+    </string-array>
+
+    <string-array name="FIFTH">
+        <item>Telugu</item>
+        <item>English</item>
+        <item>Maths</item>
+        <item>EVS</item>
+    </string-array>
+
+    <string-array name="SIXTH">
+        <item>Telugu</item>
+        <item>Hindi</item>
+        <item>English</item>
+        <item>Maths</item>
+        <item>General Science</item>
+        <item>Social Science</item>
+    </string-array>
+
+    <string-array name="SEVENTH">
+        <item>Telugu</item>
+        <item>Hindi</item>
+        <item>English</item>
+        <item>Maths</item>
+        <item>General Science</item>
+        <item>Social Science</item>
+    </string-array>
+
+    <string-array name="EIGHTH">
+        <item>Telugu</item>
+        <item>Hindi</item>
+        <item>English</item>
+        <item>Maths</item>
+        <item>Physics</item>
+        <item>Biology</item>
+        <item>Social Science</item>
+    </string-array>
+
+    <string-array name="textbooks">
+        <item>1_TEL.pdf;1_ENG.pdf;1TM_MAT.pdf</item>
+        <item>2_TEL.pdf;2_ENG.pdf;2TM_MAT.pdf</item>
+        <item>3_TEL.pdf;3_ENG.pdf;3TM_MAT.pdf;3TM_EVS.pdf</item>
+        <item>4_TEL.pdf;4_ENG.pdf;4TM_MAT.pdf;4TM_EVS.pdf</item>
+        <item>5_TEL.pdf;5_ENG.pdf;5TM_MAT.pdf;5TM_EVS.pdf</item>
+        <item>6_TEL.pdf;6TM_HIN.pdf;6_ENG.pdf;6TM_MAT.pdf;6TM_GENSC.pdf;6TM_SOC.pdf</item>
+        <item>7_TEL.pdf;7TM_HIN.pdf;7_ENG.pdf;7TM_MAT.pdf;7TM_GENSC.pdf;7TM_SOC.pdf</item>
+        <item>8_TEL.pdf;8TM_HIN.pdf;8_ENG.pdf;8TM_MAT.pdf;8TM_PHT.pdf;8TM_BIO.pdf;8TM_SOC.pdf</item>
+    </string-array>
+</resources>

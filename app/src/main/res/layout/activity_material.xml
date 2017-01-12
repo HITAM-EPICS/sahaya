@@ -25,9 +25,12 @@
             android:text="@string/class_text" />
 
         <Spinner
+            android:id="@+id/class_spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2" />
+            android:spinnerMode="dropdown"
+            android:layout_weight="2"
+            android:entries="@array/classes" />
     </LinearLayout>
 
     <LinearLayout
@@ -43,6 +46,7 @@
             android:text="@string/subject" />
 
         <Spinner
+            android:id="@+id/subject_spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2" />
@@ -60,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="#2dcecb"
+            android:onClick="DownloadTextbook"
             android:text="Textbook" />
 
         <Button

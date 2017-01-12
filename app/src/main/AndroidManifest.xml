@@ -30,7 +30,6 @@
             android:name=".RegistrationActivity"
             android:theme="@style/AppThemeNoActionBar" />
         <activity android:name=".DashboardActivity" />
-        <activity android:name=".DonateActivity" />
         <activity
             android:name=".TimetableActivity"
             android:label="Timetable" />

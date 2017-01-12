@@ -26,4 +26,6 @@
     <string name="enter_your_message_here">Enter Your Message Here</string>
     <string name="no_messages">No Messages</string>
     <string name="logout">Logout</string>
+
+    <string name="textbooks_path">http://scert.telangana.gov.in/sites/default/files/publication/ebooks/</string>
 </resources>
