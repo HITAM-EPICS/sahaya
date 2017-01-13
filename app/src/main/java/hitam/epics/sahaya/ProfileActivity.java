@@ -57,13 +57,22 @@ public class ProfileActivity extends Activity {
         ProfileLevel.setText("Associate");
         ProfilePoints.setText("10");
         if (user.getPhotoUrl() != null) {
-            Log.e("onCreate: ", String.valueOf(user.getPhotoUrl()));
-            //StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(user.getPhotoUrl().toString());
+            StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(user.getPhotoUrl().toString());
 
-            Glide.with(this)
-                    .load(user.getPhotoUrl().toString())
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .into(ProfilePic);
+            if (user.getProviders().get(0).equals("password")) {
+                if (user.getPhotoUrl() != null) {
+                    Glide.with(this)
+                            .using(new FirebaseImageLoader())
+                            .load(storageReference)
+                            .diskCacheStrategy(DiskCacheStrategy.NONE)
+                            .into(ProfilePic);
+                }
+            } else if (!user.getPhotoUrl().equals("")) {
+                Glide.with(this)
+                        .load(user.getPhotoUrl().toString())
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .into(ProfilePic);
+            }
         }
         super.onResume();
 

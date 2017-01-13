@@ -46,7 +46,7 @@ public class HomeActivity extends Activity {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     Log.e("onAuthStateChanged: ", user.getProviders().get(0));
-                    if (!user.getProviders().get(0).equals("email") || user.isEmailVerified()) {
+                    if (!user.getProviders().get(0).equals("password") || user.isEmailVerified()) {
                         startActivity(new Intent(HomeActivity.this, DashboardActivity.class));
                     } else {
                         Toast.makeText(HomeActivity.this, "Verify Your Email to login", Toast.LENGTH_LONG).show();
