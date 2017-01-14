@@ -57,9 +57,9 @@ public class ProfileActivity extends Activity {
         ProfileLevel.setText("Associate");
         ProfilePoints.setText("10");
         if (user.getPhotoUrl() != null) {
-            StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(user.getPhotoUrl().toString());
 
             if (user.getProviders().get(0).equals("password")) {
+                StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(user.getPhotoUrl().toString());
                 if (user.getPhotoUrl() != null) {
                     Glide.with(this)
                             .using(new FirebaseImageLoader())
