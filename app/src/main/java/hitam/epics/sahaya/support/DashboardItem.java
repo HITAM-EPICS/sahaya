@@ -7,6 +7,22 @@ package hitam.epics.sahaya.support;
 public class DashboardItem {
     private int ImageResource;
     private String name;
+    private Class associatedClass;
+
+    public DashboardItem(int imageResource, String name, Class associatedClass) {
+
+        ImageResource = imageResource;
+        this.name = name;
+        this.associatedClass = associatedClass;
+    }
+
+    public DashboardItem() {
+
+    }
+
+    public Class getAssociatedClass() {
+        return associatedClass;
+    }
 
     public int getImageResource() {
         return ImageResource;
@@ -14,15 +30,5 @@ public class DashboardItem {
 
     public String getName() {
         return name;
-    }
-
-    public DashboardItem(int imageResource, String name) {
-
-        ImageResource = imageResource;
-        this.name = name;
-    }
-
-    public DashboardItem() {
-
     }
 }
