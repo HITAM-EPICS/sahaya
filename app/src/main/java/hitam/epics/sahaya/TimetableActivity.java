@@ -43,9 +43,9 @@ public class TimetableActivity extends Activity {
         eventDateList = new ArrayList<>();
 
         eventList = new ArrayList<>();
-        eventList.add(new CalendarItem("ZPHS", "04-01-2017", "01:00 PM", "04:00 PM", "Kukatpally", 17.484342, 78.413453));
-        eventList.add(new CalendarItem("ZPHS", "07-01-2017", "01:00 PM", "04:00 PM", "Sivarampalli", 17.327232, 78.433822));
-        eventList.add(new CalendarItem("ZPHS", "14-01-2017", "01:00 PM", "04:00 PM", "Habsiguda", 17.418028, 78.541110));
+        eventList.add(new CalendarItem("ZPHS", "24-01-2017", "01:00 PM", "04:00 PM", "Kukatpally", 17.484342, 78.413453));
+        eventList.add(new CalendarItem("ZPHS", "27-01-2017", "01:00 PM", "04:00 PM", "Sivarampalli", 17.327232, 78.433822));
+        eventList.add(new CalendarItem("ZPHS", "14-02-2017", "01:00 PM", "04:00 PM", "Habsiguda", 17.418028, 78.541110));
 
         for (CalendarItem item : eventList) {
             eventDateList.add(item.getDate());
@@ -103,5 +103,7 @@ public class TimetableActivity extends Activity {
                 startActivity(mapIntent);
             }
         });
+
+        calendarView.setSelectedDate(new Date());
     }
 }

@@ -1,6 +1,7 @@
 package hitam.epics.sahaya;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -15,6 +16,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -74,12 +79,21 @@ public class ProfileActivity extends Activity {
                         .into(ProfilePic);
             }
         }
-        super.onResume();
 
     }
 
     public void logout(View view) {
         FirebaseAuth.getInstance().signOut();
+        if (AccessToken.getCurrentAccessToken() != null) {
+            new GraphRequest(
+                    AccessToken.getCurrentAccessToken(), "/me/permissions/", null, null, new GraphRequest.Callback() {
+                @Override
+                public void onCompleted(GraphResponse response) {
+                    LoginManager.getInstance().logOut();
+                }
+            }
+            ).executeAsync();
+        }
         finish();
     }
 
@@ -158,7 +172,11 @@ public class ProfileActivity extends Activity {
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                // Handle unsuccessful uploads
+                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this, R.style.AppThemeAlert);
+                builder.setTitle("Error")
+                        .setMessage("Unable to update profile picture. Please try again later.")
+                        .setPositiveButton("Close", null);
+                builder.create().show();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override

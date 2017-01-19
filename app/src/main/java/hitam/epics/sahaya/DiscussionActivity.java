@@ -28,7 +28,6 @@ public class DiscussionActivity extends Activity {
     FirebaseDatabase database;
     DatabaseReference discussionRef;
 
-
     ChildEventListener childEventListener;
     NotificationManager notificationManager;
     private FirebaseAuth auth;

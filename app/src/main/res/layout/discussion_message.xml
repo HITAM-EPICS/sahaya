@@ -58,6 +58,7 @@
         <TextView
             android:id="@+id/message_text"
             android:layout_width="match_parent"
+            android:autoLink="all"
             android:layout_height="wrap_content"
             tools:text="Mesaagge" />
 

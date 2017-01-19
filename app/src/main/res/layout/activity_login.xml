@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_image"
+    android:id="@+id/root_view"
     android:gravity="center"
     android:orientation="vertical"
     tools:context="hitam.epics.sahaya.LoginActivity">
@@ -19,7 +20,7 @@
     <LinearLayout
         android:id="@+id/login_loading"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">

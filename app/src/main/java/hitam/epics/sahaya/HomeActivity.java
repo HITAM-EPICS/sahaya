@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -45,7 +44,7 @@ public class HomeActivity extends Activity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Log.e("onAuthStateChanged: ", user.getProviders().get(0));
+//                    Log.e("onAuthStateChanged: ", user.getProviders().get(0));
                     if (!user.getProviders().get(0).equals("password") || user.isEmailVerified()) {
                         startActivity(new Intent(HomeActivity.this, DashboardActivity.class));
                     } else {

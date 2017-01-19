@@ -15,17 +15,14 @@ import android.widget.LinearLayout;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
-import com.facebook.FacebookActivity;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FacebookAuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -64,6 +61,8 @@ public class LoginActivity extends Activity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Log.d("facebook:onSuccess:", loginResult.toString());
+                loginFormLinearLayout.setVisibility(View.GONE);
+                loadingLinearLayout.setVisibility(View.VISIBLE);
                 handleFacebookAccessToken(loginResult.getAccessToken());
             }
 
@@ -123,7 +122,7 @@ public class LoginActivity extends Activity {
         }
 
         if (valid) {
-            loginFormLinearLayout.setVisibility(View.INVISIBLE);
+            loginFormLinearLayout.setVisibility(View.GONE);
             loadingLinearLayout.setVisibility(View.VISIBLE);
             mAuth.signInWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -201,6 +200,8 @@ public class LoginActivity extends Activity {
                                     .create().show();
                             FirebaseAuth.getInstance().signOut();
                         }
+                        loginFormLinearLayout.setVisibility(View.VISIBLE);
+                        loadingLinearLayout.setVisibility(View.GONE);
 
                     }
                 });
