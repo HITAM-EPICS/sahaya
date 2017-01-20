@@ -27,6 +27,8 @@ Sahaya provides an opportunity to individuals who want to make a positive impact
 
 ## Updates(Recent On Top)
 
+#### (APP) Admin Panel and Dashboard UI Change - 20 Jan 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.7.3-alpha/sahaya.apk)
+
 #### (APP) Login Bug Fix and UserType Intialisation - 19 Jan 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.7.2-alpha/sahaya.apk)
 
 #### (APP) Login Through Facebook - 13 Jan 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.7.1-alpha/sahaya.apk)
