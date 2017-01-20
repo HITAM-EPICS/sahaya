@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
@@ -23,12 +24,17 @@ import java.util.ArrayList;
 import hitam.epics.sahaya.support.DashboardItem;
 import hitam.epics.sahaya.support.DashboardMenuAdapter;
 import hitam.epics.sahaya.support.UserData;
+import jp.wasabeef.blurry.Blurry;
 
 public class DashboardActivity extends Activity {
     private FirebaseAuth auth;
     private DashboardMenuAdapter menuAdapter;
+    private DashboardMenuAdapter menuAdminAdapter;
     private ArrayList<DashboardItem> menuItems;
+    private ArrayList<DashboardItem> menuAdminItems;
     private GridView dashboardMenu;
+    private GridView dashboardAdminMenu;
+    private ViewGroup dashboardBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +42,24 @@ public class DashboardActivity extends Activity {
         setContentView(R.layout.activity_dashboard);
 
         verifyAuthentication();
-        getUserType();
         initReferences();
+        blurBackground();
+        getUserType();
         addMenuItems();
+
+    }
+
+    private void blurBackground() {
+        dashboardBackground.post(new Runnable() {
+            @Override
+            public void run() {
+                Blurry.with(DashboardActivity.this)
+                        .radius(10)
+                        .sampling(16)
+                        .async()
+                        .onto(dashboardBackground);
+            }
+        });
 
     }
 
@@ -56,7 +77,9 @@ public class DashboardActivity extends Activity {
                 if (dataSnapshot.hasChild(email)) {
                     UserData.userType = dataSnapshot.child(email).getValue(UserData.UserType.class);
                     Log.e("onDataChange: ", UserData.userType.toString());
-                    enableAdminFeatures();
+                    if (UserData.userType == UserData.UserType.ADMIN) {
+                        enableAdminFeatures();
+                    }
                 } else {
                     UserTypeDatabase.child(email).setValue(UserData.UserType.VOLUNTEER);
                     UserData.userType = UserData.UserType.VOLUNTEER;
@@ -71,7 +94,7 @@ public class DashboardActivity extends Activity {
     }
 
     private void enableAdminFeatures() {
-        menuItems.add(0, new DashboardItem(R.drawable.profile, "Admin Menu", ProfileActivity.class));
+        menuItems.add(0, new DashboardItem(R.drawable.profile, "Admin Menu", DashboardActivity.class));
         menuAdapter.notifyDataSetChanged();
     }
 
@@ -83,19 +106,51 @@ public class DashboardActivity extends Activity {
         menuItems.add(new DashboardItem(R.drawable.about_us, "About Us", AboutActivity.class));
         menuItems.add(new DashboardItem(R.drawable.contact_us, "Contact Us", ContactUsActivity.class));
         menuAdapter.notifyDataSetChanged();
+
+        menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Manage Timetable", TimetableActivity.class));
+        menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Attendance", TimetableActivity.class));
+        menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Roles", TimetableActivity.class));
+        menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Center Management", TimetableActivity.class));
+        menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Announcement", TimetableActivity.class));
+        menuAdminItems.add(new DashboardItem(R.drawable.back, "Back", DashboardActivity.class));
+        menuAdminAdapter.notifyDataSetChanged();
     }
 
     private void initReferences() {
         dashboardMenu = (GridView) findViewById(R.id.dashboard_menu);
+        dashboardAdminMenu = (GridView) findViewById(R.id.dashboard_admin_menu);
+        dashboardBackground = (ViewGroup) findViewById(R.id.dashboard_background);
+
         menuItems = new ArrayList<>();
+        menuAdminItems = new ArrayList<>();
 
         menuAdapter = new DashboardMenuAdapter(this, menuItems);
+        menuAdminAdapter = new DashboardMenuAdapter(this, menuAdminItems);
+
         dashboardMenu.setAdapter(menuAdapter);
+        dashboardAdminMenu.setAdapter(menuAdminAdapter);
 
         dashboardMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(DashboardActivity.this, menuItems.get(position).getAssociatedClass()));
+                if (menuItems.get(position).getAssociatedClass() == DashboardActivity.class) {
+                    dashboardMenu.setVisibility(View.GONE);
+                    dashboardAdminMenu.setVisibility(View.VISIBLE);
+                } else {
+                    startActivity(new Intent(DashboardActivity.this, menuItems.get(position).getAssociatedClass()));
+                }
+            }
+        });
+
+        dashboardAdminMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (menuAdminItems.get(position).getAssociatedClass() == DashboardActivity.class) {
+                    dashboardAdminMenu.setVisibility(View.GONE);
+                    dashboardMenu.setVisibility(View.VISIBLE);
+                } else {
+                    startActivity(new Intent(DashboardActivity.this, menuAdminItems.get(position).getAssociatedClass()));
+                }
             }
         });
     }

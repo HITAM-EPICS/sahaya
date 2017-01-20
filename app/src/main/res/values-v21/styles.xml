@@ -32,7 +32,7 @@
 
     </style>
 
-    <style name="AppThemeNoActionBar" parent="android:Theme.Material.Light.NoActionBar">
+    <style name="AppThemeNoActionBar" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
         <!-- Customize your theme here. -->
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowActivityTransitions">true</item>

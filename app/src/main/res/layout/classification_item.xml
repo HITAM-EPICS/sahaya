@@ -1,44 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
 
-    <!--<android.support.v7.widget.CardView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--app:cardCornerRadius="1dp"-->
-        <!--app:cardElevation="10dp">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#3d1565c0"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="10dp">
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="Dashboard Menu Icon"
+            android:tint="#e9e9e9"
+            tools:ignore="HardcodedText"
+            tools:src="@drawable/sahaya_logo" />
 
-            <ImageView
-                android:id="@+id/item_image"
-                android:tint="#e9e9e9"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                tools:src="@drawable/sahaya_logo"
-                android:contentDescription="Dashboard Menu Icon"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/item_name"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#e9e9e9"
-                tools:text="Item Name" />
-        </LinearLayout>
-    <!--</android.support.v7.widget.CardView>-->
+        <TextView
+            android:id="@+id/item_name"
+            style="@style/Base.TextAppearance.AppCompat.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="#e9e9e9"
+            tools:text="Item Name" />
+    </LinearLayout>
 
 
 </LinearLayout>
