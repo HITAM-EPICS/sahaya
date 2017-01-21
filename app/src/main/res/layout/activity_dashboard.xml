@@ -22,47 +22,52 @@
 
         <TextView
             android:id="@+id/logo"
-            android:drawableTop="@drawable/sahaya_logo"
             style="@style/Base.TextAppearance.AppCompat.Display1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:drawableTop="@drawable/sahaya_logo"
             android:text="Sahaya"
             android:textAlignment="center"
             android:textColor="#fff" />
 
-        <GridView
-            android:id="@+id/dashboard_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:horizontalSpacing="5dp"
-            android:minHeight="100dp"
-            android:minWidth="100dp"
-            android:numColumns="3"
-            android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:verticalSpacing="5dp"
-            tools:listitem="@layout/classification_item" />
+        <ViewFlipper
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <GridView
+                android:id="@+id/dashboard_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:horizontalSpacing="5dp"
+                android:minHeight="100dp"
+                android:minWidth="100dp"
+                android:numColumns="3"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:verticalSpacing="5dp"
+                tools:listitem="@layout/classification_item" />
 
 
-        <GridView
-            android:id="@+id/dashboard_admin_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:horizontalSpacing="5dp"
-            android:minHeight="100dp"
-            android:minWidth="100dp"
-            android:numColumns="3"
-            android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:verticalSpacing="5dp"
-            android:visibility="gone"
-            tools:listitem="@layout/classification_item" />
+            <GridView
+                android:id="@+id/dashboard_admin_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="5dp"
+                android:minHeight="100dp"
+                android:minWidth="100dp"
+                android:numColumns="3"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:verticalSpacing="5dp"
+                android:visibility="gone"
+                tools:listitem="@layout/classification_item" />
+        </ViewFlipper>
     </LinearLayout>
 
 </RelativeLayout>

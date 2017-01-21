@@ -18,9 +18,9 @@
         style="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:elevation="10dp"
-        android:text="Timetable"
+        android:padding="10dp"
+        android:text="@string/timetable"
         android:textAlignment="center"
         android:textColor="#fff" />
 
@@ -42,8 +42,8 @@
                 android:layout_height="wrap_content"
                 android:theme="@style/Theme.AppCompat"
                 app:mcv_arrowColor="#fff"
-                app:mcv_weekDayTextAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                app:mcv_dateTextAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+                app:mcv_dateTextAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                app:mcv_weekDayTextAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             <GridView
                 android:id="@+id/event_list"

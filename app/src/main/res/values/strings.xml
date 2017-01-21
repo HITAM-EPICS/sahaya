@@ -31,4 +31,8 @@
     <string name="fb_login_protocol_scheme">fb1011124365698784</string>
 
     <string name="textbooks_path">http://scert.telangana.gov.in/sites/default/files/publication/ebooks/</string>
+    <string name="timetable">Timetable</string>
+    <string name="teaching_material">Teaching Material</string>
+    <string name="profile">Profile</string>
+    <string name="discussion_forum">Discussion Forum</string>
 </resources>

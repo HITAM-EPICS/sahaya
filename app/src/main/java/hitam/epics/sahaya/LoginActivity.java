@@ -10,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -27,6 +28,8 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import jp.wasabeef.blurry.Blurry;
+
 public class LoginActivity extends Activity {
     private CallbackManager callbackManager;
     private FirebaseAuth mAuth;
@@ -35,11 +38,15 @@ public class LoginActivity extends Activity {
     private LinearLayout loginFormLinearLayout;
     private LinearLayout loadingLinearLayout;
     private LoginButton loginButton;
+    private ViewGroup loginBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        loginBackground = (ViewGroup) findViewById(R.id.login_background);
+        blurBackground();
 
         mAuth = FirebaseAuth.getInstance();
         loginFormLinearLayout = (LinearLayout) findViewById(R.id.login_form);
@@ -75,6 +82,19 @@ public class LoginActivity extends Activity {
             }
         });
 
+    }
+
+    private void blurBackground() {
+        loginBackground.post(new Runnable() {
+            @Override
+            public void run() {
+                Blurry.with(LoginActivity.this)
+                        .radius(10)
+                        .sampling(16)
+                        .async()
+                        .onto(loginBackground);
+            }
+        });
     }
 
     @Override

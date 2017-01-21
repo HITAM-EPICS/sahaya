@@ -3,9 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/discussion_background"
-    android:padding="5dp"
     tools:context="hitam.epics.sahaya.DiscussionActivity">
+
+    <TextView
+        android:id="@+id/discussion_title"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="10dp"
+        android:padding="10dp"
+        android:text="@string/discussion_forum"
+        android:textAlignment="center"
+        android:textColor="#fff" />
 
     <RelativeLayout
         android:id="@+id/message_layout"
@@ -32,19 +42,27 @@
             android:imeOptions="actionSend"
             android:inputType="text"
             android:maxHeight="100dp" />
-
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/discussion_message_list"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/message_layout"
-        android:dividerHeight="10dp"
-        android:listSelector="@android:color/transparent"
-        android:padding="10dp"
-        android:transcriptMode="alwaysScroll"
-        tools:listitem="@layout/discussion_message" />
+
+        android:layout_below="@id/discussion_title"
+        android:background="@drawable/discussion_background">
+
+        <ListView
+            android:id="@+id/discussion_message_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="10dp"
+            android:listSelector="@android:color/transparent"
+            android:padding="10dp"
+            android:transcriptMode="alwaysScroll"
+            tools:listitem="@layout/discussion_message" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/empty_view"
