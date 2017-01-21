@@ -1,7 +1,6 @@
 package hitam.epics.sahaya;
 
 import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,34 +8,28 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewGroup;
 import android.widget.Toast;
-import android.widget.ViewFlipper;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import jp.wasabeef.blurry.Blurry;
+
 public class HomeActivity extends Activity {
-
-    private ImageView logo;
-
-    private ViewFlipper flipper;
 
     private FirebaseAuth mAuth;
     @Nullable
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ViewGroup dashboardBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        logo = (ImageView) findViewById(R.id.logo);
 
-        flipper = (ViewFlipper) findViewById(R.id.homeImageFlipper);
-        flipper.setFlipInterval(4000);
-        flipper.setAutoStart(true);
-        flipper.setInAnimation(HomeActivity.this, R.anim.in_from_right);
-        flipper.setOutAnimation(HomeActivity.this, R.anim.out_from_left);
+        dashboardBackground = (ViewGroup) findViewById(R.id.home_background);
+        blurBackground();
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -47,6 +40,9 @@ public class HomeActivity extends Activity {
 //                    Log.e("onAuthStateChanged: ", user.getProviders().get(0));
                     if (!user.getProviders().get(0).equals("password") || user.isEmailVerified()) {
                         startActivity(new Intent(HomeActivity.this, DashboardActivity.class));
+                        if (firebaseAuth.getCurrentUser() == null) {
+                            finish();
+                        }
                     } else {
                         Toast.makeText(HomeActivity.this, "Verify Your Email to login", Toast.LENGTH_LONG).show();
                         AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this, R.style.AppThemeAlert);
@@ -66,10 +62,22 @@ public class HomeActivity extends Activity {
         };
     }
 
+    private void blurBackground() {
+        dashboardBackground.post(new Runnable() {
+            @Override
+            public void run() {
+                Blurry.with(HomeActivity.this)
+                        .radius(10)
+                        .sampling(2)
+                        .async()
+                        .onto(dashboardBackground);
+            }
+        });
+    }
+
     @Override
     public void onStart() {
         super.onStart();
-        flipper.startFlipping();
         mAuth.addAuthStateListener(mAuthListener);
     }
 
@@ -83,12 +91,7 @@ public class HomeActivity extends Activity {
 
     public void login(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(HomeActivity.this, HomeActivity.this.logo, "logo");
-            startActivity(intent, options.toBundle());
-        } else {
-            startActivity(intent);
-        }
+        startActivity(intent);
     }
 
     public void register(View view) {
