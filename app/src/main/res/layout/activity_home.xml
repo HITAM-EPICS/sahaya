@@ -43,13 +43,16 @@
                 android:textColor="#fff" />
 
             <Button
-                style="@style/Base.Widget.AppCompat.Button.Colored"
+                style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:drawableTint="#fff"
+                android:drawableTop="@drawable/register"
                 android:gravity="center"
                 android:onClick="register"
-                android:text="@string/register" />
+                android:text="@string/register"
+                android:textColor="#fff" />
         </LinearLayout>
 
         <Button

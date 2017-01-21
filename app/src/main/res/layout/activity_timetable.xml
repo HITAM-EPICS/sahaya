@@ -1,19 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_image"
     tools:context=".TimetableActivity">
+
+    <LinearLayout
+        android:id="@+id/dashboard_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_image2"
+        android:orientation="vertical" />
+
+    <TextView
+        android:id="@+id/timetable_title"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="10dp"
+        android:text="Timetable"
+        android:textAlignment="center"
+        android:textColor="#fff" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/timetable_title"
         android:background="#6d1565c0">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -21,14 +40,17 @@
                 android:id="@+id/calendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:theme="@style/Theme.AppCompat.Light" />
+                android:theme="@style/Theme.AppCompat"
+                app:mcv_arrowColor="#fff"
+                app:mcv_weekDayTextAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                app:mcv_dateTextAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
             <GridView
                 android:id="@+id/event_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:background="#3d1565c0"
+                android:gravity="center"
                 android:numColumns="1"
                 tools:listitem="@layout/calendar_item">
 
@@ -40,7 +62,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="No event for selected day" />
+                android:text="No event for selected day"
+                android:textColor="#fff" />
 
         </LinearLayout>
     </ScrollView>
