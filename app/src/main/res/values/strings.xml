@@ -35,4 +35,14 @@
     <string name="teaching_material">Teaching Material</string>
     <string name="profile">Profile</string>
     <string name="discussion_forum">Discussion Forum</string>
+    <string name="directions">Directions</string>
+    <string name="event_name">Event Name</string>
+    <string name="event_area">Event Area</string>
+    <string name="event_date">Event Date(DD/MM/YYYY)</string>
+    <string name="start_time">Start Time</string>
+    <string name="end_time">End Time</string>
+    <string name="add_event">Add Event</string>
+    <string name="cancel">Cancel</string>
+    <string name="no_event_found">No Event Found</string>
+    <string name="manage_timetable">Manage Timetable</string>
 </resources>

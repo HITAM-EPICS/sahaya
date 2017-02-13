@@ -61,4 +61,17 @@ public class CalendarItem {
     public String getEnd() {
         return end;
     }
+
+    @Override
+    public String toString() {
+        return "CalendarItem{" +
+                "name='" + name + '\'' +
+                ", start='" + start + '\'' +
+                ", end='" + end + '\'' +
+                ", area='" + area + '\'' +
+                ", date='" + date + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                '}';
+    }
 }

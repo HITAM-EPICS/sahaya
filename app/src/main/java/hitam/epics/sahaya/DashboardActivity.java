@@ -105,7 +105,7 @@ public class DashboardActivity extends Activity {
         menuItems.add(new DashboardItem(R.drawable.contact_us, "Contact Us", ContactUsActivity.class));
         menuAdapter.notifyDataSetChanged();
 
-        menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Manage Timetable", TimetableActivity.class));
+        menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Manage Timetable", AdminTimetableActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Attendance", TimetableActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Roles", TimetableActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Center Management", TimetableActivity.class));

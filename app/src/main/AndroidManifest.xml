@@ -16,6 +16,9 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBFyeQoGO59GIL3sJSZSCsSaWVDDmm33PU" />
 
         <activity android:name=".Sahaya">
             <intent-filter>
@@ -49,7 +52,6 @@
         </service>
 
         <activity android:name=".ProfileActivity" />
-
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -66,6 +68,8 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
+        <activity android:name=".TimetableEventDetailActivity" />
+        <activity android:name=".AdminTimetableActivity"></activity>
     </application>
 
 </manifest>

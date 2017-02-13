@@ -4,14 +4,19 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
@@ -27,6 +32,8 @@ import hitam.epics.sahaya.support.CalendarItem;
 import hitam.epics.sahaya.support.CalendarItemMenuAdapter;
 
 public class TimetableActivity extends Activity {
+    FirebaseDatabase database;
+    DatabaseReference reference;
     private ArrayList<String> eventDateList;
     private ArrayList<CalendarItem> currentDateEventList;
     private ArrayList<CalendarItem> eventList;
@@ -34,23 +41,15 @@ public class TimetableActivity extends Activity {
     private GridView EventListGridView;
     private MaterialCalendarView calendarView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timetable);
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference("/events/");
 
         eventDateList = new ArrayList<>();
-
         eventList = new ArrayList<>();
-        eventList.add(new CalendarItem("ZPHS", "24-01-2017", "01:00 PM", "04:00 PM", "Kukatpally", 17.484342, 78.413453));
-        eventList.add(new CalendarItem("ZPHS", "27-01-2017", "01:00 PM", "04:00 PM", "Sivarampalli", 17.327232, 78.433822));
-        eventList.add(new CalendarItem("ZPHS", "14-02-2017", "01:00 PM", "04:00 PM", "Habsiguda", 17.418028, 78.541110));
-
-        for (CalendarItem item : eventList) {
-            eventDateList.add(item.getDate());
-        }
-
         currentDateEventList = new ArrayList<>();
 
         menuAdapter = new CalendarItemMenuAdapter(this, currentDateEventList);
@@ -60,23 +59,6 @@ public class TimetableActivity extends Activity {
 
         calendarView = (MaterialCalendarView) findViewById(R.id.calendar);
         calendarView.setCurrentDate(new Date());
-        calendarView.addDecorator(new DayViewDecorator() {
-            @Override
-            public boolean shouldDecorate(CalendarDay day) {
-                Date date = day.getDate();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-                return eventDateList.contains(simpleDateFormat.format(date));
-            }
-
-            @Override
-            public void decorate(DayViewFacade view) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    view.setBackgroundDrawable(getDrawable(R.drawable.round));
-                } else {
-                    view.setBackgroundDrawable(new ColorDrawable(Color.GREEN));
-                }
-            }
-        });
 
         calendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
@@ -95,15 +77,102 @@ public class TimetableActivity extends Activity {
         EventListGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                double latitude = currentDateEventList.get(position).getLat();
-                double longitude = currentDateEventList.get(position).getLon();
-                Uri gmmIntentUri = Uri.parse("google.navigation:q=" + latitude + "," + longitude);
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-                startActivity(mapIntent);
+                CalendarItem calendarItem = currentDateEventList.get(position);
+                Intent intent = new Intent(TimetableActivity.this, TimetableEventDetailActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("event_name", calendarItem.getName());
+                extras.putString("event_date", calendarItem.getDate());
+                extras.putString("event_time", calendarItem.getStart() + "-" + calendarItem.getEnd());
+                extras.putString("event_desc", calendarItem.getArea());
+                extras.putDouble("event_latitude", calendarItem.getLat());
+                extras.putDouble("event_longitude", calendarItem.getLon());
+                intent.putExtras(extras);
+                startActivity(intent);
             }
         });
 
         calendarView.setSelectedDate(new Date());
+
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                eventList.add(dataSnapshot.getValue(CalendarItem.class));
+                Log.e("onChildAdded: ", dataSnapshot.getValue(CalendarItem.class).toString());
+                eventDateList.clear();
+                for (CalendarItem item : eventList) {
+                    eventDateList.add(item.getDate());
+                }
+                menuAdapter.notifyDataSetChanged();
+                calendarView.removeDecorators();
+                calendarView.addDecorator(new DayViewDecorator() {
+                    @Override
+                    public boolean shouldDecorate(CalendarDay day) {
+                        Date date = day.getDate();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                        return eventDateList.contains(simpleDateFormat.format(date));
+                    }
+
+                    @Override
+                    public void decorate(DayViewFacade view) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            view.setBackgroundDrawable(getDrawable(R.drawable.round));
+                        } else {
+                            view.setBackgroundDrawable(new ColorDrawable(Color.GREEN));
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                CalendarItem value = dataSnapshot.getValue(CalendarItem.class);
+                for (CalendarItem item : eventList) {
+                    if (item.toString().equals(value.toString())) {
+                        eventList.remove(item);
+                        break;
+                    }
+                }
+                eventDateList.clear();
+                for (CalendarItem item : eventList) {
+                    eventDateList.add(item.getDate());
+                }
+
+                menuAdapter.notifyDataSetChanged();
+                calendarView.removeDecorators();
+                calendarView.addDecorator(new DayViewDecorator() {
+                    @Override
+                    public boolean shouldDecorate(CalendarDay day) {
+                        Date date = day.getDate();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                        return eventDateList.contains(simpleDateFormat.format(date));
+                    }
+
+                    @Override
+                    public void decorate(DayViewFacade view) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            view.setBackgroundDrawable(getDrawable(R.drawable.round));
+                        } else {
+                            view.setBackgroundDrawable(new ColorDrawable(Color.GREEN));
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 }

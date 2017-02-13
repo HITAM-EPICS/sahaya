@@ -13,16 +13,21 @@
         android:background="@drawable/background_image2"
         android:orientation="vertical" />
 
-    <TextView
+    <android.support.v7.widget.Toolbar
         android:id="@+id/timetable_title"
-        style="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="10dp"
-        android:padding="10dp"
-        android:text="@string/timetable"
-        android:textAlignment="center"
-        android:textColor="#fff" />
+        android:background="#3d050500">
+
+        <TextView
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/timetable"
+            android:textColor="#fff" />
+    </android.support.v7.widget.Toolbar>
+
 
     <ScrollView
         android:layout_width="match_parent"

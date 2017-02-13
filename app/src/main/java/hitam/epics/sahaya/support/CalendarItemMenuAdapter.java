@@ -39,7 +39,7 @@ public class CalendarItemMenuAdapter extends ArrayAdapter<CalendarItem> {
         TextView time = (TextView) newView.findViewById(R.id.event_time);
 
         if (item.getStart() != null) {
-            name.setText(item.getName() + " - " + item.getArea());
+            name.setText(item.getName());
             time.setText(item.getStart() + " - " + item.getEnd());
         } else {
             name.setText(item.getName());
