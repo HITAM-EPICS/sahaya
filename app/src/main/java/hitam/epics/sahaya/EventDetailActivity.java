@@ -13,8 +13,10 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class TimetableEventDetailActivity extends Activity {
+public class EventDetailActivity extends Activity {
 
     private String event_name;
     private String event_date;
@@ -32,7 +34,7 @@ public class TimetableEventDetailActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_timetable_event_detail);
+        setContentView(R.layout.activity_event_detail);
 
         EventNameView = (TextView) findViewById(R.id.timetable_event_name);
         EventDateView = (TextView) findViewById(R.id.timetable_event_date);
@@ -47,6 +49,9 @@ public class TimetableEventDetailActivity extends Activity {
         event_desc = extras.getString("event_desc");
         event_latitude = extras.getDouble("event_latitude");
         event_longitude = extras.getDouble("event_longitude");
+        if (extras.getBoolean("admin")) {
+            findViewById(R.id.delete_button).setVisibility(View.VISIBLE);
+        }
 
         EventNameView.setText(event_name);
         EventDateView.setText(event_date);
@@ -74,5 +79,11 @@ public class TimetableEventDetailActivity extends Activity {
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         startActivity(mapIntent);
+    }
+
+    public void delete(View view) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("/events/" + event_date + event_time.split("-")[0] + event_name);
+        reference.removeValue();
+        finish();
     }
 }

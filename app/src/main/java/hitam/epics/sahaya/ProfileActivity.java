@@ -26,7 +26,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -38,10 +42,10 @@ public class ProfileActivity extends Activity {
     FirebaseDatabase database;
     FirebaseUser user;
     private TextView ProfileName;
-    private TextView ProfileLevel;
-    private TextView ProfilePoints;
+    private TextView ProfileRole;
     private ImageView ProfilePic;
     private StorageReference mStorageRef;
+    private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +53,7 @@ public class ProfileActivity extends Activity {
         setContentView(R.layout.activity_profile);
 
         ProfileName = (TextView) findViewById(R.id.profile_name);
-        ProfileLevel = (TextView) findViewById(R.id.profile_level);
-        ProfilePoints = (TextView) findViewById(R.id.profile_points);
+        ProfileRole = (TextView) findViewById(R.id.profile_role);
         ProfilePic = (ImageView) findViewById(R.id.profile_pic);
 
         auth = FirebaseAuth.getInstance();
@@ -59,8 +62,25 @@ public class ProfileActivity extends Activity {
         if (user != null) {
             ProfileName.setText(user.getDisplayName());
         }
-        ProfileLevel.setText("Associate");
-        ProfilePoints.setText("10");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        reference = database.getReference("/user_types/" + user.getEmail()
+                .replace(".", "(dot)")
+                .replace("#", "(hash)")
+                .replace("$", "(dollar)")
+                .replace("[", "(bropen)")
+                .replace("]", "(brclose)"));
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ProfileRole.setText(dataSnapshot.getValue(String.class));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        ProfileRole.setText("Loading...");
         if (user.getPhotoUrl() != null) {
 
             if (user.getProviders().get(0).equals("password")) {

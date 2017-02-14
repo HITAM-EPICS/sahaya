@@ -16,10 +16,10 @@ import hitam.epics.sahaya.R;
  * Created by sanjit on 3/1/17.
  */
 
-public class CalendarItemMenuAdapter extends ArrayAdapter<CalendarItem> {
+public class EventsAdapter extends ArrayAdapter<EventItem> {
     Context context;
 
-    public CalendarItemMenuAdapter(Context context, List<CalendarItem> objects) {
+    public EventsAdapter(Context context, List<EventItem> objects) {
         super(context, 0, objects);
         this.context = context;
     }
@@ -30,10 +30,10 @@ public class CalendarItemMenuAdapter extends ArrayAdapter<CalendarItem> {
         View newView = convertView;
         if (newView == null) {
             LayoutInflater inflater = LayoutInflater.from(context);
-            newView = inflater.inflate(R.layout.calendar_item, parent, false);
+            newView = inflater.inflate(R.layout.event_item, parent, false);
         }
 
-        CalendarItem item = getItem(position);
+        EventItem item = getItem(position);
 
         TextView name = (TextView) newView.findViewById(R.id.event_name);
         TextView time = (TextView) newView.findViewById(R.id.event_time);

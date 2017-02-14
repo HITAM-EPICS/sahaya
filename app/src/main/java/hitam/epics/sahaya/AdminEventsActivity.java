@@ -5,10 +5,10 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -25,13 +25,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import hitam.epics.sahaya.support.CalendarItem;
-import hitam.epics.sahaya.support.CalendarItemMenuAdapter;
+import hitam.epics.sahaya.support.EventItem;
+import hitam.epics.sahaya.support.EventsAdapter;
 
-public class AdminTimetableActivity extends Activity {
+public class AdminEventsActivity extends Activity {
 
     private final int PLACE_PICKER_REQUEST = 1;
-    private CalendarItemMenuAdapter adapter;
+    private EventsAdapter adapter;
     private EditText eventNameEditText;
     private EditText eventDateEditText;
     private EditText eventStartTimeEditText;
@@ -41,13 +41,13 @@ public class AdminTimetableActivity extends Activity {
     private String eventDate;
     private String eventStartTime;
     private String eventEndTime;
-    private ArrayList<CalendarItem> events;
+    private ArrayList<EventItem> events;
     private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_timetable);
+        setContentView(R.layout.activity_admin_events);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         reference = database.getReference("/events/");
 
@@ -55,13 +55,13 @@ public class AdminTimetableActivity extends Activity {
         evenListView.setEmptyView(findViewById(R.id.add_event_empty_view));
         events = new ArrayList<>();
 
-        adapter = new CalendarItemMenuAdapter(this, events);
+        adapter = new EventsAdapter(this, events);
         evenListView.setAdapter(adapter);
 
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                events.add(dataSnapshot.getValue(CalendarItem.class));
+                events.add(dataSnapshot.getValue(EventItem.class));
                 adapter.notifyDataSetChanged();
             }
 
@@ -72,8 +72,8 @@ public class AdminTimetableActivity extends Activity {
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                CalendarItem value = dataSnapshot.getValue(CalendarItem.class);
-                for (CalendarItem item : events) {
+                EventItem value = dataSnapshot.getValue(EventItem.class);
+                for (EventItem item : events) {
                     if (item.toString().equals(value.toString())) {
                         events.remove(item);
                         break;
@@ -91,6 +91,24 @@ public class AdminTimetableActivity extends Activity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });
+
+        evenListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                EventItem eventItem = events.get(position);
+                Intent intent = new Intent(AdminEventsActivity.this, EventDetailActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("event_name", eventItem.getName());
+                extras.putString("event_date", eventItem.getDate());
+                extras.putString("event_time", eventItem.getStart() + "-" + eventItem.getEnd());
+                extras.putString("event_desc", eventItem.getArea());
+                extras.putDouble("event_latitude", eventItem.getLat());
+                extras.putDouble("event_longitude", eventItem.getLon());
+                extras.putBoolean("admin",true);
+                intent.putExtras(extras);
+                startActivity(intent);
             }
         });
     }
@@ -192,7 +210,7 @@ public class AdminTimetableActivity extends Activity {
 
                 PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
                 try {
-                    startActivityForResult(builder.build(AdminTimetableActivity.this), PLACE_PICKER_REQUEST);
+                    startActivityForResult(builder.build(AdminEventsActivity.this), PLACE_PICKER_REQUEST);
                 } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
                     e.printStackTrace();
                 }
@@ -206,7 +224,7 @@ public class AdminTimetableActivity extends Activity {
         if (requestCode == PLACE_PICKER_REQUEST) {
             if (resultCode == RESULT_OK) {
                 Place place = PlacePicker.getPlace(data, this);
-                reference.child(eventDate + eventStartTime + eventName).setValue(new CalendarItem(eventName, eventDate, eventStartTime, eventEndTime, place.getAddress().toString(), place.getLatLng().latitude, place.getLatLng().longitude));
+                reference.child(eventDate + eventStartTime + eventName).setValue(new EventItem(eventName, eventDate, eventStartTime, eventEndTime, place.getAddress().toString(), place.getLatLng().latitude, place.getLatLng().longitude));
                 alertDialog.cancel();
             }
         } else {

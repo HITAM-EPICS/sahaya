@@ -28,23 +28,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
-import hitam.epics.sahaya.support.CalendarItem;
-import hitam.epics.sahaya.support.CalendarItemMenuAdapter;
+import hitam.epics.sahaya.support.EventItem;
+import hitam.epics.sahaya.support.EventsAdapter;
 
-public class TimetableActivity extends Activity {
+public class EventsActivity extends Activity {
     FirebaseDatabase database;
     DatabaseReference reference;
     private ArrayList<String> eventDateList;
-    private ArrayList<CalendarItem> currentDateEventList;
-    private ArrayList<CalendarItem> eventList;
-    private CalendarItemMenuAdapter menuAdapter;
+    private ArrayList<EventItem> currentDateEventList;
+    private ArrayList<EventItem> eventList;
+    private EventsAdapter adapter;
     private GridView EventListGridView;
     private MaterialCalendarView calendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_timetable);
+        setContentView(R.layout.activity_events);
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("/events/");
 
@@ -52,9 +52,9 @@ public class TimetableActivity extends Activity {
         eventList = new ArrayList<>();
         currentDateEventList = new ArrayList<>();
 
-        menuAdapter = new CalendarItemMenuAdapter(this, currentDateEventList);
+        adapter = new EventsAdapter(this, currentDateEventList);
         EventListGridView = (GridView) findViewById(R.id.event_list);
-        EventListGridView.setAdapter(menuAdapter);
+        EventListGridView.setAdapter(adapter);
         EventListGridView.setEmptyView(findViewById(R.id.empty_view));
 
         calendarView = (MaterialCalendarView) findViewById(R.id.calendar);
@@ -65,27 +65,28 @@ public class TimetableActivity extends Activity {
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 currentDateEventList.clear();
-                for (CalendarItem item : eventList) {
+                for (EventItem item : eventList) {
                     if (Objects.equals(item.getDate(), simpleDateFormat.format(date.getDate()))) {
                         currentDateEventList.add(item);
                     }
                 }
-                menuAdapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
             }
         });
 
         EventListGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                CalendarItem calendarItem = currentDateEventList.get(position);
-                Intent intent = new Intent(TimetableActivity.this, TimetableEventDetailActivity.class);
+                EventItem eventItem = currentDateEventList.get(position);
+                Intent intent = new Intent(EventsActivity.this, EventDetailActivity.class);
                 Bundle extras = new Bundle();
-                extras.putString("event_name", calendarItem.getName());
-                extras.putString("event_date", calendarItem.getDate());
-                extras.putString("event_time", calendarItem.getStart() + "-" + calendarItem.getEnd());
-                extras.putString("event_desc", calendarItem.getArea());
-                extras.putDouble("event_latitude", calendarItem.getLat());
-                extras.putDouble("event_longitude", calendarItem.getLon());
+                extras.putString("event_name", eventItem.getName());
+                extras.putString("event_date", eventItem.getDate());
+                extras.putString("event_time", eventItem.getStart() + "-" + eventItem.getEnd());
+                extras.putString("event_desc", eventItem.getArea());
+                extras.putDouble("event_latitude", eventItem.getLat());
+                extras.putDouble("event_longitude", eventItem.getLon());
+                extras.putBoolean("admin", false);
                 intent.putExtras(extras);
                 startActivity(intent);
             }
@@ -96,13 +97,13 @@ public class TimetableActivity extends Activity {
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                eventList.add(dataSnapshot.getValue(CalendarItem.class));
-                Log.e("onChildAdded: ", dataSnapshot.getValue(CalendarItem.class).toString());
+                eventList.add(dataSnapshot.getValue(EventItem.class));
+                Log.e("onChildAdded: ", dataSnapshot.getValue(EventItem.class).toString());
                 eventDateList.clear();
-                for (CalendarItem item : eventList) {
+                for (EventItem item : eventList) {
                     eventDateList.add(item.getDate());
                 }
-                menuAdapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
                 calendarView.removeDecorators();
                 calendarView.addDecorator(new DayViewDecorator() {
                     @Override
@@ -130,19 +131,19 @@ public class TimetableActivity extends Activity {
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                CalendarItem value = dataSnapshot.getValue(CalendarItem.class);
-                for (CalendarItem item : eventList) {
+                EventItem value = dataSnapshot.getValue(EventItem.class);
+                for (EventItem item : eventList) {
                     if (item.toString().equals(value.toString())) {
                         eventList.remove(item);
                         break;
                     }
                 }
                 eventDateList.clear();
-                for (CalendarItem item : eventList) {
+                for (EventItem item : eventList) {
                     eventDateList.add(item.getDate());
                 }
 
-                menuAdapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
                 calendarView.removeDecorators();
                 calendarView.addDecorator(new DayViewDecorator() {
                     @Override

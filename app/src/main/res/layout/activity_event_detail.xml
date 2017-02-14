@@ -10,7 +10,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="hitam.epics.sahaya.TimetableEventDetailActivity">
+    tools:context="hitam.epics.sahaya.EventDetailActivity">
 
     <TextView
         android:id="@+id/timetable_event_name"
@@ -47,7 +47,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="20dp">
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/map"
@@ -61,5 +62,13 @@
         android:layout_height="wrap_content"
         android:onClick="directions"
         android:text="@string/directions" />
+
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="delete"
+        android:text="@string/delete_event"
+        android:visibility="gone" />
 
 </LinearLayout>

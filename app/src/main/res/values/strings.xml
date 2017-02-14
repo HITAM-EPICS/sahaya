@@ -31,7 +31,7 @@
     <string name="fb_login_protocol_scheme">fb1011124365698784</string>
 
     <string name="textbooks_path">http://scert.telangana.gov.in/sites/default/files/publication/ebooks/</string>
-    <string name="timetable">Timetable</string>
+    <string name="events">Events</string>
     <string name="teaching_material">Teaching Material</string>
     <string name="profile">Profile</string>
     <string name="discussion_forum">Discussion Forum</string>
@@ -44,5 +44,10 @@
     <string name="add_event">Add Event</string>
     <string name="cancel">Cancel</string>
     <string name="no_event_found">No Event Found</string>
-    <string name="manage_timetable">Manage Timetable</string>
+    <string name="manage_events">Manage Events</string>
+    <string name="delete_event">Delete Event</string>
+    <string name="roles">Roles</string>
+    <string name="volunteer">VOLUNTEER</string>
+    <string name="admin">ADMIN</string>
+    <string name="role">Role</string>
 </resources>

@@ -97,7 +97,7 @@ public class DashboardActivity extends Activity {
     }
 
     private void addMenuItems() {
-        menuItems.add(new DashboardItem(R.drawable.timetable, "Timetable", TimetableActivity.class));
+        menuItems.add(new DashboardItem(R.drawable.events, "Events", EventsActivity.class));
         menuItems.add(new DashboardItem(R.drawable.study_material, "Materials", MaterialActivity.class));
         menuItems.add(new DashboardItem(R.drawable.profile, "Profile", ProfileActivity.class));
         menuItems.add(new DashboardItem(R.drawable.discussion, "Discussion", DiscussionActivity.class));
@@ -105,11 +105,11 @@ public class DashboardActivity extends Activity {
         menuItems.add(new DashboardItem(R.drawable.contact_us, "Contact Us", ContactUsActivity.class));
         menuAdapter.notifyDataSetChanged();
 
-        menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Manage Timetable", AdminTimetableActivity.class));
-        menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Attendance", TimetableActivity.class));
-        menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Roles", TimetableActivity.class));
-        menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Center Management", TimetableActivity.class));
-        menuAdminItems.add(new DashboardItem(R.drawable.timetable, "Announcement", TimetableActivity.class));
+        menuAdminItems.add(new DashboardItem(R.drawable.events, "Manage Events", AdminEventsActivity.class));
+        menuAdminItems.add(new DashboardItem(R.drawable.events, "Attendance", EventsActivity.class));
+        menuAdminItems.add(new DashboardItem(R.drawable.roles, "Roles", AdminRolesActivity.class));
+        menuAdminItems.add(new DashboardItem(R.drawable.events, "Center Management", EventsActivity.class));
+        menuAdminItems.add(new DashboardItem(R.drawable.announcement, "Announcement", EventsActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.back, "Back", DashboardActivity.class));
         menuAdminAdapter.notifyDataSetChanged();
     }

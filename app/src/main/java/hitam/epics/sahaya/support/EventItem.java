@@ -4,7 +4,7 @@ package hitam.epics.sahaya.support;
  * Created by sanjit on 3/1/17.
  */
 
-public class CalendarItem {
+public class EventItem {
     private String name;
     private String start;
     private String end;
@@ -13,7 +13,7 @@ public class CalendarItem {
     private double lat;
     private double lon;
 
-    public CalendarItem(String name, String area) {
+    public EventItem(String name, String area) {
         this.name = name;
         start = null;
         end = null;
@@ -28,7 +28,7 @@ public class CalendarItem {
         return lon;
     }
 
-    public CalendarItem(String name, String date, String start, String end, String area, double lat, double lon) {
+    public EventItem(String name, String date, String start, String end, String area, double lat, double lon) {
 
         this.name = name;
         this.start = start;
@@ -39,7 +39,7 @@ public class CalendarItem {
         this.lon = lon;
     }
 
-    public CalendarItem() {
+    public EventItem() {
     }
 
     public String getDate() {
@@ -64,7 +64,7 @@ public class CalendarItem {
 
     @Override
     public String toString() {
-        return "CalendarItem{" +
+        return "EventItem{" +
                 "name='" + name + '\'' +
                 ", start='" + start + '\'' +
                 ", end='" + end + '\'' +
