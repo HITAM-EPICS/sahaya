@@ -4,6 +4,7 @@
     android:id="@+id/activity_timetable_event_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_image2"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -17,6 +18,7 @@
         style="@style/Base.TextAppearance.AppCompat.Display1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#fff"
         tools:text="Event Title" />
 
     <TextView
@@ -24,6 +26,7 @@
         style="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#eee"
         tools:text="Event Date" />
 
     <TextView
@@ -31,6 +34,7 @@
         style="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#eee"
         tools:text="Event Time" />
 
     <TextView
@@ -42,13 +46,19 @@
         android:id="@+id/timetable_event_desc"
         style="@style/Base.TextAppearance.AppCompat.Medium"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:textColor="#ddd"
         tools:text="Event Description" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp">
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:padding="2dp">
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/map"
@@ -57,18 +67,33 @@
             android:layout_weight="1" />
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="directions"
-        android:text="@string/directions" />
+        android:gravity="center">
 
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="delete"
-        android:text="@string/delete_event"
-        android:visibility="gone" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="directions"
+            android:text="@string/directions" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="applyForVolunteering"
+            android:text="Apply"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAccent"
+            android:onClick="delete"
+            android:text="@string/delete_event"
+            android:visibility="gone" />
+    </LinearLayout>
 
 </LinearLayout>

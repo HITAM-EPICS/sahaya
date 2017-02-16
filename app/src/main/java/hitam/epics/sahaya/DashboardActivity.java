@@ -45,7 +45,6 @@ public class DashboardActivity extends Activity {
         blurBackground();
         getUserType();
         addMenuItems();
-
     }
 
     private void blurBackground() {
@@ -96,6 +95,16 @@ public class DashboardActivity extends Activity {
         menuAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void onBackPressed() {
+        if (dashboardAdminMenu.getVisibility() == View.VISIBLE) {
+            dashboardAdminMenu.setVisibility(View.GONE);
+            dashboardMenu.setVisibility(View.VISIBLE);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
     private void addMenuItems() {
         menuItems.add(new DashboardItem(R.drawable.events, "Events", EventsActivity.class));
         menuItems.add(new DashboardItem(R.drawable.study_material, "Materials", MaterialActivity.class));
@@ -109,7 +118,7 @@ public class DashboardActivity extends Activity {
         menuAdminItems.add(new DashboardItem(R.drawable.events, "Attendance", EventsActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.roles, "Roles", AdminRolesActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.events, "Center Management", EventsActivity.class));
-        menuAdminItems.add(new DashboardItem(R.drawable.announcement, "Announcement", EventsActivity.class));
+        menuAdminItems.add(new DashboardItem(R.drawable.announcement, "Announcement", AdminAnnouncementActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.back, "Back", DashboardActivity.class));
         menuAdminAdapter.notifyDataSetChanged();
     }

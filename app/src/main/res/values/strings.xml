@@ -50,4 +50,6 @@
     <string name="volunteer">VOLUNTEER</string>
     <string name="admin">ADMIN</string>
     <string name="role">Role</string>
+    <string name="announcement">Announcement</string>
+    <string name="announce">Announce</string>
 </resources>

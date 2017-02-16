@@ -86,4 +86,8 @@ public class EventDetailActivity extends Activity {
         reference.removeValue();
         finish();
     }
+
+    public void applyForVolunteering(View view) {
+
+    }
 }
