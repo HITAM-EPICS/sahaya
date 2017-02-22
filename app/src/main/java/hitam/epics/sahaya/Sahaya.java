@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 
+import hitam.epics.sahaya.services.AnnouncementService;
 import hitam.epics.sahaya.services.DiscussionForumService;
 import jp.wasabeef.blurry.Blurry;
 
@@ -23,8 +24,11 @@ public class Sahaya extends Activity {
         dashboardBackground = (ViewGroup) findViewById(R.id.splash_background);
         blurBackground();
 
-        Intent intent = new Intent(this, DiscussionForumService.class);
-        startService(intent);
+        Intent disscussionForumIntent = new Intent(this, DiscussionForumService.class);
+        startService(disscussionForumIntent);
+
+        Intent announcementIntent = new Intent(this, AnnouncementService.class);
+        startService(announcementIntent);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this, getString(R.string.facebook_app_id));

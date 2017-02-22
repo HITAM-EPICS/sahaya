@@ -4,12 +4,15 @@ package hitam.epics.sahaya.support;
  * Created by sanjit on 16/2/17.
  */
 
-public class Announcement {
+public class AnnouncementItem {
     String name;
     String announcement;
     long time;
 
-    public Announcement(String name, String announcement, long time) {
+    public AnnouncementItem() {
+    }
+
+    public AnnouncementItem(String name, String announcement, long time) {
         this.name = name;
         this.announcement = announcement;
         this.time = time;

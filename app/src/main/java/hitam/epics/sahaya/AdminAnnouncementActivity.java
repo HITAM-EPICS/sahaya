@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import hitam.epics.sahaya.support.Announcement;
+import hitam.epics.sahaya.support.AnnouncementItem;
 
 public class AdminAnnouncementActivity extends AppCompatActivity {
     private DatabaseReference reference;
@@ -35,17 +35,17 @@ public class AdminAnnouncementActivity extends AppCompatActivity {
         EditText messageEditText = (EditText) findViewById(R.id.announcement);
 
         if (messageEditText.getText().toString().trim().equals("")) {
-            messageEditText.setError("Announcement Text Required");
+            messageEditText.setError("AnnouncementItem Text Required");
         }
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            Announcement announcement = new Announcement(
+            AnnouncementItem announcementItem = new AnnouncementItem(
                     user.getDisplayName(),
                     messageEditText.getText().toString().trim(),
                     System.currentTimeMillis()
             );
-            reference.child(announcement.getTime() + "").setValue(announcement).addOnSuccessListener(new OnSuccessListener<Void>() {
+            reference.child(announcementItem.getTime() + "").setValue(announcementItem).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
                     AdminAnnouncementActivity.this.finish();
@@ -54,7 +54,7 @@ public class AdminAnnouncementActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(AdminAnnouncementActivity.this);
-                    builder.setMessage("Unable to send Announce your announcement. Please check your network connection")
+                    builder.setMessage("Unable to send Announce your announcementItem. Please check your network connection")
                             .setNeutralButton("OK", null);
                     builder.create().show();
                 }

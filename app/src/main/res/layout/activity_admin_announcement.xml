@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/announcement"
+            android:text="@string/announcementItem"
             android:textColor="#fff" />
     </android.support.v7.widget.Toolbar>
 
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/round_rectangle_lower_curve"
             android:gravity="top"
-            android:hint="@string/announcement"
+            android:hint="@string/announcementItem"
             android:lines="10" />
 
         <LinearLayout

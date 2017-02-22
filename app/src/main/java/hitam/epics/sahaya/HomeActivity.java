@@ -40,7 +40,7 @@ public class HomeActivity extends Activity {
 //                    Log.e("onAuthStateChanged: ", user.getProviders().get(0));
                     if (!user.getProviders().get(0).equals("password") || user.isEmailVerified()) {
                         startActivity(new Intent(HomeActivity.this, DashboardActivity.class));
-                        if (firebaseAuth.getCurrentUser() != null) {
+                        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
                             finish();
                         }
                     } else {
