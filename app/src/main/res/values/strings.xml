@@ -53,4 +53,7 @@
     <string name="announcementItem">Announcement</string>
     <string name="announce">Announce</string>
     <string name="announcements">Announcements</string>
+    <string name="attendance">Attendance</string>
+    <string name="contact_details">Contact Details</string>
+    <string name="loading">Loading...</string>
 </resources>

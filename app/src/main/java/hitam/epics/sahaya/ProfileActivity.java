@@ -37,15 +37,21 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 
+import hitam.epics.sahaya.support.UserDetails;
+
 public class ProfileActivity extends Activity {
     FirebaseAuth auth;
     FirebaseDatabase database;
     FirebaseUser user;
     private TextView ProfileName;
+    private TextView ProfileEmail;
+    private TextView ProfilePhone;
+    private TextView ProfileAttendance;
     private TextView ProfileRole;
     private ImageView ProfilePic;
     private StorageReference mStorageRef;
-    private DatabaseReference reference;
+    private DatabaseReference roleReference;
+    private DatabaseReference detailReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +59,9 @@ public class ProfileActivity extends Activity {
         setContentView(R.layout.activity_profile);
 
         ProfileName = (TextView) findViewById(R.id.profile_name);
+        ProfileEmail = (TextView) findViewById(R.id.profile_email);
+        ProfilePhone = (TextView) findViewById(R.id.profile_phone);
+        ProfileAttendance = (TextView) findViewById(R.id.profile_attendance);
         ProfileRole = (TextView) findViewById(R.id.profile_role);
         ProfilePic = (ImageView) findViewById(R.id.profile_pic);
 
@@ -62,14 +71,14 @@ public class ProfileActivity extends Activity {
         if (user != null) {
             ProfileName.setText(user.getDisplayName());
         }
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        reference = database.getReference("/user_types/" + user.getEmail()
+        database = FirebaseDatabase.getInstance();
+        roleReference = database.getReference("/user_types/" + user.getEmail()
                 .replace(".", "(dot)")
                 .replace("#", "(hash)")
                 .replace("$", "(dollar)")
                 .replace("[", "(bropen)")
                 .replace("]", "(brclose)"));
-        reference.addValueEventListener(new ValueEventListener() {
+        roleReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ProfileRole.setText(dataSnapshot.getValue(String.class));
@@ -80,6 +89,29 @@ public class ProfileActivity extends Activity {
 
             }
         });
+
+        detailReference = database.getReference("/user_details/" + user.getUid());
+        detailReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                UserDetails userDetails = dataSnapshot.getValue(UserDetails.class);
+                if (userDetails == null) {
+                    userDetails = new UserDetails(user.getUid(), user.getDisplayName(), user.getEmail(), "Phone Number Not Available", "NA", 0L, System.currentTimeMillis(), false);
+                    detailReference.setValue(userDetails);
+
+                }
+                ProfileName.setText(userDetails.getName());
+                ProfileEmail.setText(userDetails.getEmail());
+                ProfilePhone.setText(userDetails.getPhone());
+                ProfileAttendance.setText(String.valueOf(userDetails.getAttendance()));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         ProfileRole.setText("Loading...");
         if (user.getPhotoUrl() != null) {
 

@@ -8,6 +8,6 @@ public class UserData {
     public static UserType userType;
 
     public enum UserType {
-        ADMIN, VOLUNTEER, ASSOCIATE
+        ADMIN, VOLUNTEER
     }
 }

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -73,7 +72,6 @@ public class DashboardActivity extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(email)) {
                     UserData.userType = dataSnapshot.child(email).getValue(UserData.UserType.class);
-                    Log.e("onDataChange: ", UserData.userType.toString());
                     if (UserData.userType == UserData.UserType.ADMIN) {
                         enableAdminFeatures();
                     }
@@ -116,9 +114,9 @@ public class DashboardActivity extends Activity {
         menuAdapter.notifyDataSetChanged();
 
         menuAdminItems.add(new DashboardItem(R.drawable.events, "Manage Events", AdminEventsActivity.class));
-        menuAdminItems.add(new DashboardItem(R.drawable.events, "Attendance", EventsActivity.class));
+        menuAdminItems.add(new DashboardItem(R.drawable.attendance, "Attendance", AdminAttendanceActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.roles, "Roles", AdminRolesActivity.class));
-        menuAdminItems.add(new DashboardItem(R.drawable.events, "Center Management", EventsActivity.class));
+//        menuAdminItems.add(new DashboardItem(R.drawable.events, "Center Management", EventsActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.announcement, "AnnouncementItem", AdminAnnouncementActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.back, "Back", DashboardActivity.class));
         menuAdminAdapter.notifyDataSetChanged();
