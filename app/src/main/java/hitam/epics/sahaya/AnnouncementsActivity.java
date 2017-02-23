@@ -1,5 +1,7 @@
 package hitam.epics.sahaya;
 
+import android.app.NotificationManager;
+import android.app.Service;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
@@ -22,11 +24,15 @@ public class AnnouncementsActivity extends AppCompatActivity {
     private ArrayList<AnnouncementItem> items;
     private FirebaseDatabase database;
     private DatabaseReference reference;
+    private NotificationManager notificationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_announcements_activity);
+
+        notificationManager = (NotificationManager) getSystemService(Service.NOTIFICATION_SERVICE);
+        notificationManager.cancel(1);
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("announcements");
@@ -43,6 +49,7 @@ public class AnnouncementsActivity extends AppCompatActivity {
                 AnnouncementItem announcementItem = dataSnapshot.getValue(AnnouncementItem.class);
                 items.add(announcementItem);
                 announcementsAdapter.notifyDataSetChanged();
+                notificationManager.cancel(1);
             }
 
             @Override

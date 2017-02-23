@@ -70,8 +70,8 @@ public class AnnouncementService extends Service {
                     /*builder for push notification*/
                     Notification.Builder builder = new Notification.Builder(AnnouncementService.this)
                             .setSmallIcon(R.mipmap.ic_launcher)
-                            .setContentTitle("AnnouncementItem")
-                            .setContentText("There is a new announcementItem");
+                            .setContentTitle("Announcement")
+                            .setContentText("There is a new announcement");
 
                     /*intent for push notification*/
                     Intent resultIntent = new Intent(AnnouncementService.this, DiscussionActivity.class);
