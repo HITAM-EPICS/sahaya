@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/announcement_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#fff"
         android:textStyle="bold"
         tools:text="Name" />
 
@@ -18,12 +18,14 @@
         android:id="@+id/announcement_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#fff"
         tools:text="Time" />
 
     <TextView
         android:id="@+id/announcement_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#fff"
         tools:text="Announcement" />
 
 </LinearLayout>
