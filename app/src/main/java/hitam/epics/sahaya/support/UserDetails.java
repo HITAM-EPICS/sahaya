@@ -53,11 +53,23 @@ public class UserDetails {
         return attendance;
     }
 
+    public void setAttendance(long attendance) {
+        this.attendance = attendance;
+    }
+
     public long getLast_update() {
         return last_update;
     }
 
+    public void setLast_update(long last_update) {
+        this.last_update = last_update;
+    }
+
     public boolean isLast_update_present() {
         return last_update_present;
+    }
+
+    public void setLast_update_present(boolean last_update_present) {
+        this.last_update_present = last_update_present;
     }
 }

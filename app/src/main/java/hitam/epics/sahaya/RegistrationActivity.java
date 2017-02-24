@@ -11,13 +11,15 @@ import android.widget.ScrollView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
+
+import hitam.epics.sahaya.support.UserDetails;
 
 public class RegistrationActivity extends Activity {
     private FirebaseAuth mAuth;
@@ -29,6 +31,8 @@ public class RegistrationActivity extends Activity {
     private EditText occupation;
     private EditText password;
     private EditText confirmPassword;
+
+    private UserDetails userDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +73,14 @@ public class RegistrationActivity extends Activity {
                                 loadingLinearLayout.setVisibility(View.GONE);
                             }
                             final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                            UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
-                                    .setDisplayName(name.getText().toString())
-                                    .build();
                             if (user != null) {
+                                UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
+                                        .setDisplayName(name.getText().toString())
+                                        .build();
+                                String phoneNumber = phone.getText().toString().trim();
+                                String occupationOfUser = occupation.getText().toString().trim();
+                                userDetails = new UserDetails(user.getUid(), name.getText().toString().trim(), user.getEmail(), phoneNumber, occupationOfUser, 0L, System.currentTimeMillis(), false);
+                                FirebaseDatabase.getInstance().getReference("user_details").child(user.getUid()).setValue(userDetails);
                                 user.updateProfile(profileChangeRequest).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
@@ -84,14 +92,6 @@ public class RegistrationActivity extends Activity {
                                         });
                                     }
                                 });
-                                FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(RegistrationActivity.this);
-                                String phoneNumber = phone.getText().toString().trim();
-                                /*todo: store phone numbers*/
-                                String occupationOfUser = occupation.getText().toString().trim();
-                                /*todo: store occupation*/
-                                if (occupationOfUser.length() > 0)
-                                    mFirebaseAnalytics.setUserProperty("occupation", occupationOfUser);
-                                /*todo: handle referals*/
                             }
                         }
                     });
@@ -117,6 +117,17 @@ public class RegistrationActivity extends Activity {
             result = false;
         } else if (!Objects.equals(confirmPassword.getText().toString(), password.getText().toString())) {
             confirmPassword.setError("Passwords do not match");
+            result = false;
+        }
+        if (Objects.equals(phone.getText().toString().trim(), "")) {
+            phone.setError("Required");
+            result = false;
+        } else if (phone.getText().toString().trim().length() < 10) {
+            phone.setError("Invalid Phone Number");
+            result = false;
+        }
+        if (Objects.equals(occupation.getText().toString().trim(), "")) {
+            occupation.setError("Required");
             result = false;
         }
         return result;

@@ -164,6 +164,10 @@ public class ProfileActivity extends Activity {
                     .setDisplayName(newName)
                     .build();
             user.updateProfile(userProfileChangeRequest);
+            FirebaseDatabase.getInstance().getReference("user_details")
+                    .child(user.getUid())
+                    .child("name")
+                    .setValue(newName);
             ((TextView) findViewById(R.id.profile_name)).setText(newName);
         }
 
