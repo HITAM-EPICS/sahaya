@@ -15,7 +15,8 @@
         android:padding="10dp"
         android:text="@string/discussion_forum"
         android:textAlignment="center"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        tools:targetApi="lollipop" />
 
     <RelativeLayout
         android:id="@+id/message_layout"
@@ -28,6 +29,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentEnd="true"
+            android:contentDescription="@string/send_button"
             android:onClick="SendMessage"
             android:scaleType="fitCenter"
             android:src="@drawable/send_button" />

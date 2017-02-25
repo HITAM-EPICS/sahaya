@@ -18,7 +18,7 @@ import hitam.epics.sahaya.R;
  */
 
 public class AnnouncementsAdapter extends ArrayAdapter<AnnouncementItem> {
-    Context context;
+    private final Context context;
 
     public AnnouncementsAdapter(Context context, List<AnnouncementItem> objects) {
         super(context, 0, objects);

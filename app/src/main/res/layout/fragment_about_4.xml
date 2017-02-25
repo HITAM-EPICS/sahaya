@@ -14,11 +14,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:gravity="center"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/sahaya_logo"
             android:src="@mipmap/ic_launcher" />
 
         <TextView
@@ -47,7 +49,7 @@
         android:layout_height="wrap_content"
         android:autoLink="web"
         android:padding="10dp"
-        android:text="Read our blogs: \nsahaya4needy.blogspot.in/"
+        android:text="@string/read_our_blogs_nsahaya4needy_blogspot_in"
         android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="18sp" />
@@ -57,7 +59,7 @@
         android:layout_height="wrap_content"
         android:autoLink="phone"
         android:padding="10dp"
-        android:text="Contact us:\nSreeram : 9985943635\nSrikanth -9247766039\nDharani Kumar -9985085665\n Nischal -9704668057"
+        android:text="@string/contact_us_nsreeram_9985943635_nsrikanth_9247766039_ndharani_kumar_9985085665_n_nischal_9704668057"
         android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="20sp" />
@@ -68,7 +70,7 @@
         android:autoLink="email"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Email us to:\nsahaya08@gmail.com"
+        android:text="@string/email_us_to_nsahaya08_gmail_com"
         android:textColor="#fff"
         android:textSize="20sp" />
 

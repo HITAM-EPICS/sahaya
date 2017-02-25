@@ -32,30 +32,27 @@ import hitam.epics.sahaya.support.EventItem;
 import hitam.epics.sahaya.support.EventsAdapter;
 
 public class EventsActivity extends Activity {
-    FirebaseDatabase database;
-    DatabaseReference reference;
     private ArrayList<String> eventDateList;
     private ArrayList<EventItem> currentDateEventList;
     private ArrayList<EventItem> eventList;
     private EventsAdapter adapter;
-    private GridView EventListGridView;
     private MaterialCalendarView calendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference("/events/");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("/events/");
 
         eventDateList = new ArrayList<>();
         eventList = new ArrayList<>();
         currentDateEventList = new ArrayList<>();
 
         adapter = new EventsAdapter(this, currentDateEventList);
-        EventListGridView = (GridView) findViewById(R.id.event_list);
-        EventListGridView.setAdapter(adapter);
-        EventListGridView.setEmptyView(findViewById(R.id.empty_view));
+        GridView eventListGridView = (GridView) findViewById(R.id.event_list);
+        eventListGridView.setAdapter(adapter);
+        eventListGridView.setEmptyView(findViewById(R.id.empty_view));
 
         calendarView = (MaterialCalendarView) findViewById(R.id.calendar);
         calendarView.setCurrentDate(new Date());
@@ -74,7 +71,7 @@ public class EventsActivity extends Activity {
             }
         });
 
-        EventListGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        eventListGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 EventItem eventItem = currentDateEventList.get(position);

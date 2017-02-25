@@ -43,7 +43,6 @@ public class LoginActivity extends Activity {
 
     private LinearLayout loginFormLinearLayout;
     private LinearLayout loadingLinearLayout;
-    private LoginButton loginButton;
     private ViewGroup loginBackground;
 
     @Override
@@ -53,6 +52,7 @@ public class LoginActivity extends Activity {
 
         loginBackground = (ViewGroup) findViewById(R.id.login_background);
         blurBackground();
+        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user_details");
 
         mAuth = FirebaseAuth.getInstance();
         loginFormLinearLayout = (LinearLayout) findViewById(R.id.login_form);
@@ -62,8 +62,7 @@ public class LoginActivity extends Activity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user_details").child(user.getUid());
-                    reference.addValueEventListener(new ValueEventListener() {
+                    reference.child(user.getUid()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             UserDetails userDetails = dataSnapshot.getValue(UserDetails.class);
@@ -71,6 +70,8 @@ public class LoginActivity extends Activity {
                                 Intent additionalIntent = new Intent(LoginActivity.this, AdditionalInfoActivity.class);
                                 startActivity(additionalIntent);
                             }
+                            loginFormLinearLayout.setVisibility(View.VISIBLE);
+                            loadingLinearLayout.setVisibility(View.GONE);
                             LoginActivity.this.finish();
                         }
 
@@ -84,7 +85,7 @@ public class LoginActivity extends Activity {
         };
 
         callbackManager = CallbackManager.Factory.create();
-        loginButton = (LoginButton) findViewById(R.id.button_facebook_login);
+        LoginButton loginButton = (LoginButton) findViewById(R.id.button_facebook_login);
         loginButton.setReadPermissions("email", "public_profile");
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -242,9 +243,10 @@ public class LoginActivity extends Activity {
                                     .setPositiveButton("OK", null)
                                     .create().show();
                             FirebaseAuth.getInstance().signOut();
+
+                            loginFormLinearLayout.setVisibility(View.VISIBLE);
+                            loadingLinearLayout.setVisibility(View.GONE);
                         }
-                        loginFormLinearLayout.setVisibility(View.VISIBLE);
-                        loadingLinearLayout.setVisibility(View.GONE);
 
                     }
                 });

@@ -78,14 +78,6 @@
             android:text="@string/directions" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
-            android:onClick="applyForVolunteering"
-            android:text="Apply"
-            android:visibility="gone" />
-
-        <Button
             android:id="@+id/delete_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -27,8 +27,8 @@ import hitam.epics.sahaya.R;
  */
 
 public class DiscussionAdapter extends ArrayAdapter<DiscussionMessage> {
-    private Context context;
-    private FirebaseUser user;
+    private final Context context;
+    private final FirebaseUser user;
 
     public DiscussionAdapter(@NonNull Context context, @NonNull List<DiscussionMessage> objects) {
         super(context, 0, objects);

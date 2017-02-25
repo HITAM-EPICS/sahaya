@@ -17,9 +17,7 @@ import hitam.epics.sahaya.support.RolesAdapter;
 
 public class AdminRolesActivity extends AppCompatActivity {
 
-    private ListView rolesListView;
     private ArrayList<RoleItem> roles;
-    private DatabaseReference reference;
     private RolesAdapter adapter;
 
     @Override
@@ -28,9 +26,9 @@ public class AdminRolesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_roles);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        reference = database.getReference("/user_types/");
+        DatabaseReference reference = database.getReference("/user_types/");
 
-        rolesListView = (ListView) findViewById(R.id.roles_list);
+        ListView rolesListView = (ListView) findViewById(R.id.roles_list);
         rolesListView.setEmptyView(findViewById(R.id.empty_view));
         roles = new ArrayList<>();
         adapter = new RolesAdapter(this, roles);

@@ -16,10 +16,7 @@ import hitam.epics.sahaya.support.AttendanceAdapter;
 import hitam.epics.sahaya.support.UserDetails;
 
 public class AdminAttendanceActivity extends AppCompatActivity {
-    private ListView AttendanceListView;
     private ArrayList<UserDetails> AttendanceList;
-    private FirebaseDatabase database;
-    private DatabaseReference reference;
     private AttendanceAdapter adapter;
 
     @Override
@@ -32,8 +29,8 @@ public class AdminAttendanceActivity extends AppCompatActivity {
     }
 
     private void DatabaseConnection() {
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference("user_details");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("user_details");
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -65,10 +62,10 @@ public class AdminAttendanceActivity extends AppCompatActivity {
     }
 
     private void Initialisation() {
-        AttendanceListView = (ListView) findViewById(R.id.attendance_list);
-        AttendanceListView.setEmptyView(findViewById(R.id.empty_view));
+        ListView attendanceListView = (ListView) findViewById(R.id.attendance_list);
+        attendanceListView.setEmptyView(findViewById(R.id.empty_view));
         AttendanceList = new ArrayList<>();
         adapter = new AttendanceAdapter(this, AttendanceList);
-        AttendanceListView.setAdapter(adapter);
+        attendanceListView.setAdapter(adapter);
     }
 }

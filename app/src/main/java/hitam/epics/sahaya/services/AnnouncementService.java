@@ -28,9 +28,7 @@ import hitam.epics.sahaya.support.AnnouncementItem;
  * @author sanjit
  */
 public class AnnouncementService extends Service {
-    private FirebaseDatabase database;
     private DatabaseReference discussionRef;
-    private FirebaseAuth auth;
 
     /*Constructor*/
     public AnnouncementService() {
@@ -44,10 +42,10 @@ public class AnnouncementService extends Service {
     @Override
     public void onCreate() {
         /*Get Firebase Authentication Instance*/
-        auth = FirebaseAuth.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
 
         /*Get Firebase Database Instance*/
-        database = FirebaseDatabase.getInstance();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         /*Get discussion database reference*/
         discussionRef = database.getReference("announcements");

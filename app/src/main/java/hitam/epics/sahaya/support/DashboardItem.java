@@ -16,10 +16,6 @@ public class DashboardItem {
         this.associatedClass = associatedClass;
     }
 
-    public DashboardItem() {
-
-    }
-
     public Class getAssociatedClass() {
         return associatedClass;
     }

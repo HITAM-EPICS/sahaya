@@ -40,17 +40,13 @@ import java.io.ByteArrayOutputStream;
 import hitam.epics.sahaya.support.UserDetails;
 
 public class ProfileActivity extends Activity {
-    FirebaseAuth auth;
-    FirebaseDatabase database;
-    FirebaseUser user;
+    private FirebaseUser user;
     private TextView ProfileName;
     private TextView ProfileEmail;
     private TextView ProfilePhone;
     private TextView ProfileAttendance;
     private TextView ProfileRole;
     private ImageView ProfilePic;
-    private StorageReference mStorageRef;
-    private DatabaseReference roleReference;
     private DatabaseReference detailReference;
 
     @Override
@@ -65,14 +61,14 @@ public class ProfileActivity extends Activity {
         ProfileRole = (TextView) findViewById(R.id.profile_role);
         ProfilePic = (ImageView) findViewById(R.id.profile_pic);
 
-        auth = FirebaseAuth.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
         if (user != null) {
             ProfileName.setText(user.getDisplayName());
         }
-        database = FirebaseDatabase.getInstance();
-        roleReference = database.getReference("/user_types/" + user.getEmail()
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference roleReference = database.getReference("/user_types/" + user.getEmail()
                 .replace(".", "(dot)")
                 .replace("#", "(hash)")
                 .replace("$", "(dollar)")
@@ -96,7 +92,7 @@ public class ProfileActivity extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 UserDetails userDetails = dataSnapshot.getValue(UserDetails.class);
                 if (userDetails == null) {
-                    userDetails = new UserDetails(user.getUid(), user.getDisplayName(), user.getEmail(), "Phone Number Not Available", "NA", 0L, System.currentTimeMillis(), false);
+                    userDetails = new UserDetails(user.getUid(), user.getDisplayName(), user.getEmail(), "Phone Number Not Available", "NA", System.currentTimeMillis());
                     detailReference.setValue(userDetails);
 
                 }
@@ -112,7 +108,7 @@ public class ProfileActivity extends Activity {
             }
         });
 
-        ProfileRole.setText("Loading...");
+        ProfileRole.setText(R.string.loading);
         if (user.getPhotoUrl() != null) {
 
             if (user.getProviders().get(0).equals("password")) {
@@ -213,7 +209,7 @@ public class ProfileActivity extends Activity {
     }
 
     private void uploadPic() {
-        mStorageRef = FirebaseStorage.getInstance().getReference();
+        StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
 
         StorageReference ProfilePicRef = mStorageRef.child("users/" + user.getUid() + "/pp.jpg");
 

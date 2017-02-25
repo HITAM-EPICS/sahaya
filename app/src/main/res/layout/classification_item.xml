@@ -11,15 +11,14 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="5dp"
+        tools:ignore="UseCompoundDrawables,UselessParent">
 
         <ImageView
             android:id="@+id/item_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:contentDescription="Dashboard Menu Icon"
-            android:tint="#e9e9e9"
-            tools:ignore="HardcodedText"
+            android:contentDescription="@string/dashboard_menu_icon"
             tools:src="@drawable/sahaya_logo" />
 
         <TextView
@@ -29,6 +28,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textColor="#e9e9e9"
+            android:textSize="13sp"
             tools:text="Item Name" />
     </LinearLayout>
 

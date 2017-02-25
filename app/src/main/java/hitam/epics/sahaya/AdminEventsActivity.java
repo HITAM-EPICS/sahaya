@@ -106,7 +106,7 @@ public class AdminEventsActivity extends Activity {
                 extras.putString("event_desc", eventItem.getArea());
                 extras.putDouble("event_latitude", eventItem.getLat());
                 extras.putDouble("event_longitude", eventItem.getLon());
-                extras.putBoolean("admin",true);
+                extras.putBoolean("admin", true);
                 intent.putExtras(extras);
                 startActivity(intent);
             }

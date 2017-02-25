@@ -25,13 +25,11 @@ import hitam.epics.sahaya.support.DiscussionAdapter;
 import hitam.epics.sahaya.support.DiscussionMessage;
 
 public class DiscussionActivity extends Activity {
-    FirebaseDatabase database;
-    DatabaseReference discussionRef;
+    private DatabaseReference discussionRef;
 
 
-    ChildEventListener childEventListener;
-    NotificationManager notificationManager;
-    private FirebaseAuth auth;
+    private ChildEventListener childEventListener;
+    private NotificationManager notificationManager;
     private String userName;
     private ListView discussionMessagesListView;
     private DiscussionAdapter discussionAdapter;
@@ -48,9 +46,9 @@ public class DiscussionActivity extends Activity {
 
         notificationManager = (NotificationManager) getSystemService(Service.NOTIFICATION_SERVICE);
 
-        auth = FirebaseAuth.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
 
-        database = FirebaseDatabase.getInstance();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
         discussionRef = database.getReference("discussion_forum");
 
         FirebaseUser user = auth.getCurrentUser();

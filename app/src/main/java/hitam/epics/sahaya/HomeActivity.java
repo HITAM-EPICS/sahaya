@@ -37,7 +37,6 @@ public class HomeActivity extends Activity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-//                    Log.e("onAuthStateChanged: ", user.getProviders().get(0));
                     if (!user.getProviders().get(0).equals("password") || user.isEmailVerified()) {
                         startActivity(new Intent(HomeActivity.this, DashboardActivity.class));
                         if (FirebaseAuth.getInstance().getCurrentUser() != null) {

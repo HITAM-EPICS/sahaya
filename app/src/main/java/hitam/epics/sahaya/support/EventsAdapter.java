@@ -17,7 +17,7 @@ import hitam.epics.sahaya.R;
  */
 
 public class EventsAdapter extends ArrayAdapter<EventItem> {
-    Context context;
+    private final Context context;
 
     public EventsAdapter(Context context, List<EventItem> objects) {
         super(context, 0, objects);

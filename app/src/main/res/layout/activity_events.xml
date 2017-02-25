@@ -7,7 +7,6 @@
     tools:context=".EventsActivity">
 
     <LinearLayout
-        android:id="@+id/dashboard_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background_image2"
@@ -53,13 +52,11 @@
             <GridView
                 android:id="@+id/event_list"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="#3d1565c0"
                 android:gravity="center"
                 android:numColumns="1"
-                tools:listitem="@layout/event_item">
-
-            </GridView>
+                tools:listitem="@layout/event_item" />
 
             <TextView
                 android:id="@+id/empty_view"
@@ -67,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="No event for selected day"
+                android:text="@string/no_event_for_selected_day"
                 android:textColor="#fff" />
 
         </LinearLayout>

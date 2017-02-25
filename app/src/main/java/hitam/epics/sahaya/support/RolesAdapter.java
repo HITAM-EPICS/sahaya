@@ -21,7 +21,7 @@ import hitam.epics.sahaya.R;
  */
 
 public class RolesAdapter extends ArrayAdapter<RoleItem> {
-    Context context;
+    private final Context context;
 
     public RolesAdapter(Context context, List<RoleItem> objects) {
         super(context, 0, objects);

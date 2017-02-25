@@ -52,7 +52,7 @@ public class AdditionalInfoActivity extends AppCompatActivity {
                     user.getUid(), user.getDisplayName(), user.getEmail(),
                     phoneEditText.getText().toString().trim(),
                     occupationEditText.getText().toString().trim(),
-                    0L, System.currentTimeMillis(), false
+                    System.currentTimeMillis()
             );
             reference.setValue(userDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override

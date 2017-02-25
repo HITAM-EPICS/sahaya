@@ -5,9 +5,9 @@ package hitam.epics.sahaya.support;
  */
 
 public class AnnouncementItem {
-    String name;
-    String announcement;
-    long time;
+    private String name;
+    private String announcement;
+    private long time;
 
     public AnnouncementItem() {
     }

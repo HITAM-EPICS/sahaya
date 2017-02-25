@@ -12,7 +12,7 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MaterialActivity extends Activity {
+public class ArchivesActivity extends Activity {
     private Spinner ClassSpinner;
     private Spinner SubjectSpinner;
     private ArrayList<String> SubjectList;
@@ -21,14 +21,14 @@ public class MaterialActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_material);
+        setContentView(R.layout.activity_archives);
         ClassSpinner = (Spinner) findViewById(R.id.class_spinner);
         SubjectSpinner = (Spinner) findViewById(R.id.subject_spinner);
 
         String s = ClassSpinner.getSelectedItem().toString();
         SubjectList = new ArrayList<>();
         SubjectList.addAll(Arrays.asList(getResources().getStringArray(R.array.FIRST)));
-        SubjectAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, SubjectList);
+        SubjectAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, SubjectList);
         SubjectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         SubjectSpinner.setAdapter(SubjectAdapter);
 

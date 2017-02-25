@@ -7,7 +7,6 @@
     tools:context="hitam.epics.sahaya.DashboardActivity">
 
     <LinearLayout
-        android:id="@+id/dashboard_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background_image2"
@@ -26,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:drawableTop="@drawable/sahaya_logo"
-            android:text="Sahaya"
+            android:text="@string/sahaya"
             android:textAlignment="center"
             android:textColor="#fff" />
 
@@ -39,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:horizontalSpacing="5dp"
+                android:horizontalSpacing="3dp"
                 android:minHeight="100dp"
                 android:minWidth="100dp"
                 android:numColumns="3"
@@ -47,7 +46,7 @@
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
-                android:verticalSpacing="5dp"
+                android:verticalSpacing="3dp"
                 tools:listitem="@layout/classification_item" />
 
 

@@ -38,17 +38,18 @@
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MaterialActivity" />
+        <activity android:name=".ArchivesActivity" />
         <activity android:name=".DiscussionActivity" />
 
         <service
             android:name=".services.DiscussionForumService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </service>
+        <service android:name=".services.AnnouncementService" />
 
         <activity android:name=".ProfileActivity" />
         <activity
@@ -73,7 +74,11 @@
         <activity android:name=".AdminAnnouncementActivity" />
         <activity android:name=".AnnouncementsActivity" />
         <activity android:name=".AdminAttendanceActivity" />
-        <activity android:name=".AdditionalInfoActivity"></activity>
+        <activity android:name=".AdditionalInfoActivity"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

@@ -18,15 +18,15 @@ public class UserDetails {
     }
 
     public UserDetails(String uid, String name, String email, String phone, String occupation,
-                       long attendance, long last_update, boolean last_update_present) {
+                       long last_update) {
         this.uid = uid;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.occupation = occupation;
-        this.attendance = attendance;
+        this.attendance = 0L;
         this.last_update = last_update;
-        this.last_update_present = last_update_present;
+        this.last_update_present = false;
     }
 
     public String getUid() {

@@ -37,18 +37,20 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:gravity="center"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:contentDescription="@string/sahaya_logo"
             android:src="@drawable/swipe_left"
             android:tint="#555" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Swipe Left for more"
+            android:text="@string/swipe_left_for_more"
             android:textColor="#555" />
     </LinearLayout>
 

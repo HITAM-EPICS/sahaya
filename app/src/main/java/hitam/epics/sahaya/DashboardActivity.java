@@ -90,7 +90,7 @@ public class DashboardActivity extends Activity {
 
     private void addMenuItems() {
         menuItems.add(new DashboardItem(R.drawable.events, "Events", EventsActivity.class));
-        menuItems.add(new DashboardItem(R.drawable.study_material, "Materials", MaterialActivity.class));
+        menuItems.add(new DashboardItem(R.drawable.study_material, "Archives", ArchivesActivity.class));
         menuItems.add(new DashboardItem(R.drawable.profile, "Profile", ProfileActivity.class));
         menuItems.add(new DashboardItem(R.drawable.discussion, "Discussion", DiscussionActivity.class));
         menuItems.add(new DashboardItem(R.drawable.announcement, "Announcements", AnnouncementsActivity.class));
@@ -100,7 +100,6 @@ public class DashboardActivity extends Activity {
         menuAdminItems.add(new DashboardItem(R.drawable.events, "Manage Events", AdminEventsActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.attendance, "Attendance", AdminAttendanceActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.roles, "Roles", AdminRolesActivity.class));
-//        menuAdminItems.add(new DashboardItem(R.drawable.events, "Center Management", EventsActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.announcement, "Announcement", AdminAnnouncementActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.back, "Back", DashboardActivity.class));
         menuAdminAdapter.notifyDataSetChanged();

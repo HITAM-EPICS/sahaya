@@ -23,7 +23,7 @@ import hitam.epics.sahaya.R;
  */
 
 public class AttendanceAdapter extends ArrayAdapter<UserDetails> {
-    private Context context;
+    private final Context context;
     private DatabaseReference reference;
 
     public AttendanceAdapter(Context context, List<UserDetails> objects) {
@@ -53,7 +53,7 @@ public class AttendanceAdapter extends ArrayAdapter<UserDetails> {
 
             name.setText(item.getName());
             email.setText(item.getEmail());
-            attendanceCount.setText("Total: " + item.getAttendance());
+            attendanceCount.setText(String.format(context.getString(R.string.total), item.getAttendance()));
 
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             String lastUpdateDate = simpleDateFormat.format(item.getLast_update());
@@ -69,9 +69,9 @@ public class AttendanceAdapter extends ArrayAdapter<UserDetails> {
             }
             attendance.setChecked(item.isLast_update_present());
             if (item.isLast_update_present()) {
-                attendance.setText("Present");
+                attendance.setText(R.string.present);
             } else {
-                attendance.setText("Absent");
+                attendance.setText(R.string.absent);
             }
 
             attendance.setOnClickListener(new View.OnClickListener() {

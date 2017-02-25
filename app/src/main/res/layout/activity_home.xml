@@ -58,9 +58,8 @@
             style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="text"
             android:onClick="about"
-            android:text="Who we are?"
+            android:text="@string/who_we_are"
             android:textColor="#fff" />
     </LinearLayout>
 </RelativeLayout>

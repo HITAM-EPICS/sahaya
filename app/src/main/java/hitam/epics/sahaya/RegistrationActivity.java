@@ -78,7 +78,7 @@ public class RegistrationActivity extends Activity {
                                         .build();
                                 String phoneNumber = phone.getText().toString().trim();
                                 String occupationOfUser = occupation.getText().toString().trim();
-                                userDetails = new UserDetails(user.getUid(), name.getText().toString().trim(), user.getEmail(), phoneNumber, occupationOfUser, 0L, System.currentTimeMillis(), false);
+                                userDetails = new UserDetails(user.getUid(), name.getText().toString().trim(), user.getEmail(), phoneNumber, occupationOfUser, System.currentTimeMillis());
                                 FirebaseDatabase.getInstance().getReference("user_details").child(user.getUid()).setValue(userDetails);
                                 user.updateProfile(profileChangeRequest).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override

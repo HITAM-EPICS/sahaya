@@ -15,7 +15,7 @@
         style="@style/Base.TextAppearance.AppCompat.Display1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Who we are"
+        android:text="@string/who_we_are"
         android:textAllCaps="true"
         android:textColor="#fff" />
 
@@ -23,9 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="We are proud to say that the Sahaya family has now adopted over eight schools and is teaching to over 2500 kids across three districts in Andhra Pradesh. As Sahaya began to gain popularity, we began receiving help from the student and working community in Hyderabad.
-
-Project Library, a prestigious project where we managed to collect over 4000 books wouldn’t have been possible without the help of them."
+        android:text="@string/we_are_proud_to_say_that_the_sahaya_family_has_now_adopted_over_eight_schools_and_is_teaching_to_over_2500_kids_across_three_districts_in_andhra_pradesh_as_sahaya_began_to_gain_popularity_we_began_receiving_help_from_the_student_and_working_community_in_hyderabad_project_library_a_prestigious_project_where_we_managed_to_collect_over_4000_books_wouldn_t_have_been_possible_without_the_help_of_them"
         android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="18sp" />

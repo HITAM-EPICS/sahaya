@@ -28,9 +28,7 @@ import hitam.epics.sahaya.support.DiscussionMessage;
  * @author sanjit
  */
 public class DiscussionForumService extends Service {
-    FirebaseDatabase database;
-    DatabaseReference discussionRef;
-    private FirebaseAuth auth;
+    private DatabaseReference discussionRef;
 
     /*Constructor*/
     public DiscussionForumService() {
@@ -44,10 +42,10 @@ public class DiscussionForumService extends Service {
     @Override
     public void onCreate() {
         /*Get Firebase Authentication Instance*/
-        auth = FirebaseAuth.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
 
         /*Get Firebase Database Instance*/
-        database = FirebaseDatabase.getInstance();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         /*Get discussion database reference*/
         discussionRef = database.getReference("discussion_forum");

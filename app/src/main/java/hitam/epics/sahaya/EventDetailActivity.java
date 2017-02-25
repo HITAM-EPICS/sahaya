@@ -25,22 +25,16 @@ public class EventDetailActivity extends Activity {
     private double event_latitude;
     private double event_longitude;
 
-    private TextView EventNameView;
-    private TextView EventDateView;
-    private TextView EventTimeView;
-    private TextView EventDescView;
-    private MapView mapView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_detail);
 
-        EventNameView = (TextView) findViewById(R.id.timetable_event_name);
-        EventDateView = (TextView) findViewById(R.id.timetable_event_date);
-        EventTimeView = (TextView) findViewById(R.id.timetable_event_time);
-        EventDescView = (TextView) findViewById(R.id.timetable_event_desc);
-        mapView = (MapView) findViewById(R.id.map);
+        TextView eventNameView = (TextView) findViewById(R.id.timetable_event_name);
+        TextView eventDateView = (TextView) findViewById(R.id.timetable_event_date);
+        TextView eventTimeView = (TextView) findViewById(R.id.timetable_event_time);
+        TextView eventDescView = (TextView) findViewById(R.id.timetable_event_desc);
+        MapView mapView = (MapView) findViewById(R.id.map);
 
         Bundle extras = getIntent().getExtras();
         event_name = extras.getString("event_name");
@@ -53,10 +47,10 @@ public class EventDetailActivity extends Activity {
             findViewById(R.id.delete_button).setVisibility(View.VISIBLE);
         }
 
-        EventNameView.setText(event_name);
-        EventDateView.setText(event_date);
-        EventTimeView.setText(event_time);
-        EventDescView.setText(event_desc);
+        eventNameView.setText(event_name);
+        eventDateView.setText(event_date);
+        eventTimeView.setText(event_time);
+        eventDescView.setText(event_desc);
 
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(new OnMapReadyCallback() {
@@ -87,7 +81,4 @@ public class EventDetailActivity extends Activity {
         finish();
     }
 
-    public void applyForVolunteering(View view) {
-
-    }
 }

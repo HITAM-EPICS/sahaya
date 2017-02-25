@@ -61,6 +61,7 @@
             android:id="@+id/profile_pic"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:contentDescription="@string/message_user_icon"
             android:src="@drawable/sahaya_logo" />
     </android.support.v7.widget.CardView>
 </LinearLayout>

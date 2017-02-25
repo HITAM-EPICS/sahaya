@@ -3,30 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="hitam.epics.sahaya.MaterialActivity">
+    tools:context="hitam.epics.sahaya.ArchivesActivity">
 
     <LinearLayout
-        android:id="@+id/dashboard_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background_image2"
         android:orientation="vertical" />
 
     <TextView
-        android:id="@+id/material_title"
+        android:id="@+id/archives_title"
         style="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="10dp"
         android:padding="10dp"
-        android:text="@string/teaching_material"
+        android:text="@string/archives"
         android:textAlignment="center"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        tools:ignore="UnusedAttribute" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/material_title"
+        android:layout_below="@id/archives_title"
         android:background="#6d1565c0"
         android:gravity="center"
         android:orientation="vertical"
@@ -88,21 +88,21 @@
                 android:layout_margin="10dp"
                 android:background="#2dcecb"
                 android:onClick="DownloadTextbook"
-                android:text="Textbook" />
+                android:text="@string/textbook" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="#ffea00"
-                android:text="Notes" />
+                android:text="@string/notes" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="#f44336"
-                android:text="Links" />
+                android:text="@string/links" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

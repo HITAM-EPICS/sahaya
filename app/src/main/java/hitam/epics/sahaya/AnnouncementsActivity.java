@@ -19,11 +19,8 @@ import hitam.epics.sahaya.support.AnnouncementsAdapter;
 
 public class AnnouncementsActivity extends AppCompatActivity {
 
-    private ListView AnnouncementListView;
     private AnnouncementsAdapter announcementsAdapter;
     private ArrayList<AnnouncementItem> items;
-    private FirebaseDatabase database;
-    private DatabaseReference reference;
     private NotificationManager notificationManager;
 
     @Override
@@ -34,14 +31,14 @@ public class AnnouncementsActivity extends AppCompatActivity {
         notificationManager = (NotificationManager) getSystemService(Service.NOTIFICATION_SERVICE);
         notificationManager.cancel(1);
 
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference("announcements");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("announcements");
 
-        AnnouncementListView = (ListView) findViewById(R.id.announcement_list);
+        ListView announcementListView = (ListView) findViewById(R.id.announcement_list);
 
         items = new ArrayList<>();
         announcementsAdapter = new AnnouncementsAdapter(this, items);
-        AnnouncementListView.setAdapter(announcementsAdapter);
+        announcementListView.setAdapter(announcementsAdapter);
 
         reference.addChildEventListener(new ChildEventListener() {
             @Override

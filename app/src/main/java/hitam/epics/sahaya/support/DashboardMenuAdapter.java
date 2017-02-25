@@ -18,7 +18,7 @@ import hitam.epics.sahaya.R;
  */
 
 public class DashboardMenuAdapter extends ArrayAdapter<DashboardItem> {
-    private Context context;
+    private final Context context;
 
     public DashboardMenuAdapter(@NonNull Context context, @NonNull List<DashboardItem> objects) {
         super(context, 0, objects);

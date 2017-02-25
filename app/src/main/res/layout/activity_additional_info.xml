@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_additional_info"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_image2"
@@ -18,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="We would like to have few additional information about You"
+        android:text="@string/we_would_like_to_have_few_additional_information_about_you"
         android:textAlignment="center"
         android:textColor="#fff" />
 
@@ -51,7 +50,7 @@
         android:elevation="4dp"
         android:onClick="continueNext"
         android:padding="20dp"
-        android:text="Continue"
+        android:text="@string/continue_text"
         android:textColor="#E7E9F9" />
 
 </LinearLayout>
