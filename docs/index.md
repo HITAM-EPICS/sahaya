@@ -4,11 +4,8 @@
 
 Sahaya provides an opportunity to individuals who want to make a positive impact in the society by empowering, enriching and encouraging under-priviliged school going children
 
-<center>
-
 ## [Download Release 1](https://github.com/HITAM-EPICS/sahaya/releases/download/v1.0-alpha/Release.1.apk)
 
-</center>
 
 <hr/>
 
