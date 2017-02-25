@@ -27,7 +27,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import hitam.epics.sahaya.support.UserDetails;
 import jp.wasabeef.blurry.Blurry;
 
 public class LoginActivity extends Activity {
@@ -54,9 +60,25 @@ public class LoginActivity extends Activity {
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
+                final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    LoginActivity.this.finish();
+                    final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user_details").child(user.getUid());
+                    reference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            UserDetails userDetails = dataSnapshot.getValue(UserDetails.class);
+                            if (userDetails == null) {
+                                Intent additionalIntent = new Intent(LoginActivity.this, AdditionalInfoActivity.class);
+                                startActivity(additionalIntent);
+                            }
+                            LoginActivity.this.finish();
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
                 }
             }
         };
@@ -213,6 +235,7 @@ public class LoginActivity extends Activity {
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
+
                         if (!task.isSuccessful()) {
                             AlertDialog.Builder builder1 = new AlertDialog.Builder(LoginActivity.this, R.style.AppThemeAlert);
                             builder1.setMessage(task.getException().toString().split(":")[1])

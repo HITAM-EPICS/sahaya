@@ -3,7 +3,6 @@ package hitam.epics.sahaya;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -63,7 +62,7 @@ public class RegistrationActivity extends Activity {
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            Log.d("FIREBASE", "createUserWithEmail:onComplete:" + task.isSuccessful());
+//                            Log.d("FIREBASE", "createUserWithEmail:onComplete:" + task.isSuccessful());
 
                             // If sign in fails, display a message to the user. If sign in succeeds
                             // the auth state listener will be notified and logic to handle the

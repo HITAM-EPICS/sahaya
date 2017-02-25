@@ -72,7 +72,8 @@
         <activity android:name=".AdminRolesActivity" />
         <activity android:name=".AdminAnnouncementActivity" />
         <activity android:name=".AnnouncementsActivity" />
-        <activity android:name=".AdminAttendanceActivity"></activity>
+        <activity android:name=".AdminAttendanceActivity" />
+        <activity android:name=".AdditionalInfoActivity"></activity>
     </application>
 
 </manifest>

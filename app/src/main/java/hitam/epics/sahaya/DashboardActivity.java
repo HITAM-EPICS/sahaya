@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
@@ -22,7 +21,6 @@ import java.util.ArrayList;
 import hitam.epics.sahaya.support.DashboardItem;
 import hitam.epics.sahaya.support.DashboardMenuAdapter;
 import hitam.epics.sahaya.support.UserData;
-import jp.wasabeef.blurry.Blurry;
 
 public class DashboardActivity extends Activity {
     private FirebaseAuth auth;
@@ -32,7 +30,7 @@ public class DashboardActivity extends Activity {
     private ArrayList<DashboardItem> menuAdminItems;
     private GridView dashboardMenu;
     private GridView dashboardAdminMenu;
-    private ViewGroup dashboardBackground;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,23 +39,10 @@ public class DashboardActivity extends Activity {
 
         verifyAuthentication();
         initReferences();
-        blurBackground();
         getUserType();
         addMenuItems();
     }
 
-    private void blurBackground() {
-        dashboardBackground.post(new Runnable() {
-            @Override
-            public void run() {
-                Blurry.with(DashboardActivity.this)
-                        .radius(10)
-                        .sampling(16)
-                        .async()
-                        .onto(dashboardBackground);
-            }
-        });
-    }
 
     private void getUserType() {
         final DatabaseReference UserTypeDatabase = FirebaseDatabase.getInstance().getReference("user_types/");
@@ -124,7 +109,6 @@ public class DashboardActivity extends Activity {
     private void initReferences() {
         dashboardMenu = (GridView) findViewById(R.id.dashboard_menu);
         dashboardAdminMenu = (GridView) findViewById(R.id.dashboard_admin_menu);
-        dashboardBackground = (ViewGroup) findViewById(R.id.dashboard_background);
 
         menuItems = new ArrayList<>();
         menuAdminItems = new ArrayList<>();

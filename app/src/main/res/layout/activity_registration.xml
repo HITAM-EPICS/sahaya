@@ -37,7 +37,7 @@
     <ScrollView
         android:id="@+id/registration_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -141,20 +141,13 @@
                 android:id="@+id/registration_occupation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/perfect_rectangle"
+                android:background="@drawable/round_rectangle_lower_curve"
                 android:hint="@string/occupation"
                 android:inputType="textCapWords" />
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="1dp" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/round_rectangle_lower_curve"
-                android:hint="@string/referral_code"
-                android:inputType="text" />
 
             <Button
                 style="@style/Base.Widget.AppCompat.Button.Colored"

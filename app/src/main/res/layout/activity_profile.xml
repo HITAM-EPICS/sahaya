@@ -79,12 +79,12 @@
 
                         <TextView
                             android:id="@+id/profile_name"
-                            style="@style/Base.TextAppearance.AppCompat.Large"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="serif"
                             android:text="@string/loading"
+                            android:textSize="15sp"
                             tools:text="UserName" />
 
                         <ImageButton
@@ -105,11 +105,12 @@
 
                         <EditText
                             android:id="@+id/profile_name_edit"
-                            style="@style/Base.TextAppearance.AppCompat.Large"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:hint="Name" />
+                            android:hint="Name"
+                            android:textSize="15sp"
+                            android:typeface="serif" />
 
                         <ImageButton
                             android:layout_width="wrap_content"
@@ -160,20 +161,20 @@
 
                             <TextView
                                 android:id="@+id/profile_email"
-                                style="@style/Base.TextAppearance.AppCompat.Large"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="serif"
                                 android:text="@string/loading"
+                                android:textSize="15sp"
                                 tools:text="@string/email" />
 
                             <TextView
                                 android:id="@+id/profile_phone"
-                                style="@style/Base.TextAppearance.AppCompat.Large"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="serif"
                                 android:text="@string/loading"
+                                android:textSize="15sp"
                                 tools:text="@string/phone" />
                         </LinearLayout>
                     </LinearLayout>
@@ -210,17 +211,17 @@
                             android:layout_weight="1"
                             android:fontFamily="serif"
                             android:text="@string/role"
-                            android:textSize="17sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:id="@+id/profile_role"
-                            style="@style/Base.TextAppearance.AppCompat.Large"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="serif"
                             android:text="@string/loading"
                             android:textAlignment="textEnd"
+                            android:textSize="15sp"
                             tools:text="UserType" />
                     </LinearLayout>
 
@@ -237,17 +238,17 @@
                             android:layout_weight="1"
                             android:fontFamily="serif"
                             android:text="@string/attendance"
-                            android:textSize="17sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:id="@+id/profile_attendance"
-                            style="@style/Base.TextAppearance.AppCompat.Large"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="serif"
                             android:text="@string/loading"
                             android:textAlignment="textEnd"
+                            android:textSize="15sp"
                             tools:text="@string/attendance" />
                     </LinearLayout>
                 </LinearLayout>
