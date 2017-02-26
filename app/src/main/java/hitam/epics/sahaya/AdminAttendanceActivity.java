@@ -11,6 +11,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import hitam.epics.sahaya.support.AttendanceAdapter;
 import hitam.epics.sahaya.support.UserDetails;
@@ -36,6 +38,13 @@ public class AdminAttendanceActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 UserDetails userDetail = dataSnapshot.getValue(UserDetails.class);
                 AttendanceList.add(userDetail);
+                Collections.sort(AttendanceList, new Comparator<UserDetails>() {
+                    @Override
+                    public int compare(UserDetails user1, UserDetails user2) {
+
+                        return user1.getName().compareTo(user2.getName());
+                    }
+                });
                 adapter.notifyDataSetChanged();
             }
 

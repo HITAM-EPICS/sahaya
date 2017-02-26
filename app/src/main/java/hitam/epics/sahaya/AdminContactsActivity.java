@@ -23,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import hitam.epics.sahaya.support.UserDetails;
 
@@ -48,6 +50,13 @@ public class AdminContactsActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 UserDetails userDetail = dataSnapshot.getValue(UserDetails.class);
                 userDetails.add(userDetail);
+                Collections.sort(userDetails, new Comparator<UserDetails>() {
+                    @Override
+                    public int compare(UserDetails user1, UserDetails user2) {
+
+                        return user1.getName().compareTo(user2.getName());
+                    }
+                });
                 adapter.notifyDataSetChanged();
             }
 
@@ -101,11 +110,11 @@ public class AdminContactsActivity extends AppCompatActivity {
                                 }
                                 startActivity(call);
                             } else {
-                                Intent mail = new Intent(Intent.ACTION_SEND);
-                                mail.setType("text/html");
-                                mail.putExtra(Intent.EXTRA_EMAIL, userDetail.getEmail());
+                                Intent mail = new Intent(Intent.ACTION_SENDTO);
+                                mail.setData(Uri.parse("mailto:"));
+                                mail.putExtra(Intent.EXTRA_EMAIL, new String[]{userDetail.getEmail()});
                                 mail.putExtra(Intent.EXTRA_SUBJECT, "Sahaya Mail");
-                                startActivity(Intent.createChooser(mail, "Send Email"));
+                                startActivity(Intent.createChooser(mail, "Send mail..."));
                             }
                             dialog.cancel();
                         }
@@ -118,20 +127,19 @@ public class AdminContactsActivity extends AppCompatActivity {
     }
 
     private void sendMailToAll() {
-        String to = "";
+        String[] to = new String[userDetails.size() - 1];
+        int i = 0;
         for (UserDetails detail : userDetails) {
             if (!detail.getUid().equals("0")) {
-                if (to.length() > 0) {
-                    to = to + ";";
-                }
-                to = to + detail.getEmail();
+                to[i] = detail.getEmail();
+                ++i;
             }
         }
-        Intent mail = new Intent(Intent.ACTION_SEND);
-        mail.setType("text/html");
+        Intent mail = new Intent(Intent.ACTION_SENDTO);
+        mail.setData(Uri.parse("mailto:"));
         mail.putExtra(Intent.EXTRA_EMAIL, to);
         mail.putExtra(Intent.EXTRA_SUBJECT, "Sahaya Mail");
-        startActivity(Intent.createChooser(mail, "Send Email"));
+        startActivity(Intent.createChooser(mail, "Send mail..."));
     }
 
     @Override

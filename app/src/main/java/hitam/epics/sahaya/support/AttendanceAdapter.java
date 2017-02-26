@@ -2,7 +2,6 @@ package hitam.epics.sahaya.support;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +57,6 @@ public class AttendanceAdapter extends ArrayAdapter<UserDetails> {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             String lastUpdateDate = simpleDateFormat.format(item.getLast_update());
             String today = simpleDateFormat.format(System.currentTimeMillis());
-            Log.e("getView: ", lastUpdateDate + ":" + today);
 
             if (!lastUpdateDate.equals(today)) {
                 attendance.setSelected(false);
