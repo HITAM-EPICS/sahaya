@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_admin_center_management"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_image2"
-    tools:context="hitam.epics.sahaya.AdminEventsActivity">
+    tools:context="hitam.epics.sahaya.AdminCenterManagementActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -17,12 +18,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/manage_events"
+            android:text="@string/centers"
             android:textColor="#fff" />
     </android.support.v7.widget.Toolbar>
 
     <ListView
-        android:id="@+id/event_list"
+        android:id="@+id/centers_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
@@ -31,16 +32,16 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        tools:listitem="@layout/event_item" />
+        tools:listitem="@layout/center_item" />
 
     <TextView
-        android:id="@+id/events_empty_view"
+        android:id="@+id/center_empty_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
         android:background="#3d1565c0"
         android:gravity="center"
-        android:text="@string/no_event_found"
+        android:text="No Centers Found"
         android:textColor="#fff" />
 
     <android.support.design.widget.FloatingActionButton
@@ -51,7 +52,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:background="@drawable/fab_round"
         android:clickable="true"
-        android:onClick="addEvent"
+        android:onClick="addCenter"
         android:src="@drawable/ic_add_black_24dp" />
 
 </RelativeLayout>

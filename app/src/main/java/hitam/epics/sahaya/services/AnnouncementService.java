@@ -96,7 +96,7 @@ public class AnnouncementService extends Service {
                     NotificationManager notificationManager = (NotificationManager) getSystemService(Service.NOTIFICATION_SERVICE);
 
                     /*show notification*/
-                    notificationManager.notify(1, notification);
+                    notificationManager.notify(0, notification);
                 }
 
                 /*set last read message time as current time*/

@@ -92,7 +92,7 @@ public class DashboardActivity extends Activity {
         menuItems.add(new DashboardItem(R.drawable.events, "Events", EventsActivity.class));
         menuItems.add(new DashboardItem(R.drawable.study_material, "Archives", ArchivesActivity.class));
         menuItems.add(new DashboardItem(R.drawable.profile, "Profile", ProfileActivity.class));
-        menuItems.add(new DashboardItem(R.drawable.discussion, "Discussion", DiscussionActivity.class));
+        menuItems.add(new DashboardItem(R.drawable.discussion, "Discussion", DiscussionForumListActivity.class));
         menuItems.add(new DashboardItem(R.drawable.announcement, "Announcements", AnnouncementsActivity.class));
         menuItems.add(new DashboardItem(R.drawable.about_us, "About Us", AboutActivity.class));
         menuAdapter.notifyDataSetChanged();
@@ -102,6 +102,7 @@ public class DashboardActivity extends Activity {
         menuAdminItems.add(new DashboardItem(R.drawable.roles, "Roles", AdminRolesActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.announcement, "Announcement", AdminAnnouncementActivity.class));
         menuAdminAdapter.add(new DashboardItem(R.drawable.contacts, "Contacts", AdminContactsActivity.class));
+        menuAdminAdapter.add(new DashboardItem(R.drawable.center, "Centers", AdminCenterManagementActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.back, "Back", DashboardActivity.class));
         menuAdminAdapter.notifyDataSetChanged();
     }

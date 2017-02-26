@@ -46,7 +46,7 @@ public class AnnouncementsActivity extends AppCompatActivity {
                 AnnouncementItem announcementItem = dataSnapshot.getValue(AnnouncementItem.class);
                 items.add(announcementItem);
                 announcementsAdapter.notifyDataSetChanged();
-                notificationManager.cancel(1);
+                notificationManager.cancel(0);
             }
 
             @Override

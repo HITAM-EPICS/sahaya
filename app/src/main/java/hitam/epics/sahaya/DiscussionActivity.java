@@ -3,6 +3,7 @@ package hitam.epics.sahaya;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.Service;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -35,11 +36,16 @@ public class DiscussionActivity extends Activity {
     private DiscussionAdapter discussionAdapter;
     private ArrayList<DiscussionMessage> discussionMessages;
     private EditText messageInput;
+    private String center_name;
+    private Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discussion);
+
+        extras = getIntent().getExtras();
+        center_name = extras.getString("center_name");
 
         discussionMessagesListView = (ListView) findViewById(R.id.discussion_message_list);
         messageInput = (EditText) findViewById(R.id.message_input);
@@ -49,7 +55,7 @@ public class DiscussionActivity extends Activity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        discussionRef = database.getReference("discussion_forum");
+        discussionRef = database.getReference("discussion_forum").child(center_name);
 
         FirebaseUser user = auth.getCurrentUser();
         if (user != null) {
@@ -68,7 +74,7 @@ public class DiscussionActivity extends Activity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 DiscussionMessage message = dataSnapshot.getValue(DiscussionMessage.class);
                 addMessage(message);
-                notificationManager.cancel(0);
+                notificationManager.cancel(Integer.parseInt(center_name));
             }
 
             @Override
@@ -122,6 +128,10 @@ public class DiscussionActivity extends Activity {
         discussionMessages.add(message);
         discussionAdapter.notifyDataSetChanged();
         discussionMessagesListView.setSelection(discussionMessages.size() - 1);
+        if (discussionMessages.size() > 30) {
+            DiscussionMessage message1 = discussionMessages.get(discussionMessages.size() - 31);
+            discussionRef.child(String.valueOf(message1.getTime())).removeValue();
+        }
     }
 
     @Override
@@ -140,5 +150,11 @@ public class DiscussionActivity extends Activity {
     protected void onPause() {
         discussionRef.removeEventListener(childEventListener);
         super.onPause();
+    }
+
+    public void showCenterDetail(View view) {
+        Intent intent = new Intent(this, CenterDetailsActivity.class);
+        intent.putExtras(extras);
+        startActivity(intent);
     }
 }

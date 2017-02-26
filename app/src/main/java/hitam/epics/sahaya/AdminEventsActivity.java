@@ -52,7 +52,7 @@ public class AdminEventsActivity extends Activity {
         reference = database.getReference("/events/");
 
         ListView evenListView = (ListView) findViewById(R.id.event_list);
-        evenListView.setEmptyView(findViewById(R.id.add_event_empty_view));
+        evenListView.setEmptyView(findViewById(R.id.events_empty_view));
         events = new ArrayList<>();
 
         adapter = new EventsAdapter(this, events);
@@ -224,7 +224,7 @@ public class AdminEventsActivity extends Activity {
         if (requestCode == PLACE_PICKER_REQUEST) {
             if (resultCode == RESULT_OK) {
                 Place place = PlacePicker.getPlace(data, this);
-                reference.child(eventDate + eventStartTime + eventName).setValue(new EventItem(eventName, eventDate, eventStartTime, eventEndTime, place.getAddress().toString(), place.getLatLng().latitude, place.getLatLng().longitude));
+                reference.child(eventDate + eventStartTime + eventName).setValue(new EventItem(eventName, eventDate, eventStartTime, eventEndTime, place.getName() + ", " + place.getAddress().toString(), place.getLatLng().latitude, place.getLatLng().longitude));
                 alertDialog.cancel();
             }
         } else {

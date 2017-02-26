@@ -84,7 +84,10 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".AdminContactsActivity"></activity>
+        <activity android:name=".AdminContactsActivity" />
+        <activity android:name=".AdminCenterManagementActivity" />
+        <activity android:name=".CenterDetailsActivity" />
+        <activity android:name=".DiscussionForumListActivity"></activity>
     </application>
 
 </manifest>

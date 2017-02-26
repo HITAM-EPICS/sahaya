@@ -78,4 +78,8 @@
     <string name="absent">Absent</string>
     <string name="dashboard_menu_icon">Dashboard Menu Icon</string>
     <string name="contacts">Contacts</string>
+    <string name="centers">Centers</string>
+    <string name="center_name">Unique ID(Reuse ID to Replace)</string>
+    <string name="add_center">Add Center</string>
+    <string name="delete_center">Delete Center</string>
 </resources>

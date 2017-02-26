@@ -19,16 +19,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import hitam.epics.sahaya.DiscussionActivity;
+import java.util.Iterator;
+
+import hitam.epics.sahaya.DiscussionForumListActivity;
 import hitam.epics.sahaya.R;
 import hitam.epics.sahaya.Sahaya;
-import hitam.epics.sahaya.support.DiscussionMessage;
 
 /**
  * @author sanjit
  */
 public class DiscussionForumService extends Service {
     private DatabaseReference discussionRef;
+    private SharedPreferences sharedPref;
 
     /*Constructor*/
     public DiscussionForumService() {
@@ -51,64 +53,18 @@ public class DiscussionForumService extends Service {
         discussionRef = database.getReference("discussion_forum");
 
         /*Get Default Shared Preferences associated with app*/
-        final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 
         /*ChildEventListener to handle discussion database changes*/
         final ChildEventListener childEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                /*Retrieve last read message time from preferences*/
-                long lastMessageTime = sharedPref.getLong("last_message", System.currentTimeMillis());
-
-                /*get message from database*/
-                DiscussionMessage message = dataSnapshot.getValue(DiscussionMessage.class);
-
-                /*compare time of last read message and message from database*/
-                if (message.getTime() > lastMessageTime) {
-                    /*builder for push notification*/
-                    Notification.Builder builder = new Notification.Builder(DiscussionForumService.this)
-                            .setSmallIcon(R.mipmap.ic_launcher)
-                            .setContentTitle("Sahaya Discussion Forum")
-                            .setContentText("Your have new discussion messages");
-
-                    /*intent for push notification*/
-                    Intent resultIntent = new Intent(DiscussionForumService.this, DiscussionActivity.class);
-
-                    /*build stack for intent calls*/
-                    TaskStackBuilder stackBuilder = TaskStackBuilder.create(DiscussionForumService.this);
-                    stackBuilder.addParentStack(Sahaya.class);
-                    stackBuilder.addNextIntent(resultIntent);
-                    PendingIntent resultPendingIntent =
-                            stackBuilder.getPendingIntent(
-                                    0,
-                                    PendingIntent.FLAG_UPDATE_CURRENT
-                            );
-
-                    /*add resultPendingIndent to builder*/
-                    builder.setContentIntent(resultPendingIntent);
-
-                    /*build push notification*/
-                    Notification notification = builder.build();
-                    notification.defaults |= Notification.DEFAULT_SOUND;
-                    notification.defaults |= Notification.DEFAULT_VIBRATE;
-
-                    /*get notification manager*/
-                    NotificationManager notificationManager = (NotificationManager) getSystemService(Service.NOTIFICATION_SERVICE);
-
-                    /*show notification*/
-                    notificationManager.notify(0, notification);
-                }
-
-                /*set last read message time as current time*/
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putLong("last_message", System.currentTimeMillis());
-                editor.apply();
 
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                sendNotification(dataSnapshot, s);
             }
 
             @Override
@@ -140,6 +96,61 @@ public class DiscussionForumService extends Service {
             }
         });
         super.onCreate();
+    }
+
+    public void sendNotification(DataSnapshot dataSnapshot, String s) {
+        /*Retrieve last read message time from preferences*/
+        long lastMessageTime = sharedPref.getLong("last_message", System.currentTimeMillis());
+
+        Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
+        DataSnapshot child = iterator.next();
+        while (iterator.hasNext()) {
+            child = iterator.next();
+        }
+
+        Long key = Long.valueOf(child.getKey());
+
+        /*compare time of last read message and message from database*/
+        if (key > lastMessageTime) {
+                    /*builder for push notification*/
+            Notification.Builder builder = new Notification.Builder(DiscussionForumService.this)
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setContentTitle("Sahaya Discussion Forum")
+                    .setContentText("Your have new discussion messages in " + dataSnapshot.getKey());
+
+                    /*intent for push notification*/
+            Intent resultIntent = new Intent(DiscussionForumService.this, DiscussionForumListActivity.class);
+
+                    /*build stack for intent calls*/
+            TaskStackBuilder stackBuilder = TaskStackBuilder.create(DiscussionForumService.this);
+            stackBuilder.addParentStack(Sahaya.class);
+            stackBuilder.addNextIntent(resultIntent);
+            PendingIntent resultPendingIntent =
+                    stackBuilder.getPendingIntent(
+                            0,
+                            PendingIntent.FLAG_UPDATE_CURRENT
+                    );
+
+                    /*add resultPendingIndent to builder*/
+            builder.setContentIntent(resultPendingIntent);
+
+                    /*build push notification*/
+            Notification notification = builder.build();
+            notification.defaults |= Notification.DEFAULT_SOUND;
+            notification.defaults |= Notification.DEFAULT_VIBRATE;
+
+                    /*get notification manager*/
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Service.NOTIFICATION_SERVICE);
+
+                    /*show notification*/
+            notificationManager.notify(Integer.parseInt(dataSnapshot.getKey()), notification);
+
+        }
+
+                /*set last read message time as current time*/
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putLong("last_message", System.currentTimeMillis());
+        editor.apply();
     }
 
     @Override
