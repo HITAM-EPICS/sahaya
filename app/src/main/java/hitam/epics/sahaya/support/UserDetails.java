@@ -72,4 +72,9 @@ public class UserDetails {
     public void setLast_update_present(boolean last_update_present) {
         this.last_update_present = last_update_present;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

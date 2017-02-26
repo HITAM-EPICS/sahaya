@@ -101,6 +101,7 @@ public class DashboardActivity extends Activity {
         menuAdminItems.add(new DashboardItem(R.drawable.attendance, "Attendance", AdminAttendanceActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.roles, "Roles", AdminRolesActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.announcement, "Announcement", AdminAnnouncementActivity.class));
+        menuAdminAdapter.add(new DashboardItem(R.drawable.contacts, "Contacts", AdminContactsActivity.class));
         menuAdminItems.add(new DashboardItem(R.drawable.back, "Back", DashboardActivity.class));
         menuAdminAdapter.notifyDataSetChanged();
     }

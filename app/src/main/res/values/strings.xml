@@ -77,4 +77,5 @@
     <string name="present">Present</string>
     <string name="absent">Absent</string>
     <string name="dashboard_menu_icon">Dashboard Menu Icon</string>
+    <string name="contacts">Contacts</string>
 </resources>
