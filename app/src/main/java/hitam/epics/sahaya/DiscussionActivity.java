@@ -149,6 +149,7 @@ public class DiscussionActivity extends Activity {
     @Override
     protected void onPause() {
         discussionRef.removeEventListener(childEventListener);
+        discussionMessages.clear();
         super.onPause();
     }
 
