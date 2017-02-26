@@ -64,6 +64,8 @@ public class DashboardActivity extends Activity {
                     UserTypeDatabase.child(email).setValue(UserData.UserType.VOLUNTEER);
                     UserData.userType = UserData.UserType.VOLUNTEER;
                 }
+                findViewById(R.id.dashboard).setVisibility(View.VISIBLE);
+                findViewById(R.id.loading).setVisibility(View.GONE);
             }
 
             @Override
@@ -74,7 +76,7 @@ public class DashboardActivity extends Activity {
     }
 
     private void enableAdminFeatures() {
-        menuItems.add(0, new DashboardItem(R.drawable.profile, "Admin Menu", DashboardActivity.class));
+        menuItems.add(0, new DashboardItem(R.drawable.admin, "Admin Menu", DashboardActivity.class));
         menuAdapter.notifyDataSetChanged();
     }
 
@@ -94,6 +96,7 @@ public class DashboardActivity extends Activity {
         menuItems.add(new DashboardItem(R.drawable.profile, "Profile", ProfileActivity.class));
         menuItems.add(new DashboardItem(R.drawable.discussion, "Discussion", DiscussionForumListActivity.class));
         menuItems.add(new DashboardItem(R.drawable.announcement, "Announcements", AnnouncementsActivity.class));
+        menuItems.add(new DashboardItem(R.drawable.remark, "Remarks/Notes", RemarkNotesActivity.class));
         menuItems.add(new DashboardItem(R.drawable.about_us, "About Us", AboutActivity.class));
         menuAdapter.notifyDataSetChanged();
 

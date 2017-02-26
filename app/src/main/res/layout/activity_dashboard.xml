@@ -30,8 +30,10 @@
             android:textColor="#fff" />
 
         <ViewFlipper
+            android:id="@+id/dashboard"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:visibility="gone">
 
             <GridView
                 android:id="@+id/dashboard_menu"
@@ -53,7 +55,7 @@
             <GridView
                 android:id="@+id/dashboard_admin_menu"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:horizontalSpacing="5dp"
                 android:minHeight="100dp"
                 android:minWidth="100dp"
@@ -66,6 +68,11 @@
                 android:visibility="gone"
                 tools:listitem="@layout/classification_item" />
         </ViewFlipper>
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -52,7 +52,6 @@
     <string name="attendance">Attendance</string>
     <string name="contact_details">Contact Details</string>
     <string name="loading">Loading…</string>
-    <string name="links">Links</string>
     <string name="notes">Notes</string>
     <string name="textbook">Textbook</string>
     <string name="message_user_icon">Message User Icon</string>
@@ -82,4 +81,14 @@
     <string name="center_name">Unique ID(Reuse ID to Replace)</string>
     <string name="add_center">Add Center</string>
     <string name="delete_center">Delete Center</string>
+    <string name="remarks">Remarks</string>
+    <string name="leave_remark">Leave Remark</string>
+    <string name="add_notes">Add Notes</string>
+    <string name="remark">Remark</string>
+    <string name="type_remark_here">Type Remark Here</string>
+    <string name="send">Send</string>
+    <string name="no_remarks">No Remarks</string>
+    <string name="type_your_note_here">Type your note here</string>
+    <string name="send_with_picture">Send With Picture</string>
+    <string name="view_picture">View Picture</string>
 </resources>

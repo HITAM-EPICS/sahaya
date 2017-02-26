@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_remark_notes"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_image2"
-    tools:context="hitam.epics.sahaya.ArchivesActivity">
+    tools:context="hitam.epics.sahaya.RemarkNotesActivity">
+
 
     <TextView
         android:id="@+id/archives_title"
@@ -13,7 +15,7 @@
         android:layout_height="wrap_content"
         android:elevation="10dp"
         android:padding="10dp"
-        android:text="@string/archives"
+        android:text="@string/remarks"
         android:textAlignment="center"
         android:textColor="#fff"
         tools:ignore="UnusedAttribute" />
@@ -82,24 +84,18 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="#2dcecb"
-                android:onClick="DownloadTextbook"
-                android:text="@string/textbook" />
+                android:onClick="LeaveRemark"
+                android:text="@string/leave_remark" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="#ffea00"
-                android:onClick="showNotes"
-                android:text="@string/notes" />
+                android:onClick="AddNote"
+                android:text="@string/add_notes" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="#f44336"
-                android:onClick="showRemarks"
-                android:text="@string/remarks" />
         </LinearLayout>
     </LinearLayout>
+
 </RelativeLayout>
