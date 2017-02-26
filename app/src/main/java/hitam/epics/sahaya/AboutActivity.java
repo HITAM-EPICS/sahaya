@@ -88,6 +88,9 @@ public class AboutActivity extends AppCompatActivity {
                 case 3:
                     rootView = inflater.inflate(R.layout.fragment_about_4, container, false);
                     break;
+                case 4:
+                    rootView = inflater.inflate(R.layout.fragment_about_5, container, false);
+                    break;
             }
 
             return rootView;
@@ -95,7 +98,7 @@ public class AboutActivity extends AppCompatActivity {
     }
 
 
-        public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -110,8 +113,8 @@ public class AboutActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 4;
+            // Show 5 total pages.
+            return 5;
         }
 
         @Override
@@ -125,6 +128,8 @@ public class AboutActivity extends AppCompatActivity {
                     return "Who we are";
                 case 3:
                     return "More?";
+                case 4:
+                    return "Credits?";
             }
             return null;
         }
