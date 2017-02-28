@@ -16,8 +16,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Objects;
-
 import hitam.epics.sahaya.support.UserDetails;
 
 public class RegistrationActivity extends Activity {
@@ -103,29 +101,29 @@ public class RegistrationActivity extends Activity {
         email.setError("");
         password.setError("");
         confirmPassword.setError("");
-        if (Objects.equals(name.getText().toString(), "")) {
+        if (name.getText().toString().equals("")) {
             name.setError("Required");
             result = false;
         }
-        if (Objects.equals(email.getText().toString(), "")) {
+        if (email.getText().toString().equals("")) {
             email.setError("Required");
             result = false;
         }
         if (password.getText().toString().length() < 6) {
             password.setError("Required: Minimum 6 Characters");
             result = false;
-        } else if (!Objects.equals(confirmPassword.getText().toString(), password.getText().toString())) {
+        } else if (!confirmPassword.getText().toString().equals(password.getText().toString())) {
             confirmPassword.setError("Passwords do not match");
             result = false;
         }
-        if (Objects.equals(phone.getText().toString().trim(), "")) {
+        if (phone.getText().toString().trim().equals("")) {
             phone.setError("Required");
             result = false;
         } else if (phone.getText().toString().trim().length() < 10) {
             phone.setError("Invalid Phone Number");
             result = false;
         }
-        if (Objects.equals(occupation.getText().toString().trim(), "")) {
+        if (occupation.getText().toString().trim().equals("")) {
             occupation.setError("Required");
             result = false;
         }

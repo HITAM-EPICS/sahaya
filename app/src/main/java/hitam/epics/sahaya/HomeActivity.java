@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import jp.wasabeef.blurry.Blurry;
 
@@ -37,6 +39,13 @@ public class HomeActivity extends Activity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
+                    DatabaseReference reference = FirebaseDatabase
+                            .getInstance()
+                            .getReference("user_details");
+                    if (reference.child(user.getUid()).getKey() == null) {
+                        Intent additionalIntent = new Intent(HomeActivity.this, AdditionalInfoActivity.class);
+                        startActivity(additionalIntent);
+                    }
                     if (!user.getProviders().get(0).equals("password") || user.isEmailVerified()) {
                         startActivity(new Intent(HomeActivity.this, DashboardActivity.class));
                         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
@@ -58,7 +67,9 @@ public class HomeActivity extends Activity {
                     }
                 }
             }
-        };
+        }
+
+        ;
     }
 
     private void blurBackground() {

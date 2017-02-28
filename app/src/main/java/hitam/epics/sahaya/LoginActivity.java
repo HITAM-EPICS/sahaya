@@ -10,7 +10,6 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -34,30 +33,25 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import hitam.epics.sahaya.support.UserDetails;
-import jp.wasabeef.blurry.Blurry;
 
 public class LoginActivity extends Activity {
     private CallbackManager callbackManager;
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
 
     private LinearLayout loginFormLinearLayout;
     private LinearLayout loadingLinearLayout;
-    private ViewGroup loginBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        loginBackground = (ViewGroup) findViewById(R.id.login_background);
-        blurBackground();
         final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user_details");
 
         mAuth = FirebaseAuth.getInstance();
         loginFormLinearLayout = (LinearLayout) findViewById(R.id.login_form);
         loadingLinearLayout = (LinearLayout) findViewById(R.id.login_loading);
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+        FirebaseAuth.AuthStateListener mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -84,6 +78,8 @@ public class LoginActivity extends Activity {
             }
         };
 
+        mAuth.addAuthStateListener(mAuthListener);
+
         callbackManager = CallbackManager.Factory.create();
         LoginButton loginButton = (LoginButton) findViewById(R.id.button_facebook_login);
         loginButton.setReadPermissions("email", "public_profile");
@@ -107,32 +103,6 @@ public class LoginActivity extends Activity {
 
     }
 
-    private void blurBackground() {
-        loginBackground.post(new Runnable() {
-            @Override
-            public void run() {
-                Blurry.with(LoginActivity.this)
-                        .radius(10)
-                        .sampling(16)
-                        .async()
-                        .onto(loginBackground);
-            }
-        });
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
 
     @Override
     public void onBackPressed() {

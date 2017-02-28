@@ -26,7 +26,6 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Objects;
 
 import hitam.epics.sahaya.support.EventItem;
 import hitam.epics.sahaya.support.EventsAdapter;
@@ -63,7 +62,7 @@ public class EventsActivity extends Activity {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 currentDateEventList.clear();
                 for (EventItem item : eventList) {
-                    if (Objects.equals(item.getDate(), simpleDateFormat.format(date.getDate()))) {
+                    if (item.getDate().equals(simpleDateFormat.format(date.getDate()))) {
                         currentDateEventList.add(item);
                     }
                 }
