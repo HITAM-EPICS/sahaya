@@ -4,7 +4,7 @@
 
 Sahaya provides an opportunity to individuals who want to make a positive impact in the society by empowering, enriching and encouraging under-priviliged school going children
 
-## [Download Sahaya App](https://github.com/HITAM-EPICS/sahaya/releases/download/v1.0/sahaya.apk) (Uninstall Previous Version, if Installed)
+## [Download Sahaya App](https://play.google.com/store/apps/details?id=hitam.epics.sahaya) (Uninstall Previous Version, if Installed)
 
 <hr/>
 
@@ -29,37 +29,33 @@ Sahaya provides an opportunity to individuals who want to make a positive impact
 
 ## Updates(Recent On Top)
 
-### (APP) Release 1 - 26 Feb 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v1.0/sahaya.apk)
+### (APP) Release 1 - 26 Feb 2017
 
-### (APP) Announcements - 23 Feb 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.9-alpha/sahaya.apk)
+### (APP) Announcements - 23 Feb 2017
 
-#### (APP) Admin Panel - Events and Roles - 14 Feb 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.8-alpha/sahaya.apk)
+#### (APP) Admin Panel - Events and Roles - 14 Feb 2017
 
-#### (APP) UI Change - 21 Jan 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.7.4-alpha/sahaya.apk)
+#### (APP) UI Change - 21 Jan 2017
 
-#### (APP) Admin Panel and Dashboard UI Change - 20 Jan 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.7.3-alpha/sahaya.apk)
+#### (APP) Admin Panel and Dashboard UI Change - 20 Jan 2017
 
-#### (APP) Login Bug Fix and UserType Intialisation - 19 Jan 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.7.2-alpha/sahaya.apk)
+#### (APP) Login Bug Fix and UserType Intialisation - 19 Jan 2017
 
-#### (APP) Login Through Facebook - 13 Jan 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.7.1-alpha/sahaya.apk)
+#### (APP) Login Through Facebook - 13 Jan 2017
 
-#### (APP) Profile Picture - 12 Jan 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.7-alpha/sahaya.apk)
+#### (APP) Profile Picture - 12 Jan 2017
 
-#### (APP) Removed Discussion Forum Bug - 08 Jan 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.6-alpha/sahaya.apk)
+#### (APP) Removed Discussion Forum Bug - 08 Jan 2017
 
-#### (APP) Push Notifications for Discussion forum - 05 Jan 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.5-alpha/sahaya.apk)
+#### (APP) Push Notifications for Discussion forum - 05 Jan 2017
 
-#### (APP) Discussion and Timetable - 05 Jan 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.4.1-alpha/sahaya.apk)
+#### (APP) Discussion and Timetable - 05 Jan 2017
 
-#### (APP) Discussion(bug) - 05 Jan 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.4-alpha/sahaya.apk)
+#### (APP) Discussion(bug) - 05 Jan 20
 
-#### (APP) 03 Jan 2017 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.3-alpha/sahaya.apk)
+#### (APP)Authentications - 18 Dec 2016
 
-#### (APP) 17 Dec 2016 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2.2-alpha/Sahaya-0.2.2-alpha.apk)
-
-#### (APP)Authentications - 18 Dec 2016 - [Download](https://github.com/HITAM-EPICS/sahaya/releases/download/v0.2.1-alpha/sahaya-v0.2.1-alpha.apk)
-
-#### (APP)Initial Commit - 17 Dec 2016 - [Download](https://github.com/HITAM-EPICS/Sahaya/releases/download/v0.1-alpha/sahaya.apk)
+#### (APP)Initial Commit - 17 Dec 2016
 
 #### Meeting With Sahaya - 17 Dec 2016
 Our team had a meeting with sahaya team
