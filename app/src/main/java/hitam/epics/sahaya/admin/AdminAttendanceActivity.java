@@ -1,4 +1,4 @@
-package hitam.epics.sahaya;
+package hitam.epics.sahaya.admin;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import hitam.epics.sahaya.R;
 import hitam.epics.sahaya.support.AttendanceAdapter;
 import hitam.epics.sahaya.support.UserDetails;
 

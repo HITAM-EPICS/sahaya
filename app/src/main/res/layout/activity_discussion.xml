@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="hitam.epics.sahaya.DiscussionActivity">
+    tools:context="hitam.epics.sahaya.volunteer.DiscussionActivity">
 
     <TextView
         android:id="@+id/discussion_title"
@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:drawableEnd="@android:drawable/ic_dialog_info"
+        android:drawableRight="@android:drawable/ic_dialog_info"
         android:elevation="10dp"
         android:onClick="showCenterDetail"
         android:padding="10dp"
@@ -31,6 +32,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:contentDescription="@string/send_button"
             android:onClick="SendMessage"
             android:scaleType="fitCenter"
@@ -40,6 +42,7 @@
             android:id="@+id/message_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/send_message_button"
             android:layout_toStartOf="@id/send_message_button"
             android:background="@drawable/perfect_rectangle"
             android:hint="@string/enter_your_message_here"
@@ -52,7 +55,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/message_layout"
-
         android:layout_below="@id/discussion_title"
         android:background="@drawable/discussion_background">
 

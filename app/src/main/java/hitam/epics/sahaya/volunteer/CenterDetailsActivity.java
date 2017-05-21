@@ -1,4 +1,4 @@
-package hitam.epics.sahaya;
+package hitam.epics.sahaya.volunteer;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -15,6 +15,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import hitam.epics.sahaya.R;
 
 public class CenterDetailsActivity extends AppCompatActivity {
 

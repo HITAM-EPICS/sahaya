@@ -1,8 +1,9 @@
-package hitam.epics.sahaya;
+package hitam.epics.sahaya.volunteer;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,17 +12,18 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class RemarkNotesActivity extends AppCompatActivity {
+import hitam.epics.sahaya.R;
+
+public class ArchivesActivity extends Activity {
     private Spinner ClassSpinner;
     private Spinner SubjectSpinner;
     private ArrayList<String> SubjectList;
     private ArrayAdapter<String> SubjectAdapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_remark_notes);
+        setContentView(R.layout.activity_archives);
         ClassSpinner = (Spinner) findViewById(R.id.class_spinner);
         SubjectSpinner = (Spinner) findViewById(R.id.subject_spinner);
 
@@ -71,25 +73,36 @@ public class RemarkNotesActivity extends AppCompatActivity {
         });
     }
 
-    public void LeaveRemark(View view) {
-        int Class = ClassSpinner.getSelectedItemPosition();
-        int Subject = SubjectSpinner.getSelectedItemPosition();
+    public void DownloadTextbook(View view) {
+        String[] TextbookLinks = getResources().getStringArray(R.array.textbooks);
+        int SelectedClass = ClassSpinner.getSelectedItemPosition();
+        String[] SelectedClassTextBookLinks = TextbookLinks[SelectedClass].split(";");
+        int SelectedSubject = SubjectSpinner.getSelectedItemPosition();
+        String SelectedSubjectLink = SelectedClassTextBookLinks[SelectedSubject];
 
-        Intent intent = new Intent(this, RemarkInputActivity.class);
-        intent.putExtra("class", Class);
-        intent.putExtra("subject", Subject);
-        startActivity(intent);
-        finish();
+        String path = getString(R.string.textbooks_path);
+
+        Intent TextbookDownloadIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(path + SelectedSubjectLink));
+        startActivity(TextbookDownloadIntent);
     }
 
-    public void AddNote(View view) {
+    public void showRemarks(View view) {
         int Class = ClassSpinner.getSelectedItemPosition();
         int Subject = SubjectSpinner.getSelectedItemPosition();
 
-        Intent intent = new Intent(this, AddNoteActivity.class);
+        Intent intent = new Intent(this, ViewRemarkActivity.class);
         intent.putExtra("class", Class);
         intent.putExtra("subject", Subject);
         startActivity(intent);
-        finish();
+    }
+
+    public void showNotes(View view) {
+        int Class = ClassSpinner.getSelectedItemPosition();
+        int Subject = SubjectSpinner.getSelectedItemPosition();
+
+        Intent intent = new Intent(this, ViewNotesActivity.class);
+        intent.putExtra("class", Class);
+        intent.putExtra("subject", Subject);
+        startActivity(intent);
     }
 }

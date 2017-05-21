@@ -1,4 +1,4 @@
-package hitam.epics.sahaya;
+package hitam.epics.sahaya.admin;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -25,8 +25,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import hitam.epics.sahaya.R;
 import hitam.epics.sahaya.support.EventItem;
 import hitam.epics.sahaya.support.EventsAdapter;
+import hitam.epics.sahaya.volunteer.EventDetailActivity;
 
 public class AdminEventsActivity extends Activity {
 

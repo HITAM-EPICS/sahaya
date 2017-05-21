@@ -1,4 +1,4 @@
-package hitam.epics.sahaya;
+package hitam.epics.sahaya.volunteer;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+import hitam.epics.sahaya.R;
 import hitam.epics.sahaya.support.Note;
 import hitam.epics.sahaya.support.NotesAdapter;
 

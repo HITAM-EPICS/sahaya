@@ -1,4 +1,4 @@
-package hitam.epics.sahaya;
+package hitam.epics.sahaya.volunteer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+import hitam.epics.sahaya.R;
 import hitam.epics.sahaya.support.CenterItem;
 import hitam.epics.sahaya.support.CentersAdapter;
 import hitam.epics.sahaya.support.EventItem;

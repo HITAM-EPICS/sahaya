@@ -1,4 +1,4 @@
-package hitam.epics.sahaya;
+package hitam.epics.sahaya.volunteer;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import hitam.epics.sahaya.R;
 import hitam.epics.sahaya.support.EventItem;
 import hitam.epics.sahaya.support.EventsAdapter;
 

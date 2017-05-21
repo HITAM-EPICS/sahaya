@@ -33,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import hitam.epics.sahaya.support.UserDetails;
+import hitam.epics.sahaya.volunteer.AdditionalInfoActivity;
 
 public class LoginActivity extends Activity {
     private CallbackManager callbackManager;
@@ -121,6 +122,9 @@ public class LoginActivity extends Activity {
     public void login(View view) {
         EditText email = (EditText) findViewById(R.id.login_email);
         EditText password = (EditText) findViewById(R.id.login_password);
+
+//        email.setText("sanjit291196@gmail.com");
+//        password.setText("san123");
 
         boolean valid = true;
         email.setError("");

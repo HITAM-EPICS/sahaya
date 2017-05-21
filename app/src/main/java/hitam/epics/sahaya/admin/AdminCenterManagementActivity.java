@@ -1,4 +1,4 @@
-package hitam.epics.sahaya;
+package hitam.epics.sahaya.admin;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -22,9 +22,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+import hitam.epics.sahaya.R;
 import hitam.epics.sahaya.support.CenterItem;
 import hitam.epics.sahaya.support.CentersAdapter;
 import hitam.epics.sahaya.support.EventItem;
+import hitam.epics.sahaya.volunteer.CenterDetailsActivity;
 
 public class AdminCenterManagementActivity extends AppCompatActivity {
 

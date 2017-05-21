@@ -21,9 +21,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Iterator;
 
-import hitam.epics.sahaya.DiscussionForumListActivity;
 import hitam.epics.sahaya.R;
 import hitam.epics.sahaya.Sahaya;
+import hitam.epics.sahaya.volunteer.DiscussionForumListActivity;
 
 /**
  * @author sanjit

@@ -18,9 +18,22 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import hitam.epics.sahaya.admin.AdminAnnouncementActivity;
+import hitam.epics.sahaya.admin.AdminAttendanceActivity;
+import hitam.epics.sahaya.admin.AdminCenterManagementActivity;
+import hitam.epics.sahaya.admin.AdminContactsActivity;
+import hitam.epics.sahaya.admin.AdminEventsActivity;
+import hitam.epics.sahaya.admin.AdminRolesActivity;
 import hitam.epics.sahaya.support.DashboardItem;
 import hitam.epics.sahaya.support.DashboardMenuAdapter;
 import hitam.epics.sahaya.support.UserData;
+import hitam.epics.sahaya.volunteer.AboutActivity;
+import hitam.epics.sahaya.volunteer.AnnouncementsActivity;
+import hitam.epics.sahaya.volunteer.ArchivesActivity;
+import hitam.epics.sahaya.volunteer.CurriculumActivity;
+import hitam.epics.sahaya.volunteer.DiscussionForumListActivity;
+import hitam.epics.sahaya.volunteer.EventsActivity;
+import hitam.epics.sahaya.volunteer.RemarkNotesActivity;
 
 public class DashboardActivity extends Activity {
     private FirebaseAuth auth;
@@ -91,6 +104,7 @@ public class DashboardActivity extends Activity {
     }
 
     private void addMenuItems() {
+        menuItems.add(new DashboardItem(R.drawable.study_material, "Curriculum", CurriculumActivity.class));
         menuItems.add(new DashboardItem(R.drawable.events, "Events", EventsActivity.class));
         menuItems.add(new DashboardItem(R.drawable.study_material, "Archives", ArchivesActivity.class));
         menuItems.add(new DashboardItem(R.drawable.profile, "Profile", ProfileActivity.class));

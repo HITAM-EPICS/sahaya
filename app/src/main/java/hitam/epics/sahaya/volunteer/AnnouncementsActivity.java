@@ -1,4 +1,4 @@
-package hitam.epics.sahaya;
+package hitam.epics.sahaya.volunteer;
 
 import android.app.NotificationManager;
 import android.app.Service;
@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+import hitam.epics.sahaya.R;
 import hitam.epics.sahaya.support.AnnouncementItem;
 import hitam.epics.sahaya.support.AnnouncementsAdapter;
 

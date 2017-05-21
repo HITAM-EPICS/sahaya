@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_image2"
-    tools:context="hitam.epics.sahaya.ViewRemarkActivity">
+    tools:context="hitam.epics.sahaya.volunteer.ViewRemarkActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/remark_title"

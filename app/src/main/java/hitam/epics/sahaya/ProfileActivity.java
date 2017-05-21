@@ -233,7 +233,7 @@ public class ProfileActivity extends Activity {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Uri photoUrl = taskSnapshot.getDownloadUrl();
+                @SuppressWarnings("VisibleForTests") Uri photoUrl = taskSnapshot.getDownloadUrl();
                 UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
                         .setPhotoUri(photoUrl)
                         .build();

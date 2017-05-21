@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.google.firebase.FirebaseApp;
 
 import hitam.epics.sahaya.services.AnnouncementService;
 import hitam.epics.sahaya.services.DiscussionForumService;
@@ -23,6 +24,7 @@ public class Sahaya extends Activity {
         setContentView(R.layout.activity_sahaya);
         dashboardBackground = (ViewGroup) findViewById(R.id.splash_background);
         blurBackground();
+        FirebaseApp.initializeApp(this);
 
         Intent disscussionForumIntent = new Intent(this, DiscussionForumService.class);
         startService(disscussionForumIntent);

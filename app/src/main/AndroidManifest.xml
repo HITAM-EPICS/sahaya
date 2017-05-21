@@ -33,14 +33,14 @@
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".DashboardActivity" />
         <activity
-            android:name=".EventsActivity"
+            android:name=".volunteer.EventsActivity"
             android:label="Timetable" />
         <activity
-            android:name=".AboutActivity"
+            android:name=".volunteer.AboutActivity"
             android:label="@string/title_activity_about"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ArchivesActivity" />
-        <activity android:name=".DiscussionActivity" />
+        <activity android:name=".volunteer.ArchivesActivity" />
+        <activity android:name=".volunteer.DiscussionActivity" />
 
         <service
             android:name=".services.DiscussionForumService"
@@ -69,13 +69,13 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".EventDetailActivity" />
-        <activity android:name=".AdminEventsActivity" />
-        <activity android:name=".AdminRolesActivity" />
-        <activity android:name=".AdminAnnouncementActivity" />
-        <activity android:name=".AnnouncementsActivity" />
-        <activity android:name=".AdminAttendanceActivity" />
-        <activity android:name=".AdditionalInfoActivity" />
+        <activity android:name=".volunteer.EventDetailActivity" />
+        <activity android:name=".admin.AdminEventsActivity" />
+        <activity android:name=".admin.AdminRolesActivity" />
+        <activity android:name=".admin.AdminAnnouncementActivity" />
+        <activity android:name=".volunteer.AnnouncementsActivity" />
+        <activity android:name=".admin.AdminAttendanceActivity" />
+        <activity android:name=".volunteer.AdditionalInfoActivity" />
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -84,15 +84,17 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".AdminContactsActivity" />
-        <activity android:name=".AdminCenterManagementActivity" />
-        <activity android:name=".CenterDetailsActivity" />
-        <activity android:name=".DiscussionForumListActivity" />
-        <activity android:name=".RemarkNotesActivity" />
-        <activity android:name=".RemarkInputActivity" />
-        <activity android:name=".ViewRemarkActivity" />
-        <activity android:name=".AddNoteActivity" />
-        <activity android:name=".ViewNotesActivity"></activity>
+        <activity android:name=".admin.AdminContactsActivity" />
+        <activity android:name=".admin.AdminCenterManagementActivity" />
+        <activity android:name=".volunteer.CenterDetailsActivity" />
+        <activity android:name=".volunteer.DiscussionForumListActivity" />
+        <activity android:name=".volunteer.RemarkNotesActivity" />
+        <activity android:name=".volunteer.RemarkInputActivity" />
+        <activity android:name=".volunteer.ViewRemarkActivity" />
+        <activity android:name=".volunteer.AddNoteActivity" />
+        <activity android:name=".volunteer.ViewNotesActivity" />
+        <activity android:name=".volunteer.CurriculumActivity" />
+        <activity android:name=".volunteer.CurriculumSubActivity"></activity>
     </application>
 
 </manifest>

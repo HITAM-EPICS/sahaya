@@ -19,10 +19,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import hitam.epics.sahaya.AnnouncementsActivity;
 import hitam.epics.sahaya.R;
 import hitam.epics.sahaya.Sahaya;
 import hitam.epics.sahaya.support.AnnouncementItem;
+import hitam.epics.sahaya.volunteer.AnnouncementsActivity;
 
 /**
  * @author sanjit

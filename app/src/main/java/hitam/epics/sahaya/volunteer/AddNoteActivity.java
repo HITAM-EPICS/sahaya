@@ -1,4 +1,4 @@
-package hitam.epics.sahaya;
+package hitam.epics.sahaya.volunteer;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -26,6 +26,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 
+import hitam.epics.sahaya.R;
 import hitam.epics.sahaya.support.Note;
 
 public class AddNoteActivity extends AppCompatActivity {
@@ -143,7 +144,7 @@ public class AddNoteActivity extends AppCompatActivity {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Uri photoUrl = taskSnapshot.getDownloadUrl();
+                @SuppressWarnings("VisibleForTests") Uri photoUrl = taskSnapshot.getDownloadUrl();
                 if (photoUrl != null) {
                     newNote.setPath(photoUrl.toString());
                 }

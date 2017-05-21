@@ -15,11 +15,19 @@
       },
       "oauth_client": [
         {
+          "client_id": "965277711362-217a2u52m000map7vkacbnu3qhbogu30.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hitam.epics.sahaya",
+            "certificate_hash": "f9e24bb77cd7834c7e1e4cd8a4a0bdb11580709a"
+          }
+        },
+        {
           "client_id": "965277711362-g85evk54kvqp86ap566jqjmi9j3mbpj3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "hitam.epics.sahaya",
-            "certificate_hash": "833CA786F9B2DE5E7E606F937CD0F38428214559"
+            "certificate_hash": "833ca786f9b2de5e7e606f937cd0f38428214559"
           }
         },
         {
@@ -27,7 +35,7 @@
           "client_type": 1,
           "android_info": {
             "package_name": "hitam.epics.sahaya",
-            "certificate_hash": "6FE6CB9F341663F4C70720C24E470DB620F7647E"
+            "certificate_hash": "6fe6cb9f341663f4c70720c24e470db620f7647e"
           }
         },
         {

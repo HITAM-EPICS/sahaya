@@ -1,4 +1,4 @@
-package hitam.epics.sahaya;
+package hitam.epics.sahaya.admin;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import hitam.epics.sahaya.R;
 import hitam.epics.sahaya.support.UserDetails;
 
 public class AdminContactsActivity extends AppCompatActivity {

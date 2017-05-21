@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_image2"
-    tools:context="hitam.epics.sahaya.AddNoteActivity">
+    tools:context="hitam.epics.sahaya.volunteer.AddNoteActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/notes_title"

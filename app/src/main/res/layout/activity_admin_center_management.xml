@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_image2"
-    tools:context="hitam.epics.sahaya.AdminCenterManagementActivity">
+    tools:context="hitam.epics.sahaya.admin.AdminCenterManagementActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -49,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_margin="@dimen/fab_margin"
         android:background="@drawable/fab_round"
         android:clickable="true"

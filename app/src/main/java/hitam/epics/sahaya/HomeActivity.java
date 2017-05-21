@@ -16,6 +16,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import hitam.epics.sahaya.volunteer.AboutActivity;
+import hitam.epics.sahaya.volunteer.AdditionalInfoActivity;
 import jp.wasabeef.blurry.Blurry;
 
 public class HomeActivity extends Activity {
